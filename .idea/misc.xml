@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2477355072463768" />
-        <entry key="app/src/main/res/layout/activity_start.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/login_main.xml" value="0.13374083129584352" />
-        <entry key="app/src/main/res/layout/register_main.xml" value="0.13374083129584352" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_start.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/lugares_layout.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>

@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">QRemember</string>
-    <string name="login">Acceder</string>
-    <string name="register">Registrar</string>
+    <string name="acceder">Acceder</string>
+    <string name="registrar">Registrar</string>
+    <string name="usuario">Usuario (e-mail)</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="nombre">Nombre</string>
+    <string name="modificar_contrasenia">Modificar contraseña</string>
+    <string name="olvidar_contrasenia">¿Has olvidado la contraseña?</string>
+    <string name="pulsame">Pulsa aqui</string>
+    <string name="nuevo">Nuevo&#8230;</string>
+    <string name="ver">Ver enlace</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificar">Modificar</string>
+    <string name="compartir">Compartir</string>
+    <string name="categoria">Categoria</string>
+    <string name="mail">E-mail</string>
+    <string name="seleccionar">Seleccionar</string>
+    <string name="opciones">Opciones</string>
+    <string name="enlace">Enlace</string>
+    <string name="seguro_eliminar">¿Seguro que deseas eliminar el local?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="descripcion_imagen">Imagen del local</string>
 </resources>
