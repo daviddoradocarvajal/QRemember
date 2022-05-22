@@ -8,7 +8,11 @@ import android.widget.TextView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.StartActivityController;
-
+/**
+ *
+ * @author David Dorado Carvajal
+ * @version 1.0
+ */
 public class StartActivity extends AppCompatActivity {
 
     @Override
