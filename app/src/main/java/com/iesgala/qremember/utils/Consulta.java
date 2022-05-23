@@ -12,7 +12,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
+/**
+ * Clase de prueba intentado realizar la conexión con la base de datos de manera asíncrona (no conecta)
+ * @author David Dorado Carvajal
+ * @version 1.0
+ */
 public class Consulta extends AsyncTask<ArrayList<Usuario>,Void,ArrayList<Usuario>>{
 
     Connection conexionMySQL = null;

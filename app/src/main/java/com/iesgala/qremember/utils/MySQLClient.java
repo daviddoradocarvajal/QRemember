@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- *
+ * Clase de prueba intentado conectar con el servidor MYSQL (no conecta)
  * @author David Dorado Carvajal
  * @version 1.0
  */

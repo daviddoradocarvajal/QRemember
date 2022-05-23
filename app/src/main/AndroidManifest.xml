@@ -23,6 +23,11 @@
             android:exported="true">
 
         </activity>
+        <activity android:name=".activities.RegisterActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

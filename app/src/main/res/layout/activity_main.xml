@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <ListView
+        android:id="@+id/lvLugares"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
@@ -19,7 +20,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnNuevoLugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
