@@ -71,7 +71,7 @@ public class Lugar {
     public String getTvCategorias() {
         String resultado ="";
         for (Categoria categoria : categorias){
-            resultado = categoria.getNombre() + "\n";
+            resultado += categoria.getNombre() + "\n";
         }
         return resultado;
     }
