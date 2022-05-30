@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         LocalesAdapter localesAdapter = new LocalesAdapter(this,db.lugares);
         ListView lvLugares = findViewById(R.id.lvLugares);
         lvLugares.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
-        MySQLClient sql = new MySQLClient();
-        System.out.println(sql);
-        sql.selectDePrueba();
         lvLugares.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

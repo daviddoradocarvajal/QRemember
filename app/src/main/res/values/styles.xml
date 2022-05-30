@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">@color/gris</item>
-        <item name="android:backgroundTint">@color/verde</item>
-    </style>
-
-
-</resources>

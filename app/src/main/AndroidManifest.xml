@@ -29,5 +29,10 @@
 
         </activity>
     </application>
-
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET"
+        android:maxSdkVersion= "32" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE"
+        android:maxSdkVersion= "32" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

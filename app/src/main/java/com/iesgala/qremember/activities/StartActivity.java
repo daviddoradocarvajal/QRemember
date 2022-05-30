@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.StartActivityController;
+import com.iesgala.qremember.utils.MySQLClient;
+
 /**
  *
  * @author David Dorado Carvajal
@@ -21,6 +23,9 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        MySQLClient sql = new MySQLClient();
+        System.out.println(sql.getConn());
+        sql.selectDePrueba();
         Intent intent = getIntent();
         if (intent != null){
             System.out.println(intent.getBooleanExtra("Resultado",false));

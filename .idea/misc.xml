@@ -3,12 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.34072900158478603" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_register.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/layout_lugares.xml" value="0.1796875" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_start.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/layout_lugares.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/lugares_layout.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/popup_lugar.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>

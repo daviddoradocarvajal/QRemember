@@ -12,16 +12,12 @@ import java.sql.Statement;
  * @version 1.0
  */
 public class MySQLClient {
-    private final String SERVIDOR = "192.168.1.210";
-    private final String PUERTO = "3308";
-    private final String BD = "db";
-    private final String USUARIO = "usuario";
-    private final String PASSWORD = "pass";
     private Connection conn;
     //
     public MySQLClient() {
         try{
-        conn = DriverManager.getConnection("jdbc:mysql://" + SERVIDOR + ":" + PUERTO + "/" + BD,USUARIO,PASSWORD);
+            Class.forName(Config.MYSQL).newInstance();
+            conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD,Config.USUARIO,Config.PASSWORD);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -29,7 +25,7 @@ public class MySQLClient {
     public String selectDePrueba(){
         try{
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("Select * FROM CATEGORIA");
+            ResultSet rs = st.executeQuery("Select * FROM Usuarios");
             while (rs.next()){
                 System.out.println(rs.getString(1)+" "+rs.getString(2));
             }
