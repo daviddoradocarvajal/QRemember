@@ -12,12 +12,12 @@ import java.sql.Statement;
  * @version 1.0
  */
 public class MySQLClient {
-    private final String SERVIDOR = "10.0.2.2";
-    private final String PUERTO = "3306";
+    private final String SERVIDOR = "192.168.1.210";
+    private final String PUERTO = "3308";
     private final String BD = "db";
     private final String USUARIO = "usuario";
     private final String PASSWORD = "pass";
-    private static Connection conn;
+    private Connection conn;
     //
     public MySQLClient() {
         try{
@@ -26,7 +26,7 @@ public class MySQLClient {
             e.printStackTrace();
         }
     }
-    public static String selectDePrueba(){
+    public String selectDePrueba(){
         try{
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("Select * FROM CATEGORIA");
@@ -41,7 +41,7 @@ public class MySQLClient {
 
     }
 
-    public static Connection getConn() {
+    public Connection getConn() {
         return conn;
     }
 // TODO constructor que inicia la conexion

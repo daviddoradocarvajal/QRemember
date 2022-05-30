@@ -8,11 +8,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.RegisterActivityController;
 
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +23,11 @@ public class RegisterActivity extends Activity {
         TextView tvFormNombre = findViewById(R.id.tvFormNombre);
         TextView tvFormEmail = findViewById(R.id.tvFormEmail);
         TextView tvFormPass = findViewById(R.id.tvFormPass);
-        btnRegistrarUsuario.setOnClickListener(l -> RegisterActivityController.RegistrarUsuario(tvFormNombre.getText().toString(),tvFormEmail.getText().toString(),tvFormPass.getText().toString(),this));
+        btnRegistrarUsuario.setOnClickListener(l ->
+                RegisterActivityController.RegistrarUsuario(
+                        tvFormNombre.getText().toString(),
+                        tvFormEmail.getText().toString(),
+                        tvFormPass.getText().toString(),
+                        this));
     }
 }

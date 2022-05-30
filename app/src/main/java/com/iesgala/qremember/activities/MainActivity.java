@@ -9,18 +9,20 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.adapters.LocalesAdapter;
 import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.utils.FakeDb;
+import com.iesgala.qremember.utils.MySQLClient;
 
 /**
  *
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,9 @@ public class MainActivity extends Activity {
         LocalesAdapter localesAdapter = new LocalesAdapter(this,db.lugares);
         ListView lvLugares = findViewById(R.id.lvLugares);
         lvLugares.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+        MySQLClient sql = new MySQLClient();
+        System.out.println(sql);
+        sql.selectDePrueba();
         lvLugares.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

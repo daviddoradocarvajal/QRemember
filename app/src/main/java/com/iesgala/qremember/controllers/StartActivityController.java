@@ -1,7 +1,6 @@
 package com.iesgala.qremember.controllers;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
@@ -12,10 +11,6 @@ import com.iesgala.qremember.R;
 import com.iesgala.qremember.activities.MainActivity;
 import com.iesgala.qremember.activities.RegisterActivity;
 import com.iesgala.qremember.model.Usuario;
-import com.iesgala.qremember.utils.Consulta;
-import com.iesgala.qremember.utils.MySQLClient;
-
-import java.util.ArrayList;
 
 /**
  * Clase controladora de eventos de StartActivity contiene los métodos a ser ejecutados por los botones

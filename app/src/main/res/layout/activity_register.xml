@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/azul"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -13,10 +14,10 @@
         android:layout_weight="0"
         android:ems="10"
         android:hint="@string/nombre"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
-        android:importantForAutofill="no" />
+        android:textColorHint="#000000" />
 
     <EditText
         android:id="@+id/tvFormEmail"
@@ -27,10 +28,10 @@
         android:layout_weight="0"
         android:ems="10"
         android:hint="@string/usuario"
+        android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
-        android:importantForAutofill="no" />
+        android:textColorHint="#000000" />
 
     <EditText
         android:id="@+id/tvFormPass"
@@ -41,13 +42,44 @@
         android:layout_weight="0"
         android:ems="10"
         android:hint="@string/contrasenia"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
-        android:importantForAutofill="no" />
+        android:textColorHint="#000000" />
+
+    <EditText
+        android:id="@+id/tvFormPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="0"
+        android:ems="10"
+        android:hint="@string/pregunta_seguridad"
+        android:importantForAutofill="no"
+        android:inputType="textLongMessage"
+        android:minHeight="48dp"
+        android:textColorHint="#000000" />
+
+    <EditText
+        android:id="@+id/tvFormRespuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="0"
+        android:ems="10"
+        android:hint="@string/respuesta"
+        android:importantForAutofill="no"
+        android:inputType="textLongMessage"
+        android:minHeight="48dp"
+        android:textColorHint="#000000" />
 
     <Button
         android:id="@+id/btnRegistrarUsuario"
+        android:theme="@style/ButtonStyle"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/gris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

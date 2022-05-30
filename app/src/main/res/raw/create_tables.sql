@@ -3,6 +3,8 @@ CREATE TABLE Usuario(
     email varchar(50),
     nombre varchar(50),
     contrasenia blob,
+    pregunta_seguridad varchar(100),
+    respuesta varchar(50),
     PRIMARY KEY (email)
 );
 CREATE TABLE Lugar (
@@ -60,4 +62,15 @@ CREATE TABLE Ruta_Categoria (
     PRIMARY KEY (nombre_ruta,nombre_categoria),
     CONSTRAINT fk_ruta_categoria FOREIGN KEY (nombre_ruta) REFERENCES Ruta(nombre),
     CONSTRAINT fk_categoria_ruta FOREIGN KEY (nombre_categoria) REFERENCES Categoria(nombre)    
+    );
+CREATE TABLE Lugares_Compartidos (
+    usuario_emisor varchar(50),
+    latitud float,
+    longitud float,
+    altitud float,
+    usuario_receptor varchar(50),
+    PRIMARY KEY (usuario_emisor,latitud,longitud,altitud,usuario_receptor),
+    CONSTRAINT fk_usuario_emisor FOREIGN KEY (usuario_emisor) REFERENCES Usuario(email),
+    CONSTRAINT fk_usuario_receptor FOREIGN KEY (usuario_receptor) REFERENCES Usuario(email),
+    CONSTRAINT fk_lugar FOREIGN KEY (latitud,longitud,altitud) REFERENCES Lugar(latitud,longitud,altitud)
     );

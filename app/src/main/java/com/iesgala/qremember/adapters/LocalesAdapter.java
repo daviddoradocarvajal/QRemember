@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -51,7 +50,7 @@ public class LocalesAdapter extends BaseAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         Activity activity = (Activity) context;
         if (convertView == null)
-            convertView = activity.getLayoutInflater().inflate(R.layout.lugares_layout,null);
+            convertView = activity.getLayoutInflater().inflate(R.layout.layout_lugares,null);
 
         TextView tvNombre = convertView.findViewById(R.id.tvNombre);
         TextView tvCategoria = convertView.findViewById(R.id.tvCategoria);

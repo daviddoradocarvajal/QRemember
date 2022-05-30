@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
+    android:background="@color/azul"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".activities.StartActivity">
@@ -27,7 +28,7 @@
             android:minWidth="200dp"
             android:minHeight="48dp"
             android:text=""
-            android:textColorHint="#1A237E"
+            android:textColorHint="#000000"
             tools:ignore="LabelFor" />
 
         <EditText
@@ -43,7 +44,7 @@
             android:minWidth="200dp"
             android:minHeight="48dp"
             android:text=""
-            android:textColorHint="#1A237E"
+            android:textColorHint="#000000"
             tools:ignore="LabelFor" />
 
         <TextView
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
             android:text="@string/olvidar_contrasenia"
-            android:textColor="#263238" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/tvPulsaAqui"
@@ -63,7 +64,7 @@
             android:focusableInTouchMode="true"
             android:minHeight="48dp"
             android:text="@string/pulsame"
-            android:textColor="#263238" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/tvIncorrecto"
@@ -85,21 +86,23 @@
 
         <Button
             android:id="@+id/btnLogin"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:minWidth="110dp"
-            android:text="@string/acceder" />
+            android:text="@string/acceder"
+            android:textColor="@color/gris"
+            android:theme="@style/ButtonStyle" />
 
         <Button
-            android:id="@+id/btnRegistrar"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/registrar"
+            android:textColor="@color/gris"
             android:layout_margin="5dp"
-            android:minWidth="110dp"
-            android:text="@string/registrar" />
+            android:theme="@style/ButtonStyle"
+            android:id="@+id/btnRegistrar"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
 </LinearLayout>
