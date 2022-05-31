@@ -21,7 +21,8 @@
     <string name="seguro_eliminar">¿Seguro que deseas eliminar el local?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
-    <string name="descripcion_imagen">Imagen del local</string>
     <string name="pregunta_seguridad">Introduce una pregunta de seguridad</string>
     <string name="respuesta">Introduce una respuesta</string>
+    <string name="descripcion_imagen">Imagen de lugar</string>
+    <string name="todo">//TODO</string>
 </resources>

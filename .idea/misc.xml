@@ -3,8 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_nuevacontrasenia.xml" value="0.11684782608695653" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_nuevolugar.xml" value="0.11684782608695653" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_recuperarcontrasenia.xml" value="0.11684782608695653" />
         <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_register.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/activity_start.xml" value="0.1796875" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/layout_imagenes.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/layout_lugares.xml" value="0.1796875" />
+        <entry key="..\:/Users/DavidPracticas/StudioProjects/QRemember/app/src/main/res/layout/popup_lugar.xml" value="0.1" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_start.xml" value="0.358695652173913" />
