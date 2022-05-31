@@ -18,11 +18,26 @@
     <string name="seleccionar">Seleccionar</string>
     <string name="opciones">Opciones</string>
     <string name="enlace">Enlace</string>
-    <string name="seguro_eliminar">¿Seguro que deseas eliminar el local?</string>
+    <string name="seguro_eliminar">¿Seguro que deseas eliminar el lugar?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="pregunta_seguridad">Introduce una pregunta de seguridad</string>
     <string name="respuesta">Introduce una respuesta</string>
     <string name="descripcion_imagen">Imagen de lugar</string>
+    <string name="nueva_imagen">Nueva Imagen&#8230;</string>
+    <string name="eliminar_imagen">Eliminar Imagen&#8230;</string>
+    <string name="lugar">Lugar</string>
+    <string name="ruta">Ruta</string>
+    <string name="categorias">Categorias</string>
+    <string name="eliminar_usuario">Eliminar Cuenta</string>
+    <string name="desde_camara">Desde cámara</string>
+    <string name="desde_galeria">Desde galeria</string>
+    <string name="modificar_imagen">Modificar Imagen</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="email_usuario">E-mail Usuario</string>
+    <string name="conmigo">Compartido conmigo</string>
+    <string name="opc">Opciones</string>
+    <string name="err_usuario">Usuario no encontrado</string>
+    <string name="err_contrasenia">Contraseña incorrecta</string>
     <string name="todo">//TODO</string>
 </resources>

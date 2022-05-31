@@ -29,10 +29,10 @@
                 android:layout_marginTop="2dp"
                 android:minHeight="25dp"
                 android:minEms="10"
-                android:text="@string/todo" />
+                android:text="@string/nombre" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvNombrePop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -57,10 +57,10 @@
                 android:layout_marginTop="2dp"
                 android:minHeight="25dp"
                 android:minEms="10"
-                android:text="@string/todo" />
+                android:text="@string/categorias" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tvCatPopup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -94,27 +94,33 @@
 
             <Button
                 android:id="@+id/btnCompartir"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="5dp"
                 android:text="@string/compartir"
+                android:textSize="11sp"
                 tools:ignore="ButtonStyle,TextContrastCheck" />
 
             <Button
                 android:id="@+id/btnModificar"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
                 android:text="@string/modificar"
-                tools:ignore="ButtonStyle,TextContrastCheck"/>
+                android:textSize="11sp"
+                tools:ignore="ButtonStyle,TextContrastCheck" />
 
             <Button
                 android:id="@+id/btnEliminar"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:text="@string/eliminar"
-                tools:ignore="ButtonStyle,TextContrastCheck"/>
+                android:textSize="11sp"
+                tools:ignore="ButtonStyle,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -128,21 +134,26 @@
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/todo" />
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="@string/nueva_imagen"
+                android:textSize="11sp"
+                tools:ignore="TextContrastCheck" />
 
             <View
                 android:id="@+id/view6"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/todo" />
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="@string/eliminar_imagen"
+                android:textSize="11sp"
+                tools:ignore="TextContrastCheck" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

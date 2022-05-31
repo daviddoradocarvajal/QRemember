@@ -21,7 +21,7 @@ public class StartActivityController {
 
     public static void accederButton (String usuario, String pass, @NonNull Activity activity){
         Usuario usr = new Usuario("Nombre", "admin@qremember.es","pass");
-        TextView tvIncorrecto = activity.findViewById(R.id.tvIncorrecto);
+        TextView tvIncorrecto = activity.findViewById(R.id.tvIncorrectoStart);
         tvIncorrecto.setText("");
         tvIncorrecto.setVisibility(View.GONE);
         if (usuario.equals(usr.getEmail())){
@@ -31,11 +31,11 @@ public class StartActivityController {
                 activity.startActivity(intent);
             }else {
                 tvIncorrecto.setVisibility(View.VISIBLE);
-                tvIncorrecto.setText("Contraseña incorrecta");
+                tvIncorrecto.setText(R.string.err_contrasenia);
             }
         }else{
             tvIncorrecto.setVisibility(View.VISIBLE);
-            tvIncorrecto.setText("Usuario no encontrado");
+            tvIncorrecto.setText(R.string.err_usuario);
         }
     }
     public static void registrarButton (@NonNull Activity activity) {

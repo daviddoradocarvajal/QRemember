@@ -75,6 +75,16 @@
         android:minHeight="48dp"
         android:textColorHint="#000000" />
 
+    <TextView
+        android:id="@+id/tvIncorrectoRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:textColor="?attr/colorError"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/btnRegistrarUsuario"
         android:theme="@style/ButtonStyle"
