@@ -24,7 +24,7 @@ public class StartActivityController {
         TextView tvIncorrecto = activity.findViewById(R.id.tvIncorrectoStart);
         tvIncorrecto.setText("");
         tvIncorrecto.setVisibility(View.GONE);
-        if (usuario.equals(usr.getEmail())){
+       /* if (usuario.equals(usr.getEmail())){
             if (pass.equals(usr.getContrasenia())) {
                 Intent intent = new Intent(activity.getBaseContext(), MainActivity.class);
                 intent.putExtra("Nombre", usuario);
@@ -36,7 +36,10 @@ public class StartActivityController {
         }else{
             tvIncorrecto.setVisibility(View.VISIBLE);
             tvIncorrecto.setText(R.string.err_usuario);
-        }
+        }*/
+        Intent intent = new Intent(activity.getBaseContext(), MainActivity.class);
+        intent.putExtra("Nombre", usuario);
+        activity.startActivity(intent);
     }
     public static void registrarButton (@NonNull Activity activity) {
         Intent intent = new Intent(activity.getBaseContext(), RegisterActivity.class);

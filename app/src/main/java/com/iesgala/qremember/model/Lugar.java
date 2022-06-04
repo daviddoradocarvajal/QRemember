@@ -2,6 +2,7 @@ package com.iesgala.qremember.model;
 
 import androidx.annotation.Nullable;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 
@@ -10,7 +11,7 @@ import java.sql.Date;
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class Lugar {
+public class Lugar implements Serializable {
     private float longitud;
     private float latitud;
     private float altitud;

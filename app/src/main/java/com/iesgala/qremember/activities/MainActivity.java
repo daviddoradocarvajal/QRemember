@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -32,14 +33,15 @@ public class MainActivity extends AppCompatActivity {
         FakeDb db = new FakeDb(this);
         LocalesAdapter localesAdapter = new LocalesAdapter(this,db.lugares);
         ListView lvLugares = findViewById(R.id.lvLugares);
-        lvLugares.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+        lvLugares.setClickable(true);
+        lvLugares.setAdapter(localesAdapter);
         lvLugares.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                MainActivityController.clickLugar();
+                System.out.println(adapterView.getItemAtPosition(i));
+                MainActivityController.clickLugar(MainActivity.this,db.lugares.get(i));
             }
         });
-        lvLugares.setAdapter(localesAdapter);
 
     }
 }

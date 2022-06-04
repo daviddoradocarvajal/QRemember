@@ -1,10 +1,13 @@
 package com.iesgala.qremember.model;
+
+import java.io.Serializable;
+
 /**
  *
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class Categoria {
+public class Categoria implements Serializable {
     private String nombre;
     private String descripcion;
 

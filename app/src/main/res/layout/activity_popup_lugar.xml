@@ -84,7 +84,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="40"
+        android:layout_weight="30"
         android:orientation="vertical">
 
         <LinearLayout
@@ -96,7 +96,7 @@
                 android:id="@+id/btnCompartir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:text="@string/compartir"
                 android:textSize="11sp"
@@ -106,8 +106,8 @@
                 android:id="@+id/btnModificar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
                 android:text="@string/modificar"
                 android:textSize="11sp"
                 tools:ignore="ButtonStyle,TextContrastCheck" />
@@ -142,8 +142,8 @@
 
             <View
                 android:id="@+id/view6"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
 
             <Button
                 android:id="@+id/button4"
