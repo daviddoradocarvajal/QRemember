@@ -8,11 +8,8 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,7 +24,6 @@ import com.iesgala.qremember.R;
 import com.iesgala.qremember.adapters.LocalesAdapter;
 import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.utils.FakeDb;
-import com.iesgala.qremember.utils.MySQLClient;
 
 /**
  *

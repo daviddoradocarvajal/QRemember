@@ -72,5 +72,5 @@ CREATE TABLE Lugares_Compartidos (
     PRIMARY KEY (usuario_emisor,latitud,longitud,altitud,usuario_receptor),
     CONSTRAINT fk_usuario_emisor FOREIGN KEY (usuario_emisor) REFERENCES Usuario(email),
     CONSTRAINT fk_usuario_receptor FOREIGN KEY (usuario_receptor) REFERENCES Usuario(email),
-    CONSTRAINT fk_lugar FOREIGN KEY (latitud,longitud,altitud) REFERENCES Lugar(latitud,longitud,altitud)
+    CONSTRAINT fk_lugar FOREIGN KEY (longitud,latitud,altitud) REFERENCES Lugar(longitud,latitud,altitud)
     );
