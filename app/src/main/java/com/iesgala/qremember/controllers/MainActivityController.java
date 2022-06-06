@@ -3,6 +3,7 @@ package com.iesgala.qremember.controllers;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.iesgala.qremember.activities.CaptureActivityPortrait;
@@ -23,7 +24,9 @@ public class MainActivityController {
         activity.startActivity(intent);
     }
 
-    public static void verEnlace(){
+    public static void verEnlace(Uri uri,Activity activity){
+        Intent navegador = new Intent(Intent.ACTION_VIEW,uri);
+        activity.startActivity(navegador);
 
     }
 

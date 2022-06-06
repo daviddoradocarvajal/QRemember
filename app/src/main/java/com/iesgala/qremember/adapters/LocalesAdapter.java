@@ -2,9 +2,11 @@ package com.iesgala.qremember.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.iesgala.qremember.R;
+import com.iesgala.qremember.activities.MainActivity;
+import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.model.Lugar;
 
 import java.util.ArrayList;
@@ -58,6 +62,9 @@ public class LocalesAdapter extends BaseAdapter {
         tvNombre.setText(lugares.get(position).getNombre());
         tvCategoria.setText(lugares.get(position).getTvCategorias());
         ivFoto.setImageDrawable(lugares.get(position).getPrincipal().getImagen());
+        Button btnVer = convertView.findViewById(R.id.btnVer);
+        View finalConvertView = convertView;
+        btnVer.setOnClickListener(e -> MainActivityController.verEnlace(Uri.parse(lugares.get(position).getEnlace()), (Activity) finalConvertView.getContext()) );
         return convertView;
     }
 }

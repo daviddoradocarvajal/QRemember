@@ -51,11 +51,11 @@ public class FakeDb {
         imagenes.add(new Imagen(6,restaurante2));
         // Lugares
         java.util.Date now = new java.util.Date();
-        lugares.add(new Lugar(77,15,4,"http://localhost:8081",
+        lugares.add(new Lugar(77,15,4,"http://www.google.es",
                 "Hotel 1",new Date(now.getTime()),imagenes.get(0),new Imagen[]{imagenes.get(1), imagenes.get(0)},new Categoria[]{categorias.get(1)}));
-        lugares.add(new Lugar(78,28,2,"http://localhost:8081","Hotel-Museo",new Date(now.getTime()),
+        lugares.add(new Lugar(78,28,2,"https://smartfenix.es/smart-fenix/","Hotel-Museo",new Date(now.getTime()),
                 imagenes.get(1),new Imagen[]{imagenes.get(0), imagenes.get(2)},new Categoria[]{categorias.get(1), categorias.get(2)} ));
-        lugares.add(new Lugar(77,20,2,"http://localhost:8081","Restaurante",new Date(now.getTime()),
+        lugares.add(new Lugar(77,20,2,"https://academiaandroid.com/proyecto-geolocalizacion-android/","Restaurante",new Date(now.getTime()),
                 imagenes.get(4),new Imagen[]{imagenes.get(5)},new Categoria[]{categorias.get(0)}));
         // Rutas
         rutas.add(new Ruta("Ruta 1",usuarios.get(1),new Lugar[]{lugares.get(0), lugares.get(1)}));
