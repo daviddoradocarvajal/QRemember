@@ -44,5 +44,12 @@
     <string name="register_correct">Registro completado</string>
     <string name="register_ok">Usuario registrado correctamente</string>
     <string name="todo">//TODO</string>
+    <string name="comprobar_pregunta_seguridad">Comprobar</string>
+    <string name="pregunta_recuperacion">Pregunta de recuperacion</string>
+    <string name="respuesta_recuperacion">Respuesta de recuperacion</string>
+    <string name="nueva_pass">Introduce la nueva Contraseña</string>
+    <string name="nueva_pass_confirmar">Confirme la nueva Contraseña</string>
     <string name="form_err">Revisar el formulario</string>
+    <string name="recuperando_contrasenia">\"Recuperar contraseña de \"</string>
+    <string name="no_coinciden">Las contraseñas no coinciden</string>
 </resources>

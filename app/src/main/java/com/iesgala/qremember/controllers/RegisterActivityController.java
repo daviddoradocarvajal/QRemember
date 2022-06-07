@@ -17,7 +17,11 @@ import com.iesgala.qremember.activities.StartActivity;
 
 
 
-
+/**
+ *
+ * @author David Dorado
+ * @version 1.0
+ */
 public class RegisterActivityController {
 
     public static void UsuarioRegistrado (@NonNull Activity activity)  {

@@ -25,6 +25,7 @@ import java.sql.Statement;
 import java.util.Objects;
 
 /**
+ *
  * @author David Dorado Carvajal
  * @version 1.0
  */
@@ -59,7 +60,6 @@ public class StartActivity extends AppCompatActivity {
         }
 
     }
-
 
     @SuppressLint("StaticFieldLeak")
     private class SelectUsuarioTask extends AsyncTask<String, Void, Usuario> {

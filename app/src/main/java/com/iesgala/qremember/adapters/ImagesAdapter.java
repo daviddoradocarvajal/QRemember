@@ -3,7 +3,11 @@ package com.iesgala.qremember.adapters;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
+/**
+ *
+ * @author David Dorado
+ * @version 1.0
+ */
 public class ImagesAdapter extends BaseAdapter {
     @Override
     public int getCount() {

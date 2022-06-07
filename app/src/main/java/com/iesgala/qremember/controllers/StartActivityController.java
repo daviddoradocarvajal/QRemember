@@ -10,10 +10,9 @@ import androidx.annotation.NonNull;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.activities.MainActivity;
+import com.iesgala.qremember.activities.RecuperarContraseniaActivity;
 import com.iesgala.qremember.activities.RegisterActivity;
 import com.iesgala.qremember.model.Usuario;
-
-
 
 
 /**
@@ -52,7 +51,8 @@ public class StartActivityController {
     }
 
     public static void recuperarContrasenia(@NonNull Activity activity) {
-
+        Intent intent = new Intent(activity.getBaseContext(), RecuperarContraseniaActivity.class);
+        activity.startActivity(intent);
     }
 }
 

@@ -23,7 +23,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
-
+/**
+ *
+ * @author David Dorado
+ * @version 1.0
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     @Override
@@ -35,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         TextView tvFormNombre = findViewById(R.id.tvFormNombre);
         TextView tvFormEmail = findViewById(R.id.tvFormEmail);
         TextView tvFormPass = findViewById(R.id.tvFormPass);
+        // Cambiar preguntas por string array
         TextView tvFormPregunta = findViewById(R.id.tvFormPregunta);
         TextView tvFormRespuesta = findViewById(R.id.tvFormRespuesta);
         btnRegistrarUsuario.setOnClickListener(l ->

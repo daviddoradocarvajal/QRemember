@@ -70,9 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ver"
-                android:textColor="#000000"
-                android:theme="@style/ButtonStyle"
-                tools:ignore="TextContrastCheck" />
+                android:textColor="@color/gris"
+                android:theme="@style/ButtonStyle" />
 
         </LinearLayout>
 </LinearLayout>

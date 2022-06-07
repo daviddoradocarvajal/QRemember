@@ -7,7 +7,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
-
+/**
+ *
+ * @author David Dorado
+ * @version 1.0
+ */
 public class PopupLugarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
