@@ -17,7 +17,7 @@ public class PopupLugarActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(medidasVentana);
         int ancho = medidasVentana.widthPixels;
         int alto = medidasVentana.heightPixels;
-
-        getWindow().setLayout((int)(ancho*0.85),(int)(alto * 0.85));
+        getSupportActionBar().setTitle("Aqui va el nombre del lugar");
+        getWindow().setLayout((int)(ancho*0.95),(int)(alto * 0.95));
     }
 }

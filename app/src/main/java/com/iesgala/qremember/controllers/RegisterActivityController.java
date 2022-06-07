@@ -1,32 +1,39 @@
 package com.iesgala.qremember.controllers;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+
 import android.content.Intent;
-import android.os.Build;
-import android.util.Log;
+
+
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+
+
+import com.iesgala.qremember.R;
 
 import com.iesgala.qremember.activities.StartActivity;
-import com.iesgala.qremember.model.Usuario;
-import com.iesgala.qremember.utils.FakeDb;
+
+
+
 
 public class RegisterActivityController {
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public static void RegistrarUsuario (String nombre, String email, String contrasenia,@NonNull Activity activity){
-        FakeDb db = new FakeDb(activity);
-        Usuario usr = new Usuario(nombre,email,contrasenia);
-        db.usuarios.add(usr);
-        if (db.usuarios.stream().filter(u -> u.getEmail().equals(email)).findFirst().isPresent()){
+    public static void UsuarioRegistrado (@NonNull Activity activity)  {
+        TextView tvFormEmail = activity.findViewById(R.id.tvFormEmail);
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(R.string.register_correct);
+        builder.setMessage(R.string.register_ok);
+        builder.setPositiveButton(R.string.confirmar, (dialogInterface, i) -> {
             Intent intent = new Intent(activity.getBaseContext(), StartActivity.class);
-            intent.putExtra("Resultado",true);
+            intent.putExtra("Email",tvFormEmail.getText().toString());
             activity.startActivity(intent);
-        }
-        else{
-            Log.d("FALLO", "RegistrarUsuario: No se ha encontrado el registro nuevo");
-        }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+
 
     }
 }

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">QRemember</string>
+    <string name="bienvenida">Bienvenido a QRemember</string>
     <string name="acceder">Acceder</string>
     <string name="registrar">Registrar</string>
     <string name="usuario">Usuario (e-mail)</string>
@@ -39,5 +40,9 @@
     <string name="opc">Opciones</string>
     <string name="err_usuario">Usuario no encontrado</string>
     <string name="err_contrasenia">Contraseña incorrecta</string>
+    <string name="err">Error</string>
+    <string name="register_correct">Registro completado</string>
+    <string name="register_ok">Usuario registrado correctamente</string>
     <string name="todo">//TODO</string>
+    <string name="form_err">Revisar el formulario</string>
 </resources>

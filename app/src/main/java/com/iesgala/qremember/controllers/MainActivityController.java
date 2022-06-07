@@ -20,7 +20,6 @@ public class MainActivityController {
 
     public static void clickLugar(Activity activity, Lugar lugar){
         Intent intent = new Intent(activity.getBaseContext(), PopupLugarActivity.class);
-
         activity.startActivity(intent);
     }
 
