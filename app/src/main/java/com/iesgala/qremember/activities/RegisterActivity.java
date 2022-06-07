@@ -5,7 +5,11 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -39,15 +43,26 @@ public class RegisterActivity extends AppCompatActivity {
         TextView tvFormNombre = findViewById(R.id.tvFormNombre);
         TextView tvFormEmail = findViewById(R.id.tvFormEmail);
         TextView tvFormPass = findViewById(R.id.tvFormPass);
-        // Cambiar preguntas por string array
-        TextView tvFormPregunta = findViewById(R.id.tvFormPregunta);
+        Spinner spPreguntas = findViewById(R.id.spPreguntas);
+        ArrayAdapter<CharSequence> spPreguntasAdapter = ArrayAdapter.createFromResource(this,R.array.Preguntas, android.R.layout.simple_spinner_item);
+        spPreguntasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spPreguntas.setAdapter(spPreguntasAdapter);
         TextView tvFormRespuesta = findViewById(R.id.tvFormRespuesta);
-        btnRegistrarUsuario.setOnClickListener(l ->
+        btnRegistrarUsuario.setOnClickListener(l ->{
+            if(spPreguntas.getSelectedItem() != null && spPreguntas.getSelectedItem().equals(getResources().getStringArray(R.array.Preguntas)[0]) == false)
                 new InsertTask().execute(tvFormEmail.getText().toString(),
                         tvFormNombre.getText().toString(),
                         tvFormPass.getText().toString(),
-                        tvFormPregunta.getText().toString(),
-                        tvFormRespuesta.getText().toString())
+                        spPreguntas.getSelectedItem().toString(),
+                        tvFormRespuesta.getText().toString());
+            else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(tvFormNombre.getContext());
+                builder.setTitle(R.string.err);
+                builder.setMessage(R.string.seleccione_pregunta);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+                }
         );
     }
     private class InsertTask extends AsyncTask<String,Void, Boolean>{

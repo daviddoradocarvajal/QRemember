@@ -33,6 +33,7 @@ public class RegisterActivityController {
             Intent intent = new Intent(activity.getBaseContext(), StartActivity.class);
             intent.putExtra("Email",tvFormEmail.getText().toString());
             activity.startActivity(intent);
+            activity.finish();
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

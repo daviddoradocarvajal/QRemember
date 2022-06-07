@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -36,12 +38,15 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("Recuperar contraseña");
         TextView tvEmailRecuperar = findViewById(R.id.tvEmailRecuperar);
         // Cambiar preguntas por string array
-        TextView tvPreguntaRecuperar = findViewById(R.id.tvPreguntaRecuperar);
+        Spinner spPreguntasRecuperar = findViewById(R.id.spPreguntaRecuperar);
+        ArrayAdapter<CharSequence> spPreguntasAdapter = ArrayAdapter.createFromResource(this,R.array.Preguntas, android.R.layout.simple_spinner_item);
+        spPreguntasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spPreguntasRecuperar.setAdapter(spPreguntasAdapter);
         TextView tvRespuestaRecuperar = findViewById(R.id.tvRespuestaRecuperar);
         Button btnComprobar = findViewById(R.id.btnComprobar);
         btnComprobar.setOnClickListener(l -> {
             Usuario usuario = new Usuario(tvEmailRecuperar.getText().toString(), "");
-            usuario.setPregunta(tvPreguntaRecuperar.getText().toString());
+            usuario.setPregunta(spPreguntasRecuperar.getSelectedItem().toString());
             usuario.setRespuesta(tvRespuestaRecuperar.getText().toString());
             try {
                 if (new checkPregunta().execute(usuario).get().equals("Correcto")){

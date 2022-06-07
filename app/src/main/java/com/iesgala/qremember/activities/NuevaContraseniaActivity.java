@@ -1,5 +1,7 @@
 package com.iesgala.qremember.activities;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,8 +11,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
+import com.iesgala.qremember.utils.Config;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 /**
  *
@@ -26,21 +35,55 @@ public class NuevaContraseniaActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.recuperando_contrasenia)+email);
         TextView tvNuevaPass = findViewById(R.id.tvNuevaPass);
         TextView tvNuevaPassRe = findViewById(R.id.tvNuevaPassRe);
-        TextView tvRecup = findViewById(R.id.tvRecup);
+        TextView tvInfoNuevaPass = findViewById(R.id.tvInfoNuevaPass);
         TextView tvErrorNuevaPass = findViewById(R.id.tvErrorNuevaPass);
-        tvRecup.setText(getString(R.string.recuperando_contrasenia)+email);
+        tvInfoNuevaPass.setText(getString(R.string.recuperando_contrasenia)+" "+email);
         Button btnConfirmarNuevaPass = findViewById(R.id.btnConfirmarNuevaPass);
         btnConfirmarNuevaPass.setOnClickListener(i -> {
-            if (tvNuevaPass.getText().equals(tvNuevaPassRe.getText())){
-
+            tvErrorNuevaPass.setText("");
+            if (tvNuevaPass.getText().toString().trim().equals(tvNuevaPassRe.getText().toString().trim())){
+                try {
+                    if(new UpdateTask().execute(email,tvNuevaPass.getText().toString()).get()) {
+                        Intent intent = new Intent(this.getBaseContext(), StartActivity.class);
+                        this.startActivity(intent);
+                        this.finish();
+                    }
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }else {
                 tvErrorNuevaPass.setText(R.string.no_coinciden);
                 tvErrorNuevaPass.setVisibility(View.VISIBLE);
             }
         });
+    }
 
 
+    private class UpdateTask extends AsyncTask<String,Void,Boolean>{
+        Connection conn;
 
-
+        @Override
+        protected Boolean doInBackground(String... strings) {
+            try {
+                if (conn == null)
+                    conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD + "", Config.USUARIO, Config.PASSWORD);
+                Statement statement = conn.createStatement();
+                statement.execute("UPDATE Usuario SET contrasenia = aes_encrypt('"+strings[1]+"','hunter1') WHERE email='"+strings[0]+"'");
+                return true;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            } finally {
+                try {
+                    if (conn != null)
+                        conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        }
     }
 }

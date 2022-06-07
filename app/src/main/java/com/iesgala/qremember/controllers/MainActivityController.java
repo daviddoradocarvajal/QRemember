@@ -30,6 +30,10 @@ public class MainActivityController {
     }
 
     public static void nuevoLugar(Activity activity){
+        leerQr(activity);
+
+    }
+    private static void leerQr(Activity activity){
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         IntentIntegrator integrator = new IntentIntegrator(activity);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
@@ -41,13 +45,5 @@ public class MainActivityController {
         integrator.setBarcodeImageEnabled(true);
         integrator.setCaptureActivity(CaptureActivityPortrait.class);
         integrator.initiateScan();
-        //IntentI
-        // Lanzar camara
-        // Obtener resultado camara
-        // Leer qr
-        // Sacar URL del qr
-        // Obtener localizacion
-        // Enviar al intent qr y localizacion
-        // Lanzar activity nuevo lugar
     }
 }

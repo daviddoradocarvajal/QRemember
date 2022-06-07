@@ -1,4 +1,11 @@
 <resources>
+    <string-array name="Preguntas">
+        <item>Selecciona una pregunta de seguridad</item>
+        <item>Donde nací</item>
+        <item>Nombre de mi primera mascota</item>
+        <item>Nombre de mi primer centro de estudios</item>
+        <item>Nombre de mi madre</item>
+    </string-array>
     <string name="app_name">QRemember</string>
     <string name="bienvenida">Bienvenido a QRemember</string>
     <string name="acceder">Acceder</string>
@@ -50,6 +57,7 @@
     <string name="nueva_pass">Introduce la nueva Contraseña</string>
     <string name="nueva_pass_confirmar">Confirme la nueva Contraseña</string>
     <string name="form_err">Revisar el formulario</string>
-    <string name="recuperando_contrasenia">\"Recuperar contraseña de \"</string>
+    <string name="recuperando_contrasenia">Recuperar contraseña de </string>
     <string name="no_coinciden">Las contraseñas no coinciden</string>
+    <string name="seleccione_pregunta">Seleccione una pregunta de seguridad</string>
 </resources>

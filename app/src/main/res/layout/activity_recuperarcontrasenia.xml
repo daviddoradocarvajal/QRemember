@@ -23,25 +23,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tvPreguntaRecuperar"
-        android:layout_width="252dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/pregunta_recuperacion"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailRecuperar" />
-
-    <EditText
         android:id="@+id/tvRespuestaRecuperar"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="49dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/respuesta_recuperacion"
@@ -50,7 +35,7 @@
         android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPreguntaRecuperar" />
+        app:layout_constraintTop_toBottomOf="@+id/spPreguntaRecuperar" />
 
     <Button
         android:id="@+id/btnComprobar"
@@ -62,21 +47,31 @@
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRespuestaRecuperar"
-        app:layout_constraintVertical_bias="0.334"
+        app:layout_constraintTop_toBottomOf="@+id/tvFalloRecuperar"
+        app:layout_constraintVertical_bias="0.158"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tvFalloRecuperar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="52dp"
         android:textColor="@color/rojo"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/btnComprobar"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRespuestaRecuperar" />
+
+    <Spinner
+        android:id="@+id/spPreguntaRecuperar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:entries="@array/Preguntas"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailRecuperar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
