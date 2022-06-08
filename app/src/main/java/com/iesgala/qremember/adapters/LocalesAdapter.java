@@ -17,6 +17,7 @@ import com.iesgala.qremember.R;
 import com.iesgala.qremember.activities.MainActivity;
 import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.model.Lugar;
+import com.iesgala.qremember.utils.Config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +29,9 @@ import java.util.List;
  */
 public class LocalesAdapter extends BaseAdapter {
     private ArrayList<Lugar> lugares;
-    private Context context;
-    public LocalesAdapter(@NonNull Context context, @NonNull List<Lugar> objects) {
-        this.context = context;
+    private Activity activity;
+    public LocalesAdapter(@NonNull Activity activity, @NonNull List<Lugar> objects) {
+        this.activity = activity;
         this.lugares = new ArrayList<>(objects);
     }
 
@@ -52,7 +53,7 @@ public class LocalesAdapter extends BaseAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Activity activity = (Activity) context;
+        Activity activity = this.activity;
         if (convertView == null)
             convertView = activity.getLayoutInflater().inflate(R.layout.layout_lugares,null);
 
@@ -61,10 +62,10 @@ public class LocalesAdapter extends BaseAdapter {
         ImageView ivFoto = convertView.findViewById(R.id.ivFoto);
         tvNombre.setText(lugares.get(position).getNombre());
         tvCategoria.setText(lugares.get(position).getTvCategorias());
-        ivFoto.setImageDrawable(lugares.get(position).getPrincipal().getImagen());
+        ivFoto.setImageDrawable(lugares.get(position).getImagenes().get(0).getImagen());
         Button btnVer = convertView.findViewById(R.id.btnVer);
         View finalConvertView = convertView;
-        btnVer.setOnClickListener(e -> MainActivityController.verEnlace(Uri.parse(lugares.get(position).getEnlace()), (Activity) finalConvertView.getContext()) );
+        btnVer.setOnClickListener(e -> MainActivityController.verEnlace(Uri.parse(lugares.get(position).getEnlace()), Config.getActivity(finalConvertView)) );
         return convertView;
     }
 }

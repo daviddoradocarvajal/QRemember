@@ -9,18 +9,14 @@ import java.io.Serializable;
  */
 public class Categoria implements Serializable {
     private String nombre;
-    private String descripcion;
 
-    public Categoria(String nombre, String descripcion){
+    public Categoria(String nombre){
         this.nombre = nombre;
-        this.descripcion = descripcion;
+
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
 }

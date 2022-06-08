@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 
 
 /**
@@ -17,19 +18,15 @@ public class Lugar implements Serializable {
     private float altitud;
     private String enlace;
     private String nombre;
-    private Date fecha;
-    private Imagen principal;
-    private Imagen[] imagenes;
-    private Categoria[] categorias;
+    private ArrayList<Imagen> imagenes;
+    private ArrayList<Categoria> categorias;
 
-    public Lugar(float longitud, float latitud, float altitud, String enlace, String nombre, Date fecha, Imagen principal, @Nullable Imagen[] imagenes, Categoria[] categorias) {
+    public Lugar(float longitud, float latitud, float altitud, String enlace, String nombre, ArrayList<Imagen> imagenes, ArrayList<Categoria> categorias) {
         this.longitud = longitud;
         this.latitud = latitud;
         this.altitud = altitud;
         this.enlace = enlace;
         this.nombre = nombre;
-        this.fecha = fecha;
-        this.principal = principal;
         this.imagenes = imagenes;
         this.categorias = categorias;
     }
@@ -54,19 +51,11 @@ public class Lugar implements Serializable {
         return nombre;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public Imagen getPrincipal() {
-        return principal;
-    }
-
-    public Imagen[] getImagenes() {
+    public ArrayList<Imagen> getImagenes() {
         return imagenes;
     }
 
-    public Categoria[] getCategorias() {
+    public ArrayList<Categoria> getCategorias() {
         return categorias;
     }
     public String getTvCategorias() {

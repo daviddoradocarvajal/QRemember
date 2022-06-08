@@ -13,7 +13,6 @@ CREATE TABLE Lugar (
     altitud float,
     enlace varchar(300),
     nombre varchar(100),
-    fecha date,
     email_usuario varchar(50),
     PRIMARY KEY (longitud,latitud,altitud),
     FOREIGN KEY (email_usuario) REFERENCES Usuario(email)

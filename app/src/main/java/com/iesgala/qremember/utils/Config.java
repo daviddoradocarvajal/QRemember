@@ -1,8 +1,11 @@
 package com.iesgala.qremember.utils;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.iesgala.qremember.R;
 
@@ -13,9 +16,9 @@ import com.iesgala.qremember.R;
  * @version 1.0
  */
 public class Config {
-    public static final String SERVIDOR = "192.168.1.210";
+    public static final String SERVIDOR = "192.168.1.83";
     public static final String PUERTO = "3308";
-    public static final String BD = "db";
+    public static final String BD = "Qremember";
     public static final String USUARIO = "root";
     public static final String PASSWORD = "rootpass";
 
@@ -27,6 +30,17 @@ public class Config {
         MenuItem opcmenu4 = menu.findItem(R.id.miEliminar);
         MenuItem opcmenu5 = menu.findItem(R.id.miSalir);
         return true;
+    }
+
+    public static Activity getActivity(View view) {
+        Context context = view.getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof Activity) {
+                return (Activity)context;
+            }
+            context = ((ContextWrapper)context).getBaseContext();
+        }
+        return null;
     }
 
 }

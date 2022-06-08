@@ -39,9 +39,9 @@ public class FakeDb {
         usuarios.add(new Usuario("David", "david@qremember.es","david"));
         usuarios.add(new Usuario("Usuario2", "user@qremember.es", "userpass"));
         // Categorias
-        categorias.add(new Categoria("Restaurantes", "descripcion de categoria Restaurantes"));
-        categorias.add(new Categoria("Hoteles", "descripcion de categoria hoteles"));
-        categorias.add(new Categoria("Museos", "descripcion de categoria museos"));
+        categorias.add(new Categoria("Restaurantes"));
+        categorias.add(new Categoria("Hoteles"));
+        categorias.add(new Categoria("Museos"));
         // Imagenes
         imagenes.add(new Imagen(1,hotel));
         imagenes.add(new Imagen(2,hotel2));
@@ -50,13 +50,12 @@ public class FakeDb {
         imagenes.add(new Imagen(5,restaurante));
         imagenes.add(new Imagen(6,restaurante2));
         // Lugares
-        java.util.Date now = new java.util.Date();
         lugares.add(new Lugar(77,15,4,"http://www.google.es",
-                "Hotel 1",new Date(now.getTime()),imagenes.get(0),new Imagen[]{imagenes.get(1), imagenes.get(0)},new Categoria[]{categorias.get(1)}));
-        lugares.add(new Lugar(78,28,2,"https://smartfenix.es/smart-fenix/","Hotel-Museo",new Date(now.getTime()),
-                imagenes.get(1),new Imagen[]{imagenes.get(0), imagenes.get(2)},new Categoria[]{categorias.get(1), categorias.get(2)} ));
-        lugares.add(new Lugar(77,20,2,"https://academiaandroid.com/proyecto-geolocalizacion-android/","Restaurante",new Date(now.getTime()),
-                imagenes.get(4),new Imagen[]{imagenes.get(5)},new Categoria[]{categorias.get(0)}));
+                "Hotel 1",imagenes,categorias));
+        lugares.add(new Lugar(78,28,2,"https://smartfenix.es/smart-fenix/","Hotel-Museo",
+                imagenes,categorias ));
+        lugares.add(new Lugar(77,20,2,"https://academiaandroid.com/proyecto-geolocalizacion-android/","Restaurante",
+                imagenes,categorias));
         // Rutas
         rutas.add(new Ruta("Ruta 1",usuarios.get(1),new Lugar[]{lugares.get(0), lugares.get(1)}));
         rutas.add(new Ruta("Ruta 2",usuarios.get(2),new Lugar[]{lugares.get(2)}));
