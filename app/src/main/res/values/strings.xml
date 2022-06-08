@@ -37,7 +37,10 @@
     <string name="lugar">Lugar</string>
     <string name="ruta">Ruta</string>
     <string name="categorias">Categorias</string>
-    <string name="eliminar_usuario">Eliminar Cuenta</string>
+    <string name="lugares">Lugares</string>
+    <string name="rutas">Rutas</string>
+    <string name="salir">Salir</string>
+    <string name="eliminar_usuario">Eliminar cuenta</string>
     <string name="desde_camara">Desde cámara</string>
     <string name="desde_galeria">Desde galeria</string>
     <string name="modificar_imagen">Modificar Imagen</string>

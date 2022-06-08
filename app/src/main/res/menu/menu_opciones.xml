@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item
+        android:id="@+id/miLocales"
+        android:title="@string/lugares" />
+    <item
+        android:id="@+id/miRutas"
+        android:title="@string/rutas" />
+    <item
+        android:id="@+id/miCompartido"
+        android:title="@string/conmigo" />
+    <item
+        android:id="@+id/miEliminar"
+        android:title="@string/eliminar_usuario" />
+    <item
+        android:id="@+id/miSalir"
+        android:title="@string/salir" />
 </menu>

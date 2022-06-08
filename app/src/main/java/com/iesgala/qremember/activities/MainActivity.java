@@ -11,6 +11,8 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,15 +26,22 @@ import com.google.zxing.integration.android.IntentResult;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.adapters.LocalesAdapter;
 import com.iesgala.qremember.controllers.MainActivityController;
+import com.iesgala.qremember.model.Imagen;
 import com.iesgala.qremember.model.Lugar;
 
+import com.iesgala.qremember.model.Usuario;
+import com.iesgala.qremember.utils.Config;
 import com.iesgala.qremember.utils.FakeDb;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- *
  * @author David Dorado Carvajal
  * @version 1.0
  */
@@ -74,6 +83,40 @@ public class MainActivity extends AppCompatActivity {
             } else Toast.makeText(this, "Leer cancelado", Toast.LENGTH_LONG).show();
         } else
             super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private class SelectUsuarioTask extends AsyncTask<String, Void, ArrayList<Lugar>> {
+        Connection conn;
+
+        @Override
+        protected ArrayList<Lugar> doInBackground(String... strings) {
+            if (conn == null) {
+                try {
+                    ArrayList<Lugar> lugares = new ArrayList<>();
+                    conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD + "", Config.USUARIO, Config.PASSWORD);
+                    Statement statement = conn.createStatement();
+                    ResultSet resultSetImagenes = statement.executeQuery("SELECT L.longitud as longitud,L.latitud as latitud,L.altitud as altitud,L.enlace as enlace,L.nombre as nombre,L.email_usuario as email_usuario,I.imagen as imagen,I.id as id FROM Lugar as L INNER JOIN Imagen as I ON L.longitud=I.longitud AND L.latitud=I.latitud AND L.altitud=I.altitud WHERE email_usuario='" + strings[0] + "'");
+                   /*
+                    Imagen imagen = new Imagen();
+                    while (resultSetImagenes.next()) {
+                        lugares.add(new Lugar(resultSetImagenes.getFloat("longitud"),resultSetImagenes.getFloat("latitud"),resultSetImagenes.getFloat("altitud"),
+                                resultSetImagenes.getString("enlace"),resultSetImagenes.getString("nombre"),""))
+                    }
+
+                    */
+                    return lugares;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return Config.createMenu(menu, this);
     }
 
     private void rastreoGPS() {
@@ -120,12 +163,5 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, loc.getAltitude() + "\n" + loc.getLatitude() + "\n" + loc.getLongitude(), Toast.LENGTH_LONG).show();
     }
 
-    private class SelectUsuarioTask extends AsyncTask<String, Void, ArrayList<Lugar>> {
-
-        @Override
-        protected ArrayList<Lugar> doInBackground(String... strings) {
-            return null;
-        }
-    }
 
 }
