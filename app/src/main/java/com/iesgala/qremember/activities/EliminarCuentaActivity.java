@@ -4,7 +4,7 @@ import android.view.Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 /**
  *
@@ -14,6 +14,6 @@ import com.iesgala.qremember.utils.Config;
 public class EliminarCuentaActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return Config.createMenu(menu,this);
+        return Utils.createMenu(menu,this);
     }
 }

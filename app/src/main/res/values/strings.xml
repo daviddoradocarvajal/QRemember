@@ -36,6 +36,7 @@
     <string name="eliminar_imagen">Eliminar Imagen&#8230;</string>
     <string name="lugar">Lugar</string>
     <string name="ruta">Ruta</string>
+    <string name="filtro_cat">Filtrar categoria</string>
     <string name="categorias">Categorias</string>
     <string name="lugares">Lugares</string>
     <string name="rutas">Rutas</string>

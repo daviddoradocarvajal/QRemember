@@ -1,7 +1,7 @@
 package com.iesgala.qremember.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.activities.MainActivity;
 import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.model.Lugar;
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -50,6 +50,7 @@ public class LocalesAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("InflateParams")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -65,7 +66,7 @@ public class LocalesAdapter extends BaseAdapter {
         ivFoto.setImageDrawable(lugares.get(position).getImagenes().get(0).getImagen());
         Button btnVer = convertView.findViewById(R.id.btnVer);
         View finalConvertView = convertView;
-        btnVer.setOnClickListener(e -> MainActivityController.verEnlace(Uri.parse(lugares.get(position).getEnlace()), Config.getActivity(finalConvertView)) );
+        btnVer.setOnClickListener(e -> MainActivityController.verEnlace(Uri.parse(lugares.get(position).getEnlace()), Objects.requireNonNull(Utils.getActivity(finalConvertView))) );
         return convertView;
     }
 }

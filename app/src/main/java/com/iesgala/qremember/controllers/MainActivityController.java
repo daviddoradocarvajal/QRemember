@@ -1,9 +1,13 @@
 package com.iesgala.qremember.controllers;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+
+import androidx.core.app.ActivityCompat;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.iesgala.qremember.activities.CaptureActivityPortrait;
@@ -30,7 +34,11 @@ public class MainActivityController {
     }
 
     public static void nuevoLugar(Activity activity){
-        leerQr(activity);
+        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+            leerQr(activity);
+        }
+
 
     }
     private static void leerQr(Activity activity){

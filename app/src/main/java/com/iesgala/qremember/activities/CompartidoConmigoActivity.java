@@ -4,7 +4,7 @@ import android.view.Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 /**
  *
@@ -15,6 +15,6 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return Config.createMenu(menu,this);
+        return Utils.createMenu(menu,this);
     }
 }

@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -19,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.RegisterActivityController;
 
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -49,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         spPreguntas.setAdapter(spPreguntasAdapter);
         TextView tvFormRespuesta = findViewById(R.id.tvFormRespuesta);
         btnRegistrarUsuario.setOnClickListener(l ->{
-            if(spPreguntas.getSelectedItem() != null && spPreguntas.getSelectedItem().equals(getResources().getStringArray(R.array.Preguntas)[0]) == false)
+            if(spPreguntas.getSelectedItem() != null && !spPreguntas.getSelectedItem().equals(getResources().getStringArray(R.array.Preguntas)[0]))
                 new InsertTask().execute(tvFormEmail.getText().toString(),
                         tvFormNombre.getText().toString(),
                         tvFormPass.getText().toString(),
@@ -73,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
             try {
                 if(strings.length==5){
                     if (conn == null)
-                        conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD + "", Config.USUARIO, Config.PASSWORD);
+                        conn = DriverManager.getConnection("jdbc:mysql://" + Utils.SERVIDOR + ":" + Utils.PUERTO + "/" + Utils.BD + "", Utils.USUARIO, Utils.PASSWORD);
                     Statement statement = conn.createStatement();
                     statement.execute("INSERT INTO Usuario VALUES ('"+strings[0]+"','"+strings[1]+"',aes_encrypt('"+strings[2]+"','hunter1'),'"+strings[3]+"','"+strings[4]+"')");
                     return true;

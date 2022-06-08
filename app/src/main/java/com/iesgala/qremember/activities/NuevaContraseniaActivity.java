@@ -11,11 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
@@ -48,9 +47,7 @@ public class NuevaContraseniaActivity extends AppCompatActivity {
                         this.startActivity(intent);
                         this.finish();
                     }
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }else {
@@ -68,7 +65,7 @@ public class NuevaContraseniaActivity extends AppCompatActivity {
         protected Boolean doInBackground(String... strings) {
             try {
                 if (conn == null)
-                    conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD + "", Config.USUARIO, Config.PASSWORD);
+                    conn = DriverManager.getConnection("jdbc:mysql://" + Utils.SERVIDOR + ":" + Utils.PUERTO + "/" + Utils.BD + "", Utils.USUARIO, Utils.PASSWORD);
                 Statement statement = conn.createStatement();
                 statement.execute("UPDATE Usuario SET contrasenia = aes_encrypt('"+strings[1]+"','hunter1') WHERE email='"+strings[0]+"'");
                 return true;

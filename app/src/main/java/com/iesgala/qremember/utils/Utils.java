@@ -10,15 +10,15 @@ import android.view.View;
 import com.iesgala.qremember.R;
 
 /**
- * Clase con las configuraciones de la aplicacion
+ * Clase con las configuraciones de la aplicacion y métodos útiles para usar en várias clases
  *
  * @author David Dorado
  * @version 1.0
  */
-public class Config {
-    public static final String SERVIDOR = "192.168.1.83";
+public class Utils {
+    public static final String SERVIDOR = "192.168.1.210";
     public static final String PUERTO = "3308";
-    public static final String BD = "Qremember";
+    public static final String BD = "db";
     public static final String USUARIO = "root";
     public static final String PASSWORD = "rootpass";
 

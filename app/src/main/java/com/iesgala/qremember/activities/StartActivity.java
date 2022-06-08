@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.StartActivityController;
 import com.iesgala.qremember.model.Usuario;
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -70,7 +70,7 @@ public class StartActivity extends AppCompatActivity {
             try {
                 Usuario usuario;
                 if (conn == null)
-                    conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD + "", Config.USUARIO, Config.PASSWORD);
+                    conn = DriverManager.getConnection("jdbc:mysql://" + Utils.SERVIDOR + ":" + Utils.PUERTO + "/" + Utils.BD + "", Utils.USUARIO, Utils.PASSWORD);
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery("SELECT nombre,email,aes_decrypt(contrasenia,'hunter1') as password FROM Usuario WHERE email='" + strings[0] + "'");
                 if (resultSet.next()) {

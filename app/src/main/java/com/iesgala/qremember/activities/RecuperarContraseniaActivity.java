@@ -1,6 +1,5 @@
 package com.iesgala.qremember.activities;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.RecuperarContraseniaController;
-import com.iesgala.qremember.controllers.StartActivityController;
 import com.iesgala.qremember.model.Usuario;
-import com.iesgala.qremember.utils.Config;
+import com.iesgala.qremember.utils.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -52,9 +50,7 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
                 if (new checkPregunta().execute(usuario).get().equals("Correcto")){
                  RecuperarContraseniaController.recuperarContrasenia(usuario.getEmail(),this);
                 }
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             }
         });
@@ -67,9 +63,9 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
         protected String doInBackground(Usuario... usuarios) {
             try {
                 if (conn == null)
-                    conn = DriverManager.getConnection("jdbc:mysql://" + Config.SERVIDOR + ":" + Config.PUERTO + "/" + Config.BD + "", Config.USUARIO, Config.PASSWORD);
+                    conn = DriverManager.getConnection("jdbc:mysql://" + Utils.SERVIDOR + ":" + Utils.PUERTO + "/" + Utils.BD + "", Utils.USUARIO, Utils.PASSWORD);
                 Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT pregunta_seguridad,respuesta FROM Usuario WHERE email='" + usuarios[0].getEmail().toString() + "'");
+                ResultSet resultSet = statement.executeQuery("SELECT pregunta_seguridad,respuesta FROM Usuario WHERE email='" + usuarios[0].getEmail() + "'");
                 if (resultSet.next()) {
                     if (resultSet.getString("pregunta_seguridad").trim().equals(usuarios[0].getPregunta().trim())) {
                         if (resultSet.getString("respuesta").trim().equals(usuarios[0].getRespuesta().trim())) {
@@ -100,7 +96,7 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String resultado) {
             if (resultado.equals("Correcto")) {
-
+                super.onPostExecute(resultado);
             } else {
                 TextView tvFalloRecuperar = findViewById(R.id.tvFalloRecuperar);
                 tvFalloRecuperar.setText(resultado);
