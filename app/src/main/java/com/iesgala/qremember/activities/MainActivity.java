@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         while (resultSetImagenes.next()) {
                             InputStream stream = resultSetImagenes.getBlob("imagen").getBinaryStream();
                             imagenes.add(new Imagen(resultSetImagenes.getInt("id"), Drawable.createFromStream(stream,"imagen")));
+                            System.out.println("a");
                         }
                         ResultSet resultSetCategorias = statement2.executeQuery("SELECT nombre_categoria FROM Lugar_Categoria WHERE longitud = "+resultSetLugares.getFloat("longitud")+" AND latitud = "+resultSetLugares.getFloat("latitud")+" AND altitud = "+resultSetLugares.getFloat("altitud")+";");
                         ArrayList<Categoria> categorias = new ArrayList<>();
@@ -148,12 +149,12 @@ public class MainActivity extends AppCompatActivity {
         /*Se declara y asigna a la clase Location la última posición conocida proporcionada por el proveedor.*/
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
-            return;
         }
         Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        Location locNetwork = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        if (locGps.getAccuracy()<locNetwork.getAccuracy())     MainActivityController.formularioNuevoLugar(locGps,qrResult,emailUsuario,MainActivity.this);
-        else MainActivityController.formularioNuevoLugar(locNetwork,qrResult,emailUsuario,MainActivity.this);
+        MainActivityController.formularioNuevoLugar(locGps,qrResult,emailUsuario,MainActivity.this);
+        //Location locNetwork = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        //if (locGps.getAccuracy()<locNetwork.getAccuracy())     MainActivityController.formularioNuevoLugar(locGps,qrResult,emailUsuario,MainActivity.this);
+       // else MainActivityController.formularioNuevoLugar(locNetwork,qrResult,emailUsuario,MainActivity.this);
     }
 
 
