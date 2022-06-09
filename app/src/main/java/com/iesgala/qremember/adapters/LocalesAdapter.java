@@ -30,6 +30,7 @@ import java.util.Objects;
 public class LocalesAdapter extends BaseAdapter {
     private ArrayList<Lugar> lugares;
     private Activity activity;
+
     public LocalesAdapter(@NonNull Activity activity, @NonNull List<Lugar> objects) {
         this.activity = activity;
         this.lugares = new ArrayList<>(objects);

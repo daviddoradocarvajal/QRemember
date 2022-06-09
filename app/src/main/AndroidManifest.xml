@@ -48,7 +48,9 @@
         <activity android:name=".activities.NuevaContraseniaActivity"
             android:exported="true"
             android:parentActivityName=".activities.StartActivity"/>
-
+        <activity android:name=".activities.NuevoLugarActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.MainActivity"/>
     </application>
 
     <uses-permission-sdk-23

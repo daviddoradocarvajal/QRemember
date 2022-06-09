@@ -5,12 +5,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.net.Uri;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.iesgala.qremember.activities.CaptureActivityPortrait;
+import com.iesgala.qremember.activities.NuevoLugarActivity;
 import com.iesgala.qremember.activities.PopupLugarActivity;
 import com.iesgala.qremember.model.Lugar;
 
@@ -36,11 +39,24 @@ public class MainActivityController {
     public static void nuevoLugar(Activity activity){
         if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
-            leerQr(activity);
         }
+        leerQr(activity);
 
 
     }
+
+    public static void formularioNuevoLugar(Location loc, String qrResult,String emailUsuario, Activity activity) {
+        Intent intent = new Intent(activity,NuevoLugarActivity.class);
+        Toast.makeText(activity, new String(loc.getLongitude()+" "+loc.getLatitude()),Toast.LENGTH_LONG).show();
+        intent.putExtra("longitud",String.valueOf(loc.getLongitude()));
+        intent.putExtra("latitud",String.valueOf(loc.getLatitude()));
+        intent.putExtra("altitud",String.valueOf(loc.getAltitude()));
+        intent.putExtra("enlace",qrResult);
+        intent.putExtra("email",emailUsuario);
+        activity.startActivity(intent);
+
+    }
+
     private static void leerQr(Activity activity){
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         IntentIntegrator integrator = new IntentIntegrator(activity);

@@ -49,20 +49,20 @@ import java.util.concurrent.ExecutionException;
  */
 public class MainActivity extends AppCompatActivity {
     LocationManager locManager;
-    LocationListener locListener;
+    Intent intent;
+    String emailUsuario;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = getIntent();
+        intent = getIntent();
+        emailUsuario = intent.getStringExtra("Email");
         String nombreUsuario = intent.getStringExtra("Nombre");
         Objects.requireNonNull(getSupportActionBar()).setTitle("Lugares de " + nombreUsuario);
-        String emailUsuario = intent.getStringExtra("Email");
-        FakeDb db = new FakeDb(this);
-        ArrayList<Lugar> lugares = new ArrayList<>();
+
         try {
-            lugares = new SelectUsuarioTask().execute(emailUsuario).get();
+            new SelectUsuarioTask().execute(emailUsuario).get();
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
-                Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 rastreoGPS(result.getContents());
             } else Toast.makeText(this, "Leer cancelado", Toast.LENGTH_LONG).show();
         } else
@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<Lugar> lugares) {
-            System.out.println("hola");
             Button btnNuevoLugar = findViewById(R.id.btnNuevoLugar);
             LocalesAdapter localesAdapter = new LocalesAdapter(Objects.requireNonNull(Utils.getActivity(btnNuevoLugar)),  lugares);
             ListView lvLugares = findViewById(R.id.lvLugares);
@@ -153,13 +152,9 @@ public class MainActivity extends AppCompatActivity {
         }
         Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         Location locNetwork = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        if (locGps.getAccuracy()<locNetwork.getAccuracy())     getPosicion(locGps,qrResult);
-        else getPosicion(locNetwork,qrResult);
+        if (locGps.getAccuracy()<locNetwork.getAccuracy())     MainActivityController.formularioNuevoLugar(locGps,qrResult,emailUsuario,MainActivity.this);
+        else MainActivityController.formularioNuevoLugar(locNetwork,qrResult,emailUsuario,MainActivity.this);
     }
 
-    private void getPosicion(Location loc,String qrResult) {
-        Toast.makeText(this, loc.getAltitude() + "\n" + loc.getLatitude() + "\n" + loc.getLongitude(), Toast.LENGTH_LONG).show();
-        Toast.makeText(this,qrResult,Toast.LENGTH_LONG).show();
-    }
 
 }

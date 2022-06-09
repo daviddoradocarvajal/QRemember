@@ -6,6 +6,12 @@
         <item>Nombre de mi primer centro de estudios</item>
         <item>Nombre de mi madre</item>
     </string-array>
+    <string-array name="Categorias">
+        <item>Categoria 1</item>
+        <item>Categoria2</item>
+        <item>Categoria3</item>
+        <item>Cat4</item>
+    </string-array>
     <string name="app_name">QRemember</string>
     <string name="bienvenida">Bienvenido a QRemember</string>
     <string name="acceder">Acceder</string>

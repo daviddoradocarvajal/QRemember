@@ -16,11 +16,11 @@ import com.iesgala.qremember.R;
  * @version 1.0
  */
 public class Utils {
-    public static final String SERVIDOR = "192.168.1.210";
-    public static final String PUERTO = "3308";
-    public static final String BD = "db";
-    public static final String USUARIO = "root";
-    public static final String PASSWORD = "rootpass";
+    public static final String SERVIDOR = "sql4.freemysqlhosting.net";
+    public static final String PUERTO = "3306";
+    public static final String BD = "sql4498629";
+    public static final String USUARIO = "sql4498629";
+    public static final String PASSWORD = "gkkIrdR3DJ";
 
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
