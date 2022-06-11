@@ -22,6 +22,13 @@ public class Utils {
     public static final String BD = "9eDAI0bmOi";
     public static final String USUARIO = "9eDAI0bmOi";
     public static final String PASSWORD = "KHnfj1mvHO";
+    public static final String INTENTS_EMAIL = "email";
+    public static final String INTENTS_LONGITUD = "longitud";
+    public static final String INTENTS_LATITUD = "latitud";
+    public static final String INTENTS_ALTITUD = "altitud";
+    public static final String INTENTS_ENLACE = "enlace";
+    public static final String INTENTS_POSICION = "posicion";
+
 
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);

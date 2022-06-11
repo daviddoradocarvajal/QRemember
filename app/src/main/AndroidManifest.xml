@@ -31,18 +31,17 @@
             android:name=".activities.RegisterActivity"
             android:exported="true"
             android:parentActivityName=".activities.StartActivity">
-
         </activity>
         <activity
             android:name=".activities.PopupLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"></activity>
+            android:parentActivityName=".activities.MainActivity"/>
         <activity
             android:name=".activities.CaptureActivityPortrait"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".activities.RecuperarContraseniaActivity"
             android:exported="true"
             android:parentActivityName=".activities.StartActivity"/>

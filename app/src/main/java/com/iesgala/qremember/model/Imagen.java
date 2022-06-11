@@ -12,10 +12,19 @@ import java.io.Serializable;
 public class Imagen implements Serializable {
     private int id;
     private Drawable imagen;
+    private boolean seleccionado;
 
     public Imagen(int id, Drawable imagen) {
         this.id = id;
         this.imagen = imagen;
+    }
+
+    public boolean isSeleccionado() {
+        return seleccionado;
+    }
+
+    public void setSeleccionado(boolean seleccionado) {
+        this.seleccionado = seleccionado;
     }
 
     public int getId() {

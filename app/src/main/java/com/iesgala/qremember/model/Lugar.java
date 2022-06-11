@@ -13,15 +13,15 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Lugar implements Serializable {
-    private float longitud;
-    private float latitud;
-    private float altitud;
+    private String longitud;
+    private String latitud;
+    private String altitud;
     private String enlace;
     private String nombre;
     private ArrayList<Imagen> imagenes;
     private ArrayList<Categoria> categorias;
 
-    public Lugar(float longitud, float latitud, float altitud, String enlace, String nombre, ArrayList<Imagen> imagenes, ArrayList<Categoria> categorias) {
+    public Lugar(String longitud, String latitud, String altitud, String enlace, String nombre, ArrayList<Imagen> imagenes, ArrayList<Categoria> categorias) {
         this.longitud = longitud;
         this.latitud = latitud;
         this.altitud = altitud;
@@ -31,15 +31,15 @@ public class Lugar implements Serializable {
         this.categorias = categorias;
     }
 
-    public float getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public float getLatitud() {
+    public String getLatitud() {
         return latitud;
     }
 
-    public float getAltitud() {
+    public String getAltitud() {
         return altitud;
     }
 

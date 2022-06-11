@@ -1,10 +1,7 @@
 package com.iesgala.qremember.activities;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,12 +12,7 @@ import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.NuevaContraseniaController;
 import com.iesgala.qremember.utils.Utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author David Dorado
@@ -32,7 +24,7 @@ public class NuevaContraseniaActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevacontrasenia);
-        String email = getIntent().getStringExtra("Usuario");
+        String email = getIntent().getStringExtra(Utils.INTENTS_EMAIL);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.recuperando_contrasenia) + email);
         TextView tvInfoNuevaPass = findViewById(R.id.tvInfoNuevaPass);
         tvInfoNuevaPass.setText(getString(R.string.recuperando_contrasenia) + " " + email);

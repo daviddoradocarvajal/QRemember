@@ -78,4 +78,11 @@
     <string name="err_pass_format">Introduzca una contraseña de 6 o mas caracteres con 1 mayuscula 1 minuscula y un número</string>
     <string name="err_email_format">Introduzca un email valido</string>
     <string name="err_respuesta_form">Introduzca una respuesta para recuperar su cuenta</string>
+    <string name="err_ubicacion">No se pudo obtener acceso a la ubicación</string>
+    <string name="err_qr_lectura">Error en la lectura del codigo QR</string>
+    <string name="nuevo_lugar">Nuevo lugar</string>
+    <string name="err_resp_incorrecta">Respuesta Incorrecta</string>
+    <string name="err_preg_seg_incorrecta">Pregunta de seguridad Incorrecta</string>
+    <string name="err_email_incorrecto">Email incorrecto</string>
+    <string name="err_intentos">Has superado los 3 intentos de recuperacion</string>
 </resources>

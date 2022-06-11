@@ -3,13 +3,10 @@ package com.iesgala.qremember.controllers;
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.TextView;
-
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.activities.NuevaContraseniaActivity;
 import com.iesgala.qremember.activities.StartActivity;
 import com.iesgala.qremember.utils.AsyncTasks;
 import com.iesgala.qremember.utils.Utils;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -29,7 +26,7 @@ public class NuevaContraseniaController {
         }
         if (tvNuevaPass.getText().toString().trim().equals(tvNuevaPassRe.getText().toString().trim())) {
             try {
-                String sql = "UPDATE Usuario SET contrasenia = aes_encrypt('" + tvNuevaPass.getText().toString() + "','hunter1') WHERE email='" + email + "'";
+                String sql = "UPDATE usuario SET contrasenia = aes_encrypt('" + tvNuevaPass.getText().toString() + "','hunter1') WHERE email='" + email + "'";
                 boolean actualizado = new AsyncTasks.UpdateTask().execute(sql).get(1, TimeUnit.MINUTES);
                 if (actualizado) {
                     Intent intent = new Intent(activity.getBaseContext(), StartActivity.class);

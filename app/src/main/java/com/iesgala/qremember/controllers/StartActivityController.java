@@ -1,11 +1,7 @@
 package com.iesgala.qremember.controllers;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.ContextParams;
 import android.content.Intent;
-
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +34,7 @@ public class StartActivityController {
                 Utils.AlertDialogGenerate(tvEmail.getContext(),activity.getString(R.string.err),"Introduzca un email valido");
                 return;
             }
-            String sql = "SELECT nombre,email,aes_decrypt(contrasenia,'hunter1') as password FROM Usuario WHERE email='" + tvEmail.getText().toString() + "'";
+            String sql = "SELECT nombre,email,aes_decrypt(contrasenia,'hunter1') as password FROM usuario WHERE email='" + tvEmail.getText().toString() + "'";
             ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
             Usuario usuario;
             if (resultSet.next()) {
@@ -46,8 +42,7 @@ public class StartActivityController {
                 if (tvEmail.getText().toString().equals(usuario.getEmail())) {
                     if (tvPass.getText().toString().equals(usuario.getContrasenia())) {
                         Intent intent = new Intent(activity.getBaseContext(), MainActivity.class);
-                        intent.putExtra("Nombre", usuario.getNombre());
-                        intent.putExtra("Email", usuario.getEmail());
+                        intent.putExtra(Utils.INTENTS_EMAIL, usuario.getEmail());
                         activity.startActivity(intent);
                     } else {
                         Utils.AlertDialogGenerate(activity.findViewById(R.id.tvUsuario).getContext(),activity.getString(R.string.err),activity.getString(R.string.err_contrasenia));
