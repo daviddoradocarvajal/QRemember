@@ -3,75 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/azul">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/tvEmailRecuperar"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginBottom="45dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/email_usuario"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:textColorHint="#000000"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toTopOf="@+id/spPreguntaRecuperar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/tvRespuestaRecuperar"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="39dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/respuesta_recuperacion"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#000000"
+        android:textColorHint="#8D6E63"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spPreguntaRecuperar" />
 
     <Button
         android:id="@+id/btnComprobar"
-        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:text="@string/comprobar_pregunta_seguridad"
-        android:textColor="@color/gris"
-        android:theme="@style/ButtonStyle"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFalloRecuperar"
-        app:layout_constraintVertical_bias="0.158"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tvFalloRecuperar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:textColor="@color/rojo"
+        android:layout_marginTop="42dp"
+        android:textColor="?attr/colorError"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnComprobar"
+        app:layout_constraintStart_toStartOf="@+id/btnComprobar"
         app:layout_constraintTop_toBottomOf="@+id/tvRespuestaRecuperar" />
 
     <Spinner
         android:id="@+id/spPreguntaRecuperar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="166dp"
         android:entries="@array/Preguntas"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailRecuperar" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

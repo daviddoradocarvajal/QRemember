@@ -1,99 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="center">
 
     <EditText
         android:id="@+id/tvFormNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
+        android:layout_marginTop="99dp"
         android:ems="10"
         android:hint="@string/nombre"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#000000" />
+        android:textColorHint="#8D6E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tvFormEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/usuario"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:textColorHint="#000000" />
+        android:textColorHint="#8D6E63"
+        app:layout_constraintStart_toStartOf="@+id/tvFormNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tvFormNombre" />
 
     <EditText
         android:id="@+id/tvFormPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="0"
+        android:layout_marginBottom="11dp"
         android:ems="10"
         android:hint="@string/contrasenia"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="#000000" />
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toTopOf="@+id/spPreguntas"
+        app:layout_constraintStart_toStartOf="@+id/tvFormEmail" />
 
     <Spinner
         android:id="@+id/spPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="82dp"
         android:contentDescription="@string/pregunta_seguridad"
         android:dropDownWidth="wrap_content"
         android:entries="@array/Preguntas"
         android:minHeight="48dp"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFormEmail" />
 
     <EditText
         android:id="@+id/tvFormRespuesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/respuesta"
         android:importantForAutofill="no"
         android:inputType="textLongMessage"
         android:minHeight="48dp"
-        android:textColorHint="#000000" />
+        android:textColorHint="#8D6E63"
+        app:layout_constraintEnd_toStartOf="@+id/tvIncorrectoRegister"
+        app:layout_constraintStart_toStartOf="@+id/tvIncorrectoRegister"
+        app:layout_constraintTop_toBottomOf="@+id/spPreguntas" />
 
     <TextView
         android:id="@+id/tvIncorrectoRegister"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0"
+        android:layout_marginTop="23dp"
         android:gravity="center"
         android:textColor="?attr/colorError"
-        android:visibility="gone" />
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFormRespuesta" />
 
     <Button
         android:id="@+id/btnRegistrarUsuario"
-        android:theme="@style/ButtonStyle"
-        style="?android:attr/buttonBarButtonStyle"
-        android:textColor="@color/gris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0"
+        android:layout_marginTop="39dp"
         android:ems="10"
         android:minHeight="48dp"
-        android:text="@string/registrar" />
+        android:text="@string/registrar"
+        app:layout_constraintEnd_toStartOf="@+id/tvIncorrectoRegister"
+        app:layout_constraintStart_toStartOf="@+id/tvIncorrectoRegister"
+        app:layout_constraintTop_toBottomOf="@+id/tvIncorrectoRegister" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

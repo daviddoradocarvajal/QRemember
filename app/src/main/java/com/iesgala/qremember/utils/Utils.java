@@ -1,6 +1,7 @@
 package com.iesgala.qremember.utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.view.Menu;
@@ -41,6 +42,14 @@ public class Utils {
             context = ((ContextWrapper)context).getBaseContext();
         }
         return null;
+    }
+
+    public static void AlertDialogGenerate(Context context,String title,String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

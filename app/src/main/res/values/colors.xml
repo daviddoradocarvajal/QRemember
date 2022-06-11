@@ -13,4 +13,98 @@
     <color name="verde_2">#6CA589</color>
     <color name="gris">#C5CAE9</color>
     <color name="rojo">#E41A1A</color>
+
+
+
+
+
+
+
+    <color name="md_theme_light_shadow">#000000</color>
+    <color name="md_theme_dark_primary">#ACD370</color>
+    <color name="md_theme_dark_onPrimary">#213600</color>
+    <color name="md_theme_dark_primaryContainer">#324F00</color>
+    <color name="md_theme_dark_onPrimaryContainer">#C7F089</color>
+    <color name="md_theme_dark_secondary">#C0CAAC</color>
+    <color name="md_theme_dark_onSecondary">#2B331E</color>
+    <color name="md_theme_dark_secondaryContainer">#414A32</color>
+    <color name="md_theme_dark_onSecondaryContainer">#DCE7C7</color>
+    <color name="md_theme_dark_tertiary">#A0D0CA</color>
+    <color name="md_theme_dark_onTertiary">#003734</color>
+    <color name="md_theme_dark_tertiaryContainer">#1F4E4A</color>
+    <color name="md_theme_dark_onTertiaryContainer">#BCECE6</color>
+    <color name="md_theme_dark_error">#FFB4AB</color>
+    <color name="md_theme_dark_errorContainer">#93000A</color>
+    <color name="md_theme_dark_onError">#690005</color>
+    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+    <color name="md_theme_dark_background">#1B1C18</color>
+    <color name="md_theme_dark_onBackground">#E4E3DB</color>
+    <color name="md_theme_dark_surface">#1B1C18</color>
+    <color name="md_theme_dark_onSurface">#E4E3DB</color>
+    <color name="md_theme_dark_surfaceVariant">#45483D</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C5C8B9</color>
+    <color name="md_theme_dark_outline">#8F9285</color>
+    <color name="md_theme_dark_inverseOnSurface">#1B1C18</color>
+    <color name="md_theme_dark_inverseSurface">#E4E3DB</color>
+    <color name="md_theme_dark_inversePrimary">#476810</color>
+    <color name="md_theme_dark_shadow">#000000</color>
+    <color name="seed">#84916e</color>
+
+
+    <color name="my_app_primary">#476810</color>
+    <color name="my_app_primary_dark">#ffd0bcff</color>
+    <color name="my_app_on_primary">#FFFFFF</color>
+    <color name="my_app_primary_container">#C7F089</color>
+    <color name="my_app_on_primary_container">#121F00</color>
+
+
+
+
+    <color name="my_app_secondary">#586249</color>
+    <color name="my_app_on_secondary">#FFFFFF</color>
+    <color name="my_app_secondary_container">#DCE7C7</color>
+    <color name="my_app_on_secondary_container">#161E0A</color>
+
+
+    <color name="my_app_tertiary">#386662</color>
+    <color name="my_app_on_tertiary">#FFFFFF</color>
+    <color name="my_app_tertiary_container">#BCECE6</color>
+    <color name="my_app_on_tertiary_container">#00201E</color>
+
+
+    <color name="my_app_error">#BA1A1A</color>
+    <color name="my_app_on_error">#FFFFFF</color>
+    <color name="my_app_error_container">#FFDAD6</color>
+    <color name="my_app_on_error_container">#410002</color>
+
+
+    <color name="md_theme_light_outline">#75786C</color>
+
+
+    <color name="my_app_outline">#FF03DAC5</color>
+    <color name="my_app_background">#FEFCF5</color>
+    <color name="my_app_on_background">#1B1C18</color>
+
+    <color name="my_app_surface">#FEFCF5</color>
+    <color name="my_app_on_surface">#1B1C18</color>
+    <color name="my_app_surface_variant">#E1E4D5</color>
+    <color name="my_app_on_surface_variant">#45483D</color>
+
+
+
+
+
+    <color name="my_app_primary_variant">#ACD370</color>
+    <color name="my_app_secondary_variant">#213600</color>
+
+    <color name="mtrl_scrim">#FF018786</color>
+    <color name="my_app_primary_inverse">#ACD370</color>
+
+
+    <color name="my_app_inverse_surface">#30312C</color>
+    <color name="my_app_inverse_on_surface">#F2F1E9</color>
+
+
+
+
 </resources>

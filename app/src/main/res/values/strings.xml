@@ -70,4 +70,12 @@
     <string name="recuperando_contrasenia">Recuperar contraseña de </string>
     <string name="no_coinciden">Las contraseñas no coinciden</string>
     <string name="seleccione_pregunta">Seleccione una pregunta de seguridad</string>
+    <string name="tomar_foto">Tomar foto</string>
+    <string name="escribe_nombre">Escribe el nombre del lugar</string>
+    <string name="selecciona_categoria">Selecciona una categoria</string>
+    <string name="pulsa_tomar_foto">Pulsa aqui para tomar una foto del lugar</string>
+    <string name="insert_err">No se ha podido registar el usuario</string>
+    <string name="err_pass_format">Introduzca una contraseña de 6 o mas caracteres con 1 mayuscula 1 minuscula y un número</string>
+    <string name="err_email_format">Introduzca un email valido</string>
+    <string name="err_respuesta_form">Introduzca una respuesta para recuperar su cuenta</string>
 </resources>
