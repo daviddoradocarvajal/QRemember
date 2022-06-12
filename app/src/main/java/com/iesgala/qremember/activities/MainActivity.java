@@ -2,6 +2,7 @@ package com.iesgala.qremember.activities;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,8 +11,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -26,22 +31,30 @@ import com.google.zxing.integration.android.IntentResult;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.adapters.LocalesAdapter;
 import com.iesgala.qremember.controllers.MainActivityController;
+import com.iesgala.qremember.model.Categoria;
 import com.iesgala.qremember.model.Lugar;
+import com.iesgala.qremember.utils.AsyncTasks;
 import com.iesgala.qremember.utils.Utils;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     LocationManager locManager;
     Intent intent;
     String emailUsuario;
     Button btnNuevoLugar;
     String title;
+    ArrayList<String> nombresCategoria = new ArrayList<>();
     ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -62,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         title = getSupportActionBar().getTitle().toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setAdapter(intent);
+        filtroCategorias();
         super.onResume();
     }
 
@@ -73,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.lugares);
         title = getSupportActionBar().getTitle().toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        filtroCategorias();
         setAdapter(intent);
 
     }
@@ -138,6 +153,46 @@ public class MainActivity extends AppCompatActivity {
         MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
 
     }
+    private void filtroCategorias() {
+        try {
 
+            String sql = "SELECT nombre FROM categoria";
+            ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    nombresCategoria.add(resultSet.getString("nombre"));
+                }
+                Spinner spFiltroCategorias = findViewById(R.id.spFiltroCategorias);
+                spFiltroCategorias.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nombresCategoria));
+                spFiltroCategorias.setOnItemSelectedListener(this);
+            }
+        } catch (ExecutionException | TimeoutException | InterruptedException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ArrayList<Lugar> lugaresFiltrados = MainActivityController.obtenerLugaresFiltrados(this, emailUsuario,nombresCategoria.get(position));
+        if (lugaresFiltrados != null) {
+            LocalesAdapter localesAdapter = new LocalesAdapter(this, lugaresFiltrados);
+            ListView lvLugares = findViewById(R.id.lvLugares);
+            lvLugares.setClickable(true);
+            lvLugares.setAdapter(localesAdapter);
+            lvLugares.setOnItemClickListener((adapterView, v, i, l) -> MainActivityController.clickLugar(
+                    this,
+                    i,
+                    lugaresFiltrados.get(i).getEnlace(),
+                    emailUsuario,
+                    lugaresFiltrados.get(i).getLongitud(),
+                    lugaresFiltrados.get(i).getLatitud(),
+                    lugaresFiltrados.get(i).getAltitud()
+            ));
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
