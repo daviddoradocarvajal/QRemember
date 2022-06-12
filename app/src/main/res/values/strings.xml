@@ -58,7 +58,7 @@
     <string name="email_usuario">E-mail Usuario</string>
     <string name="conmigo">Compartido conmigo</string>
     <string name="opc">Opciones</string>
-    <string name="err_usuario">Usuario no encontrado</string>
+    <string name="err_usuario">El email indicado no ha sido encontrado</string>
     <string name="err_contrasenia">Contraseña incorrecta</string>
     <string name="err">Error</string>
     <string name="register_correct">Registro completado</string>
@@ -96,4 +96,10 @@
     <string name="lugar_registrado_ok">Lugar registrado correctamente</string>
     <string name="lugar_registrado_almacenado_usuario">El lugar ya estaba en la base de datos, se ha almacenado en tu cuenta y se ha añadido la foto</string>
     <string name="lugar_registrado_err">El lugar ya esta registrado en tu cuenta</string>
+    <string name="compartir_lugar">Compartir lugar</string>
+    <string name="compartir_lugar_msg">Escribe el email del usuario con el cual compartir el lugar\ny pulsa compartir</string>
+    <string name="err_desconocido">Ha ocurrido un error</string>
+    <string name="msg_ya_registrado">El usuario ya tiene este lugar entre sus lugares</string>
+    <string name="msg_ya_compartido">El lugar ya ha sido compartido con el usuario</string>
+    <string name="msg_compartido_ok">Lugar compartido correctamente</string>
 </resources>

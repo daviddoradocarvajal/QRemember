@@ -33,12 +33,14 @@ public class Utils {
     public static final String USUARIO = "9eDAI0bmOi";
     public static final String PASSWORD = "KHnfj1mvHO";
     public static final String INTENTS_EMAIL = "email";
+    public static final String INTENTS_EMAIL_EMISOR = "emailEmisor";
+    public static final String INTENTS_EMAIL_RECEPTOR = "emailReceptor";
     public static final String INTENTS_LONGITUD = "longitud";
     public static final String INTENTS_LATITUD = "latitud";
     public static final String INTENTS_ALTITUD = "altitud";
     public static final String INTENTS_ENLACE = "enlace";
     public static final String INTENTS_POSICION = "posicion";
-    public static final String INTENTS_RESPUESTA = "respuesta";
+    public static final String INTENTS_NOMBRE_LUGAR = "nombreLugar";
 
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
@@ -94,7 +96,7 @@ public class Utils {
                 builder.setPositiveButton(activity.getString(R.string.confirmar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        System.exit(0);
+                        activity.finishAffinity();
                     }
                 });
                 builder.setNegativeButton(activity.getString(R.string.cancelar), new DialogInterface.OnClickListener() {

@@ -7,6 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.provider.MediaStore;
 
 import com.iesgala.qremember.R;
+import com.iesgala.qremember.activities.CompartirLugarActivity;
+import com.iesgala.qremember.activities.MainActivity;
+import com.iesgala.qremember.activities.ModificarLugarActivity;
 import com.iesgala.qremember.activities.NuevoLugarActivity;
 import com.iesgala.qremember.model.Imagen;
 import com.iesgala.qremember.utils.AsyncTasks;
@@ -41,16 +44,27 @@ public class PopupLugarController {
         }
         return imagenes;
     }
-    public static void compartir(Activity activity,String email){
-        //usuario_emisor 	latitud 	longitud 	altitud 	enlace
-        // Start activity compartir lugar
-        // finish
+    public static void compartir(Activity activity,String emailEmisor,String enlace,String longitud,String latitud,String altitud){
+        Intent intent = new Intent(activity.getBaseContext(), CompartirLugarActivity.class);
+        intent.putExtra(Utils.INTENTS_ENLACE, enlace);
+        intent.putExtra(Utils.INTENTS_LONGITUD, longitud);
+        intent.putExtra(Utils.INTENTS_LATITUD, latitud);
+        intent.putExtra(Utils.INTENTS_ALTITUD, altitud);
+        intent.putExtra(Utils.INTENTS_EMAIL_EMISOR, emailEmisor);
+        activity.startActivity(intent);
+        activity.finish();
 
     }
-    public static void modificar(Activity activity,String enlace){
-        //String longitud, String latitud, String altitud, String enlace, String nombre
-        // start activity modificar
-        // finish
+    public static void modificar(Activity activity,String enlace,String longitud,String latitud,String altitud,String nombre){
+
+        Intent intent = new Intent(activity.getBaseContext(), ModificarLugarActivity.class);
+        intent.putExtra(Utils.INTENTS_ENLACE, enlace);
+        intent.putExtra(Utils.INTENTS_LONGITUD, longitud);
+        intent.putExtra(Utils.INTENTS_LATITUD, latitud);
+        intent.putExtra(Utils.INTENTS_ALTITUD, altitud);
+        intent.putExtra(Utils.INTENTS_NOMBRE_LUGAR, nombre);
+        activity.startActivity(intent);
+        activity.finish();
     }
     public static void eliminar(Activity activity,String enlace,String email){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);

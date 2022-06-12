@@ -114,7 +114,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     emailUsuario,
                     lugares.get(i).getLongitud(),
                     lugares.get(i).getLatitud(),
-                    lugares.get(i).getAltitud()
+                    lugares.get(i).getAltitud(),
+                    lugares.get(i).getNombre()
             ));
             btnNuevoLugar.setOnClickListener(l -> MainActivityController.nuevoLugar(this));
         }
@@ -192,7 +193,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         emailUsuario,
                         lugaresFiltrados.get(i).getLongitud(),
                         lugaresFiltrados.get(i).getLatitud(),
-                        lugaresFiltrados.get(i).getAltitud()
+                        lugaresFiltrados.get(i).getAltitud(),
+                        lugaresFiltrados.get(i).getNombre()
                 ));
             }
         }
@@ -213,7 +215,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     emailUsuario,
                     lugares.get(i).getLongitud(),
                     lugares.get(i).getLatitud(),
-                    lugares.get(i).getAltitud()
+                    lugares.get(i).getAltitud(),
+                    lugares.get(i).getNombre()
             ));
         }
 

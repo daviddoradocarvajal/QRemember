@@ -85,7 +85,7 @@ public class MainActivityController {
         }
     }
 
-    public static void clickLugar(Activity activity, int position, String enlace, String email, String longitud, String latitud, String altitud) {
+    public static void clickLugar(Activity activity, int position, String enlace, String email, String longitud, String latitud, String altitud,String nombreLugar) {
         Intent intent = new Intent(activity.getBaseContext(), PopupLugarActivity.class);
         intent.putExtra(Utils.INTENTS_EMAIL, email);
         intent.putExtra(Utils.INTENTS_ENLACE, enlace);
@@ -93,6 +93,7 @@ public class MainActivityController {
         intent.putExtra(Utils.INTENTS_LONGITUD, longitud);
         intent.putExtra(Utils.INTENTS_LATITUD, latitud);
         intent.putExtra(Utils.INTENTS_ALTITUD, altitud);
+        intent.putExtra(Utils.INTENTS_NOMBRE_LUGAR,nombreLugar);
         activity.startActivity(intent);
     }
 
