@@ -1,9 +1,6 @@
 package com.iesgala.qremember.model;
 
-import androidx.annotation.Nullable;
-
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
 
 

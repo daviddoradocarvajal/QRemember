@@ -2,7 +2,6 @@ package com.iesgala.qremember.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.SparseBooleanArray;
@@ -13,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,12 +23,8 @@ import com.iesgala.qremember.utils.Utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
@@ -42,14 +36,12 @@ import java.util.concurrent.TimeoutException;
  * @version 1.0
  */
 public class NuevoLugarActivity extends AppCompatActivity implements ListView.OnItemClickListener {
-    static final int REQUEST_IMAGE_CAPTURE = 1;
-    private Bitmap bm = null;
+    public static final int REQUEST_IMAGE_CAPTURE = 1;
     private String longitud;
     private String latitud;
     private String altitud;
     private String enlace;
     private EditText tvNombreLugar;
-    private ArrayList<String> nombresCategoria;
     private ArrayList<String> categoriasSeleccionadas;
     private String emailUsuario;
     public static final int NUEVOLUGARACTIVITY_CODE = 79;
@@ -80,7 +72,7 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
     }
     private void setCategorias(){
         try {
-            nombresCategoria = new ArrayList<>();
+            ArrayList<String> nombresCategoria = new ArrayList<>();
             String sql = "SELECT nombre FROM categoria";
             ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
             if(resultSet != null) {
@@ -119,13 +111,12 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
         setCategorias();
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            bm = (Bitmap) extras.get("data");
+            Bitmap bm = (Bitmap) extras.get("data");
             ByteArrayOutputStream blob = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 100, blob);
             byte[] bmData = blob.toByteArray();
             NuevoLugarController.nuevoLugar(this, longitud, latitud, altitud, enlace, tvNombreLugar.getText().toString(), emailUsuario, bmData, categoriasSeleccionadas);
             bm.recycle();
-            bm = null;
             try {
                 blob.close();
             } catch (IOException e) {

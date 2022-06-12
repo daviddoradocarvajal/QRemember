@@ -79,11 +79,14 @@ public class MainActivityController {
             }
     }
 
-    public static void clickLugar(Activity activity,int position, String enlace,String email){
+    public static void clickLugar(Activity activity,int position, String enlace,String email,String longitud,String latitud,String altitud){
         Intent intent = new Intent(activity.getBaseContext(), PopupLugarActivity.class);
         intent.putExtra(Utils.INTENTS_EMAIL,email);
         intent.putExtra(Utils.INTENTS_ENLACE,enlace);
         intent.putExtra(Utils.INTENTS_POSICION,position);
+        intent.putExtra(Utils.INTENTS_LONGITUD,longitud);
+        intent.putExtra(Utils.INTENTS_LATITUD,latitud);
+        intent.putExtra(Utils.INTENTS_ALTITUD,altitud);
         activity.startActivity(intent);
     }
 

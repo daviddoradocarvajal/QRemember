@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/watercolor_background">
 
     <EditText
         android:id="@+id/tvEmailRecuperar"
@@ -15,7 +16,7 @@
         android:hint="@string/email_usuario"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:textColorHint="#8D6E63"
+        android:textColorHint="#6D4C41"
         app:layout_constraintBottom_toTopOf="@+id/spPreguntaRecuperar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -30,7 +31,8 @@
         android:hint="@string/respuesta_recuperacion"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#8D6E63"
+        android:textColor="@color/black"
+        android:textColorHint="#6D4C41"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spPreguntaRecuperar" />
@@ -39,23 +41,12 @@
         android:id="@+id/btnComprobar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="100dp"
         android:text="@string/comprobar_pregunta_seguridad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFalloRecuperar"
+        app:layout_constraintTop_toBottomOf="@+id/tvRespuestaRecuperar"
         tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/tvFalloRecuperar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:textColor="?attr/colorError"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/btnComprobar"
-        app:layout_constraintStart_toStartOf="@+id/btnComprobar"
-        app:layout_constraintTop_toBottomOf="@+id/tvRespuestaRecuperar" />
 
     <Spinner
         android:id="@+id/spPreguntaRecuperar"

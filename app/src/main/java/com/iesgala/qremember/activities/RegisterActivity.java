@@ -1,29 +1,17 @@
 package com.iesgala.qremember.activities;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.os.AsyncTask;
-
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.RegisterActivityController;
-
 import com.iesgala.qremember.utils.Utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Objects;
 /**
  *

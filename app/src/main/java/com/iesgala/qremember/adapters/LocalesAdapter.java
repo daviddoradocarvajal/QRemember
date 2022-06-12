@@ -64,7 +64,9 @@ public class LocalesAdapter extends BaseAdapter {
         ImageView ivFoto = convertView.findViewById(R.id.ivFoto);
         tvNombre.setText(lugares.get(position).getNombre());
         tvCategoria.setText(lugares.get(position).getTvCategorias());
-        ivFoto.setImageDrawable(lugares.get(position).getImagenes().get(0).getImagen());
+        if(lugares.get(position).getImagenes()!=null && lugares.get(position).getImagenes().size()>0) {
+            ivFoto.setImageDrawable(lugares.get(position).getImagenes().get(0).getImagen());
+        }
         Button btnVer = convertView.findViewById(R.id.btnVer);
         View finalConvertView = convertView;
         btnVer.setOnClickListener(e -> MainActivityController.verEnlace(Uri.parse(lugares.get(position).getEnlace()), Objects.requireNonNull(Utils.getActivity(finalConvertView))) );

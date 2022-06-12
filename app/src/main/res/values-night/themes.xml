@@ -69,8 +69,5 @@
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
     </style>
-    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">@color/gris</item>
-        <item name="android:backgroundTint">@color/verde</item>
-    </style>
+
 </resources>

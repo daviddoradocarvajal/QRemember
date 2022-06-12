@@ -2,8 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.QRemember" parent="Theme.Material3.DayNight">
 
-
-
         <!-- Original AppCompat attributes. -->
         <item name="colorPrimary">@color/my_app_primary</item>
         <item name="colorPrimaryDark">@color/my_app_primary_dark</item>
@@ -71,8 +69,5 @@
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
     </style>
-    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">@color/gris</item>
-        <item name="android:backgroundTint">@color/verde</item>
-    </style>
+
 </resources>

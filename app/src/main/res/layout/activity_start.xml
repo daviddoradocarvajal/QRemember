@@ -5,6 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/watercolor_background"
     tools:context=".activities.StartActivity">
 
     <EditText
@@ -20,7 +21,7 @@
         android:minWidth="200dp"
         android:minHeight="48dp"
         android:text=""
-        android:textColorHint="#8D6E63"
+        android:textColorHint="#6D4C41"
         app:layout_constraintStart_toStartOf="@+id/tvUsuario"
         app:layout_constraintTop_toBottomOf="@+id/tvUsuario"
         tools:ignore="LabelFor" />
@@ -64,7 +65,7 @@
         android:minWidth="200dp"
         android:minHeight="48dp"
         android:text=""
-        android:textColorHint="#8D6E63"
+        android:textColorHint="#6D4C41"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

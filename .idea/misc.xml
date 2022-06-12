@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_eliminarcuenta.xml" value="0.19067977768277042" />
-        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.34072900158478603" />
-        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_modificarlugar.xml" value="0.15433946130825138" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_compartidoconmigo.xml" value="0.1748610517315092" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_compartirlugar.xml" value="0.22" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_eliminarcuenta.xml" value="0.2" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_eliminarimagen.xml" value="0.1748610517315092" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_modificarlugar.xml" value="0.22" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_nuevacontrasenia.xml" value="0.33" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_nuevolugar.xml" value="0.25" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_popup_lugar.xml" value="0.3009833262077811" />

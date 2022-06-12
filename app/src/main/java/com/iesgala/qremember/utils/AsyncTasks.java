@@ -146,7 +146,7 @@ public class AsyncTasks {
         }
     }
 
-    public static class PreparedInsertImageClass extends AsyncTask<Object,Void,Boolean> {
+    public static class PreparedInsertImageTask extends AsyncTask<Object,Void,Boolean> {
         PreparedStatement preparedStatement = null;
         @Override
         protected Boolean doInBackground(Object... objects) {

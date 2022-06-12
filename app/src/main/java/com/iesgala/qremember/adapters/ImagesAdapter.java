@@ -1,26 +1,19 @@
 package com.iesgala.qremember.adapters;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.model.Imagen;
-import com.iesgala.qremember.model.Lugar;
-import com.iesgala.qremember.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author David Dorado
@@ -58,9 +51,7 @@ public class ImagesAdapter extends BaseAdapter {
         ImageView ivLugar = convertView.findViewById(R.id.ivLugar);
         ivLugar.setImageDrawable(imagenes.get(position).getImagen());
         CheckBox chkLugar = convertView.findViewById(R.id.chkLugar);
-        chkLugar.setOnClickListener(v -> {
-            imagenes.get(position).setSeleccionado(chkLugar.isChecked());
-        });
+        chkLugar.setOnClickListener(v -> imagenes.get(position).setSeleccionado(chkLugar.isChecked()));
         return convertView;
 
     }

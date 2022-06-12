@@ -1,7 +1,6 @@
 package com.iesgala.qremember.activities;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.RecuperarContraseniaController;
-import com.iesgala.qremember.utils.Utils;
 
 import java.util.Objects;
 
@@ -41,9 +39,7 @@ public class RecuperarContraseniaActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.err));
                 builder.setMessage(getString(R.string.err_intentos));
-                builder.setPositiveButton(R.string.confirmar, (dialogInterface, i) -> {
-                    this.finish();
-                });
+                builder.setPositiveButton(R.string.confirmar, (dialogInterface, i) -> this.finish());
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }

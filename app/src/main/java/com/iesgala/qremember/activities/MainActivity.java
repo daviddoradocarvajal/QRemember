@@ -9,14 +9,14 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -44,14 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == PopupLugarActivity.POPUPLUGAR_ACTIVITY_CODE || result.getResultCode() == NuevoLugarActivity.NUEVOLUGARACTIVITY_CODE) {
-                        Intent intent = result.getData();
-                        if (intent != null) {
-                            setAdapter(intent);
-                        }
+            result -> {
+                if (result.getResultCode() == PopupLugarActivity.POPUPLUGAR_ACTIVITY_CODE || result.getResultCode() == NuevoLugarActivity.NUEVOLUGARACTIVITY_CODE) {
+                    Intent intent = result.getData();
+                    if (intent != null) {
+                        setAdapter(intent);
                     }
                 }
             }
@@ -60,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         Intent intent = new Intent();
-        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
         setAdapter(intent);
         super.onResume();
     }
@@ -71,23 +68,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         intent = getIntent();
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.lugares);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setAdapter(intent);
 
     }
-    private void setAdapter(Intent data){
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Utils.menuOption(this,item,emailUsuario);
+        return true;
+    }
+
+    private void setAdapter(Intent data) {
         emailUsuario = data.getStringExtra(Utils.INTENTS_EMAIL);
         ArrayList<Lugar> lugares = MainActivityController.obtenerLugares(this, emailUsuario);
         btnNuevoLugar = findViewById(R.id.btnNuevoLugar);
-        LocalesAdapter localesAdapter = new LocalesAdapter(this, lugares);
-        ListView lvLugares = findViewById(R.id.lvLugares);
-        lvLugares.setClickable(true);
-        lvLugares.setAdapter(localesAdapter);
-        lvLugares.setOnItemClickListener((adapterView, view, i, l) -> MainActivityController.clickLugar(this,i, lugares.get(i).getEnlace(), emailUsuario));
-        btnNuevoLugar.setOnClickListener(l -> MainActivityController.nuevoLugar(this));
+        if (lugares != null) {
+            LocalesAdapter localesAdapter = new LocalesAdapter(this, lugares);
+            ListView lvLugares = findViewById(R.id.lvLugares);
+            lvLugares.setClickable(true);
+            lvLugares.setAdapter(localesAdapter);
+            lvLugares.setOnItemClickListener((adapterView, view, i, l) -> MainActivityController.clickLugar(
+                    this,
+                    i,
+                    lugares.get(i).getEnlace(),
+                    emailUsuario,
+                    lugares.get(i).getLongitud(),
+                    lugares.get(i).getLatitud(),
+                    lugares.get(i).getAltitud()
+            ));
+            btnNuevoLugar.setOnClickListener(l -> MainActivityController.nuevoLugar(this));
+        }
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(data!=null) {
+        if (data != null) {
             if (data.getStringExtra(Utils.INTENTS_EMAIL) != null) {
                 setAdapter(data);
             }

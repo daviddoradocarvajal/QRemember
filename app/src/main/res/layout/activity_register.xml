@@ -4,6 +4,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/watercolor_background"
     android:gravity="center">
 
     <EditText
@@ -16,7 +17,7 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#8D6E63"
+        android:textColorHint="#6D4C41"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +33,7 @@
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:textColorHint="#8D6E63"
+        android:textColorHint="#6D4C41"
         app:layout_constraintStart_toStartOf="@+id/tvFormNombre"
         app:layout_constraintTop_toBottomOf="@+id/tvFormNombre" />
 
@@ -46,7 +47,7 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="#8D6E63"
+        android:textColorHint="#6D4C41"
         app:layout_constraintBottom_toTopOf="@+id/spPreguntas"
         app:layout_constraintStart_toStartOf="@+id/tvFormEmail" />
 
@@ -74,33 +75,21 @@
         android:importantForAutofill="no"
         android:inputType="textLongMessage"
         android:minHeight="48dp"
-        android:textColorHint="#8D6E63"
-        app:layout_constraintEnd_toStartOf="@+id/tvIncorrectoRegister"
-        app:layout_constraintStart_toStartOf="@+id/tvIncorrectoRegister"
-        app:layout_constraintTop_toBottomOf="@+id/spPreguntas" />
-
-    <TextView
-        android:id="@+id/tvIncorrectoRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:gravity="center"
-        android:textColor="?attr/colorError"
-        android:visibility="invisible"
+        android:textColorHint="#6D4C41"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFormRespuesta" />
+        app:layout_constraintTop_toBottomOf="@+id/spPreguntas" />
 
     <Button
         android:id="@+id/btnRegistrarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="81dp"
         android:ems="10"
         android:minHeight="48dp"
         android:text="@string/registrar"
-        app:layout_constraintEnd_toStartOf="@+id/tvIncorrectoRegister"
-        app:layout_constraintStart_toStartOf="@+id/tvIncorrectoRegister"
-        app:layout_constraintTop_toBottomOf="@+id/tvIncorrectoRegister" />
+        app:layout_constraintStart_toStartOf="@+id/tvFormRespuesta"
+        app:layout_constraintTop_toBottomOf="@+id/tvFormRespuesta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

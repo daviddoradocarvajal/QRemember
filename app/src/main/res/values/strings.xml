@@ -32,14 +32,16 @@
     <string name="seleccionar">Seleccionar</string>
     <string name="opciones">Opciones</string>
     <string name="enlace">Enlace</string>
-    <string name="seguro_eliminar">¿Seguro que deseas eliminar el lugar?</string>
+    <string name="seguro_eliminar_lugar">¿Seguro que deseas eliminar el lugar?</string>
+    <string name="seguro_eliminar_cuenta">¿Seguro que deseas eliminar tu cuenta?</string>
+    <string name="eliminar_cuenta_tv">Por favor introduce tu email y contraseña \npara eliminar tu cuenta o pulsa atrás para cancelar</string>
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="pregunta_seguridad">Introduce una pregunta de seguridad</string>
     <string name="respuesta">Introduce una respuesta</string>
     <string name="descripcion_imagen">Imagen de lugar</string>
     <string name="nueva_imagen">Nueva Imagen&#8230;</string>
-    <string name="eliminar_imagen">Eliminar Imagen&#8230;</string>
+    <string name="eliminar_imagen">Eliminar Imagenes</string>
     <string name="lugar">Lugar</string>
     <string name="ruta">Ruta</string>
     <string name="filtro_cat">Filtrar categoria</string>
@@ -52,6 +54,7 @@
     <string name="desde_galeria">Desde galeria</string>
     <string name="modificar_imagen">Modificar Imagen</string>
     <string name="confirmar">Confirmar</string>
+    <string name="cancelar">Cancelar</string>
     <string name="email_usuario">E-mail Usuario</string>
     <string name="conmigo">Compartido conmigo</string>
     <string name="opc">Opciones</string>
@@ -72,7 +75,8 @@
     <string name="seleccione_pregunta">Seleccione una pregunta de seguridad</string>
     <string name="tomar_foto">Tomar foto</string>
     <string name="escribe_nombre">Escribe el nombre del lugar</string>
-    <string name="selecciona_categoria">Selecciona una categoria</string>
+    <string name="modifica_nombre">Escribe el nombre del lugar\no dejalo en blanco para no modificarlo</string>
+    <string name="selecciona_categoria">Selecciona las categorias del lugar</string>
     <string name="pulsa_tomar_foto">Pulsa aqui para tomar una foto del lugar</string>
     <string name="insert_err">No se ha podido registar el usuario</string>
     <string name="err_pass_format">Introduzca una contraseña de 6 o mas caracteres con 1 mayuscula 1 minuscula y un número</string>
@@ -85,4 +89,8 @@
     <string name="err_preg_seg_incorrecta">Pregunta de seguridad Incorrecta</string>
     <string name="err_email_incorrecto">Email incorrecto</string>
     <string name="err_intentos">Has superado los 3 intentos de recuperacion</string>
+    <string name="msg_eliminar">¿Seguro deseas eliminar las imagenes seleccionadas?</string>
+    <string name="msg_aviso">Aviso</string>
+    <string name="err_no_imagen">No se ha seleccionado ninguna imagen</string>
+    <string name="seguro_salir">¿Seguro que deseas salir?</string>
 </resources>
