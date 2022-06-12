@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
     String emailUsuario;
     Button btnNuevoLugar;
-
+    String title;
     ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         Intent intent = new Intent();
         intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.lugares);
+        title = getSupportActionBar().getTitle().toString();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setAdapter(intent);
         super.onResume();
     }
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         intent = getIntent();
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.lugares);
+        title = getSupportActionBar().getTitle().toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setAdapter(intent);
 
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Utils.menuOption(this,item,emailUsuario);
+        Utils.menuOption(this,item,emailUsuario,title);
         return true;
     }
 

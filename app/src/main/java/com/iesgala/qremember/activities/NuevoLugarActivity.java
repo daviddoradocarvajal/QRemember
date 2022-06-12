@@ -115,14 +115,14 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
             ByteArrayOutputStream blob = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 100, blob);
             byte[] bmData = blob.toByteArray();
-            NuevoLugarController.nuevoLugar(this, longitud, latitud, altitud, enlace, tvNombreLugar.getText().toString(), emailUsuario, bmData, categoriasSeleccionadas);
+            int respuesta = NuevoLugarController.nuevoLugar(this, longitud, latitud, altitud, enlace, tvNombreLugar.getText().toString(), emailUsuario, bmData, categoriasSeleccionadas);
             bm.recycle();
             try {
                 blob.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            NuevoLugarController.finalizar(this,emailUsuario);
+            NuevoLugarController.finalizar(this,emailUsuario,respuesta);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

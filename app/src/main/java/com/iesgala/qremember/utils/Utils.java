@@ -38,7 +38,7 @@ public class Utils {
     public static final String INTENTS_ALTITUD = "altitud";
     public static final String INTENTS_ENLACE = "enlace";
     public static final String INTENTS_POSICION = "posicion";
-
+    public static final String INTENTS_RESPUESTA = "respuesta";
 
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
@@ -56,10 +56,10 @@ public class Utils {
         return true;
     }
 
-    public static void menuOption(Activity activity, MenuItem item, String emailUsuario) {
+    public static void menuOption(Activity activity, MenuItem item, String emailUsuario,String title) {
         switch (item.getItemId()) {
             case R.id.miLocales:
-                if (activity.getActionBar().getTitle() == activity.getString(R.string.lugares))
+                if (title == activity.getString(R.string.lugares))
                     break;
                 else {
                     Intent intent = new Intent(activity, MainActivity.class);
@@ -70,7 +70,7 @@ public class Utils {
             case R.id.miRutas:
                 break;
             case R.id.miCompartido:
-                if (activity.getActionBar().getTitle() == activity.getString(R.string.conmigo))
+                if (title == activity.getString(R.string.conmigo))
                     break;
                 else {
                     //usuario_emisor 	latitud 	longitud 	altitud 	enlace 	usuario_receptor

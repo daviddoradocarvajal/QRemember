@@ -8,7 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.iesgala.qremember.R;
 import com.iesgala.qremember.utils.Utils;
+
+import java.util.Objects;
 
 /**
  *
@@ -17,16 +20,28 @@ import com.iesgala.qremember.utils.Utils;
  */
 public class CompartidoConmigoActivity extends AppCompatActivity {
     String emailUsuario;
+    String title;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_compartidoconmigo);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.conmigo);
+        title = getSupportActionBar().getTitle().toString();
+
         // emailUsuario = usuario_receptor
         //usuario_emisor 	latitud 	longitud 	altitud 	enlace 	usuario_receptor
     }
 
     @Override
+    protected void onResume() {
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.conmigo);
+        title = getSupportActionBar().getTitle().toString();
+        super.onResume();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Utils.menuOption(this,item,emailUsuario);
+        Utils.menuOption(this,item,emailUsuario,title);
         return true;
     }
 

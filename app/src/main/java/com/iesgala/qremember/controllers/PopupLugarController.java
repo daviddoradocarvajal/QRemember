@@ -52,13 +52,13 @@ public class PopupLugarController {
         // start activity modificar
         // finish
     }
-    public static void eliminar(Activity activity,String enlace){
+    public static void eliminar(Activity activity,String enlace,String email){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(activity.getString(R.string.msg_aviso));
         builder.setMessage(activity.getString(R.string.seguro_eliminar_lugar));
         builder.setPositiveButton(activity.getString(R.string.confirmar), (dialog, which) -> {
             try {
-                new AsyncTasks.DeleteTask().execute("DELETE FROM lugar WHERE enlace='"+enlace+"';").get(1, TimeUnit.MINUTES);
+                new AsyncTasks.DeleteTask().execute("DELETE FROM lugar_usuario WHERE enlace='"+enlace+"' AND email_usuario='"+email+"';").get(1, TimeUnit.MINUTES);
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
                 e.printStackTrace();
             }

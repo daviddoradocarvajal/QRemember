@@ -51,6 +51,18 @@
         <activity android:name=".activities.NuevoLugarActivity"
             android:exported="true"
             android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.CompartidoConmigoActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.StartActivity"/>
+        <activity android:name=".activities.CompartirLugarActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.StartActivity"/>
+        <activity android:name=".activities.EliminarCuentaActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.StartActivity"/>
+        <activity android:name=".activities.ModificarLugarActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.StartActivity"/>
     </application>
 
     <uses-permission-sdk-23
@@ -74,5 +86,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
 </manifest>

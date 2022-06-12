@@ -93,4 +93,7 @@
     <string name="msg_aviso">Aviso</string>
     <string name="err_no_imagen">No se ha seleccionado ninguna imagen</string>
     <string name="seguro_salir">¿Seguro que deseas salir?</string>
+    <string name="lugar_registrado_ok">Lugar registrado correctamente</string>
+    <string name="lugar_registrado_almacenado_usuario">El lugar ya estaba en la base de datos, se ha almacenado en tu cuenta y se ha añadido la foto</string>
+    <string name="lugar_registrado_err">El lugar ya esta registrado en tu cuenta</string>
 </resources>
