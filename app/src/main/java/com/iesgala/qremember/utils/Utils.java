@@ -33,6 +33,7 @@ public class Utils {
     public static final String BD = "9eDAI0bmOi";
     public static final String USUARIO = "9eDAI0bmOi";
     public static final String PASSWORD = "KHnfj1mvHO";
+    public static final String ENCRYPT_PASS = "hunter1";
     public static final String INTENTS_EMAIL = "email";
     public static final String INTENTS_EMAIL_EMISOR = "emailEmisor";
     public static final String INTENTS_LONGITUD = "longitud";
@@ -98,6 +99,9 @@ public class Utils {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
+                break;
+            case android.R.id.home:
+                activity.onBackPressed();
                 break;
         }
     }

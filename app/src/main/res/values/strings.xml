@@ -34,7 +34,7 @@
     <string name="enlace">Enlace</string>
     <string name="seguro_eliminar_lugar">¿Seguro que deseas eliminar el lugar?</string>
     <string name="seguro_eliminar_cuenta">¿Seguro que deseas eliminar tu cuenta?</string>
-    <string name="eliminar_cuenta_tv">Por favor introduce tu email y contraseña \npara eliminar tu cuenta o pulsa atrás para cancelar</string>
+    <string name="eliminar_cuenta_tv">Por favor introduce tu email y contraseña y después pulsa confirmar para eliminar tu cuenta o pulsa atrás para cancelar</string>
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="pregunta_seguridad">Introduce una pregunta de seguridad</string>
@@ -102,4 +102,6 @@
     <string name="msg_ya_registrado">El usuario ya tiene este lugar entre sus lugares</string>
     <string name="msg_ya_compartido">El lugar ya ha sido compartido con el usuario</string>
     <string name="msg_compartido_ok">Lugar compartido correctamente</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="rechazar">Rechazar</string>
 </resources>

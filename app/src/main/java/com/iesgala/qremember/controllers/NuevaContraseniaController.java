@@ -26,7 +26,7 @@ public class NuevaContraseniaController {
         }
         if (tvNuevaPass.getText().toString().trim().equals(tvNuevaPassRe.getText().toString().trim())) {
             try {
-                String sql = "UPDATE usuario SET contrasenia = aes_encrypt('" + tvNuevaPass.getText().toString() + "','hunter1') WHERE email='" + email + "'";
+                String sql = "UPDATE usuario SET contrasenia = aes_encrypt('" + tvNuevaPass.getText().toString() + "','"+Utils.ENCRYPT_PASS+"') WHERE email='" + email + "'";
                 boolean actualizado = new AsyncTasks.UpdateTask().execute(sql).get(1, TimeUnit.MINUTES);
                 if (actualizado) {
                     Intent intent = new Intent(activity.getBaseContext(), StartActivity.class);

@@ -53,16 +53,16 @@
             android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.CompartidoConmigoActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
+            android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.CompartirLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
+            android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.EliminarCuentaActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
+            android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.ModificarLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
+            android:parentActivityName=".activities.MainActivity"/>
     </application>
 
     <uses-permission-sdk-23

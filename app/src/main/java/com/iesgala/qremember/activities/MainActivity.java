@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         filtroCategorias();
         setAdapter(intent);
-
     }
 
     @Override

@@ -44,7 +44,7 @@ public class StartActivityController {
                     Utils.AlertDialogGenerate(tvEmail.getContext(), activity.getString(R.string.err), "Introduzca un email valido");
                     return;
                 }
-                String sql = "SELECT nombre,email,aes_decrypt(contrasenia,'hunter1') as password FROM usuario WHERE email='" + tvEmail.getText().toString() + "'";
+                String sql = "SELECT nombre,email,aes_decrypt(contrasenia,'"+Utils.ENCRYPT_PASS+"') as password FROM usuario WHERE email='" + tvEmail.getText().toString() + "'";
                 ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
                 Usuario usuario;
                 if (resultSet.next()) {
