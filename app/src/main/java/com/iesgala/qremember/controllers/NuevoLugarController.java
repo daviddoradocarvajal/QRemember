@@ -26,8 +26,6 @@ public class NuevoLugarController {
 
     public static int nuevoLugar(Activity activity, String longitud, String latitud, String altitud, String enlace, String nombreLugar, String emailUsuario, byte[] bmData, ArrayList<String> nombresCategoria){
         try {
-            // SELECT longitud, latitud, altitud,enlace from lugar WHERE longitud = '"+longitud+"' AND latitud = '"+latitud+"' AND altitud = '"+altitud+"' AND enlace = '"+enlace+"'
-            // SELECT longitud, latitud, altitud, enlace, email_usuario FROM lugar_usuario WHERE longitud = '+longitud+' AND latitud = '+latitud+' AND altitud = '+altitud+' AND enlace = '+enlace+' AND email_usuario = '+emailUsuario+'
             ResultSet resultSetLugares = new AsyncTasks.SelectTask().execute("SELECT longitud, latitud, altitud,enlace from lugar WHERE longitud = '"+longitud+"' AND latitud = '"+latitud+"' AND altitud = '"+altitud+"' AND enlace = '"+enlace+"'").get(1,TimeUnit.MINUTES);
             if(resultSetLugares.next()){
                 ResultSet resultSetLugarUsuario = new AsyncTasks.SelectTask().execute("SELECT longitud, latitud, altitud, enlace, email_usuario FROM lugar_usuario WHERE longitud = '"+longitud+"' AND latitud = '"+latitud+"' AND altitud = '"+altitud+"' AND enlace = '"+enlace+"' AND email_usuario = '"+emailUsuario+"'").get(1,TimeUnit.MINUTES);

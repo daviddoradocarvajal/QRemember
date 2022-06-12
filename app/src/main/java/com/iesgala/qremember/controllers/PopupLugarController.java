@@ -56,7 +56,6 @@ public class PopupLugarController {
 
     }
     public static void modificar(Activity activity,String enlace,String longitud,String latitud,String altitud,String nombre){
-
         Intent intent = new Intent(activity.getBaseContext(), ModificarLugarActivity.class);
         intent.putExtra(Utils.INTENTS_ENLACE, enlace);
         intent.putExtra(Utils.INTENTS_LONGITUD, longitud);

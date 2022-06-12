@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.182" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/drawable/ic_launcher_background.xml" value="0.182" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_compartidoconmigo.xml" value="0.1748610517315092" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_compartirlugar.xml" value="0.5" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/activity_eliminarcuenta.xml" value="0.2" />
@@ -21,6 +23,7 @@
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/lugares_layout.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/layout/popup_lugar.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/menu/menu_opciones.xml" value="0.25" />
+        <entry key="..\:/Users/ModoTrabajo/AndroidStudioProjects/QRemember/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.182" />
       </map>
     </option>
   </component>

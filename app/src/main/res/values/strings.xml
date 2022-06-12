@@ -75,7 +75,7 @@
     <string name="seleccione_pregunta">Seleccione una pregunta de seguridad</string>
     <string name="tomar_foto">Tomar foto</string>
     <string name="escribe_nombre">Escribe el nombre del lugar</string>
-    <string name="modifica_nombre">Escribe el nombre del lugar\no dejalo en blanco para no modificarlo</string>
+    <string name="modifica_nombre">Escribe el nombre del lugar\ndejalo en blanco para no modificarlo</string>
     <string name="selecciona_categoria">Selecciona las categorias del lugar</string>
     <string name="pulsa_tomar_foto">Pulsa aqui para tomar una foto del lugar</string>
     <string name="insert_err">No se ha podido registar el usuario</string>

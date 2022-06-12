@@ -1,5 +1,6 @@
 package com.iesgala.qremember.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,7 +35,6 @@ public class Utils {
     public static final String PASSWORD = "KHnfj1mvHO";
     public static final String INTENTS_EMAIL = "email";
     public static final String INTENTS_EMAIL_EMISOR = "emailEmisor";
-    public static final String INTENTS_EMAIL_RECEPTOR = "emailReceptor";
     public static final String INTENTS_LONGITUD = "longitud";
     public static final String INTENTS_LATITUD = "latitud";
     public static final String INTENTS_ALTITUD = "altitud";
@@ -58,10 +58,11 @@ public class Utils {
         return true;
     }
 
-    public static void menuOption(Activity activity, MenuItem item, String emailUsuario,String title) {
+    @SuppressLint("NonConstantResourceId")
+    public static void menuOption(Activity activity, MenuItem item, String emailUsuario, String title) {
         switch (item.getItemId()) {
             case R.id.miLocales:
-                if (title == activity.getString(R.string.lugares))
+                if (title.equals(activity.getString(R.string.lugares)))
                     break;
                 else {
                     Intent intent = new Intent(activity, MainActivity.class);
@@ -72,7 +73,7 @@ public class Utils {
             case R.id.miRutas:
                 break;
             case R.id.miCompartido:
-                if (title == activity.getString(R.string.conmigo))
+                if (title.equals(activity.getString(R.string.conmigo)))
                     break;
                 else {
                     //usuario_emisor 	latitud 	longitud 	altitud 	enlace 	usuario_receptor
@@ -89,20 +90,11 @@ public class Utils {
                 activity.finish();
                 break;
             case R.id.miSalir:
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                 builder.setTitle(activity.getString(R.string.msg_aviso));
                 builder.setMessage(R.string.seguro_salir);
-                builder.setPositiveButton(activity.getString(R.string.confirmar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        activity.finishAffinity();
-                    }
-                });
-                builder.setNegativeButton(activity.getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
+                builder.setPositiveButton(activity.getString(R.string.confirmar), (dialog, which) -> activity.finishAffinity());
+                builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
