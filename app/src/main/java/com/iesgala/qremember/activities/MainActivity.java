@@ -48,7 +48,7 @@ import java.util.concurrent.TimeoutException;
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     LocationManager locManager;
     Intent intent;
     String emailUsuario;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Utils.menuOption(this,item,emailUsuario,title);
+        Utils.menuOption(this, item, emailUsuario, title);
         return true;
     }
 
@@ -153,11 +153,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
 
     }
+
     private void filtroCategorias() {
         try {
-
             String sql = "SELECT nombre FROM categoria";
             ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
+            if (nombresCategoria == null || nombresCategoria.size() == 0) {
+                nombresCategoria.add("Todos");
+            }
             if (resultSet != null) {
                 while (resultSet.next()) {
                     nombresCategoria.add(resultSet.getString("nombre"));
@@ -173,26 +176,46 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        ArrayList<Lugar> lugaresFiltrados = MainActivityController.obtenerLugaresFiltrados(this, emailUsuario,nombresCategoria.get(position));
-        if (lugaresFiltrados != null) {
-            LocalesAdapter localesAdapter = new LocalesAdapter(this, lugaresFiltrados);
-            ListView lvLugares = findViewById(R.id.lvLugares);
-            lvLugares.setClickable(true);
-            lvLugares.setAdapter(localesAdapter);
-            lvLugares.setOnItemClickListener((adapterView, v, i, l) -> MainActivityController.clickLugar(
-                    this,
-                    i,
-                    lugaresFiltrados.get(i).getEnlace(),
-                    emailUsuario,
-                    lugaresFiltrados.get(i).getLongitud(),
-                    lugaresFiltrados.get(i).getLatitud(),
-                    lugaresFiltrados.get(i).getAltitud()
-            ));
+        if (position == 0) {
+            onNothingSelected(parent);
+        } else {
+            ArrayList<Lugar> lugaresFiltrados = MainActivityController.obtenerLugaresFiltrados(this, emailUsuario, nombresCategoria.get(position));
+            if (lugaresFiltrados != null) {
+                LocalesAdapter localesAdapter = new LocalesAdapter(this, lugaresFiltrados);
+                ListView lvLugares = findViewById(R.id.lvLugares);
+                lvLugares.setClickable(true);
+                lvLugares.setAdapter(localesAdapter);
+                lvLugares.setOnItemClickListener((adapterView, v, i, l) -> MainActivityController.clickLugar(
+                        this,
+                        i,
+                        lugaresFiltrados.get(i).getEnlace(),
+                        emailUsuario,
+                        lugaresFiltrados.get(i).getLongitud(),
+                        lugaresFiltrados.get(i).getLatitud(),
+                        lugaresFiltrados.get(i).getAltitud()
+                ));
+            }
         }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        ArrayList<Lugar> lugares = MainActivityController.obtenerLugares(this, emailUsuario);
+        if (lugares != null) {
+            LocalesAdapter localesAdapter = new LocalesAdapter(this, lugares);
+            ListView lvLugares = findViewById(R.id.lvLugares);
+            lvLugares.setClickable(true);
+            lvLugares.setAdapter(localesAdapter);
+            lvLugares.setOnItemClickListener((adapterView, view, i, l) -> MainActivityController.clickLugar(
+                    this,
+                    i,
+                    lugares.get(i).getEnlace(),
+                    emailUsuario,
+                    lugares.get(i).getLongitud(),
+                    lugares.get(i).getLatitud(),
+                    lugares.get(i).getAltitud()
+            ));
+        }
 
     }
 }

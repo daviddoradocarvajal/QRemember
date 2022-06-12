@@ -89,6 +89,7 @@ public class PopupLugarActivity extends AppCompatActivity {
         }
         Button btnCompartir = findViewById(R.id.btnCompartir);
         btnCompartir.setOnClickListener(l -> PopupLugarController.compartir(this,emailUsuario));
+        // Modificar lugar y lugar_categoria
         Button btnModificar = findViewById(R.id.btnModificar);
         btnModificar.setOnClickListener(l -> PopupLugarController.modificar(this,enlace));
         Button btnEliminar = findViewById(R.id.btnEliminar);
