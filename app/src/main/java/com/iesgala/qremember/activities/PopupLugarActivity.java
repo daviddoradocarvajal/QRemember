@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -86,6 +87,7 @@ public class PopupLugarActivity extends AppCompatActivity {
             ImagesAdapter imagesAdapter = new ImagesAdapter(this, imagenes);
             ListView lvImagenes = findViewById(R.id.lvImagenes);
             lvImagenes.setAdapter(imagesAdapter);
+            lvImagenes.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         }
         Button btnCompartir = findViewById(R.id.btnCompartir);
         btnCompartir.setOnClickListener(l -> PopupLugarController.compartir(this,emailUsuario));

@@ -5,9 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.model.Imagen;
@@ -40,7 +42,7 @@ public class ImagesAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return imagenes.get(position).getId();
     }
 
     @Override
@@ -51,10 +53,35 @@ public class ImagesAdapter extends BaseAdapter {
         ImageView ivLugar = convertView.findViewById(R.id.ivLugar);
         ivLugar.setImageDrawable(imagenes.get(position).getImagen());
         CheckBox chkLugar = convertView.findViewById(R.id.chkLugar);
-        chkLugar.setOnClickListener(v -> imagenes.get(position).setSeleccionado(chkLugar.isChecked()));
+        chkLugar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                imagenes.get(position).setSeleccionado(b);
+            }
+        });
+
+        //chkLugar.setOnClickListener(v -> imagenes.get(position).setSeleccionado(chkLugar.isChecked()));
         return convertView;
 
     }
 
+    /**
+     * Devuelve el número de tipos de la vista, se utiliza para reciclaje de
+     * las vistas del adaptador
+     * @return
+     */
+    @Override
+    public int getViewTypeCount() {
+        return getCount();
+    }
 
+    /**
+     * Devuelve la posición del tipo de vista en la lista a efectos de reciclaje de la misma
+     * @param position
+     * @return posición del tipo de la vista
+     */
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }
