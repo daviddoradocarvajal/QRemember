@@ -55,6 +55,7 @@ public class Lugar implements Serializable {
     public ArrayList<Categoria> getCategorias() {
         return categorias;
     }
+
     public String getTvCategorias() {
         String resultado ="";
         for (Categoria categoria : categorias){

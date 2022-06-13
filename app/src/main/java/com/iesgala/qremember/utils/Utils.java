@@ -15,6 +15,7 @@ import com.iesgala.qremember.R;
 import com.iesgala.qremember.activities.CompartidoConmigoActivity;
 import com.iesgala.qremember.activities.EliminarCuentaActivity;
 import com.iesgala.qremember.activities.MainActivity;
+import com.iesgala.qremember.activities.RutasActivity;
 import com.iesgala.qremember.model.Imagen;
 
 import java.util.concurrent.ExecutionException;
@@ -45,16 +46,10 @@ public class Utils {
 
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
-        // Volver a locales
         MenuItem opcmenu1 = menu.findItem(R.id.miLocales);
-        // Rutas?
         MenuItem opcmenu2 = menu.findItem(R.id.miRutas);
-        // Actividad compartido
         MenuItem opcmenu3 = menu.findItem(R.id.miCompartido);
-        // Actividad eliminar
         MenuItem opcmenu4 = menu.findItem(R.id.miEliminar);
-        // if dialog true
-        // Cerrar aplicacion
         MenuItem opcmenu5 = menu.findItem(R.id.miSalir);
         return true;
     }
@@ -72,12 +67,18 @@ public class Utils {
                     activity.finish();
                 }
             case R.id.miRutas:
+                if (title.equals(activity.getString(R.string.rutas)))
                 break;
+                else {
+                    Intent intent = new Intent(activity, RutasActivity.class);
+                    intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
             case R.id.miCompartido:
                 if (title.equals(activity.getString(R.string.conmigo)))
                     break;
                 else {
-                    //usuario_emisor 	latitud 	longitud 	altitud 	enlace 	usuario_receptor
                     Intent intent = new Intent(activity, CompartidoConmigoActivity.class);
                     intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
                     activity.startActivity(intent);

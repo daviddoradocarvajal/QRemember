@@ -1,22 +1,17 @@
 package com.iesgala.qremember.adapters;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.CompartidoConmigoController;
-import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.model.LugarUsuario;
-import com.iesgala.qremember.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class CompartidosAdapter extends BaseAdapter {
     private ArrayList<LugarUsuario> compartidos;
@@ -46,7 +41,7 @@ public class CompartidosAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Activity activity = this.activity;
         if (convertView == null)
-            convertView = activity.getLayoutInflater().inflate(R.layout.layout_compartido,null);
+            convertView = activity.getLayoutInflater().inflate(R.layout.layout_lugarcompartido,null);
         TextView tvUsuarioEmisor = convertView.findViewById(R.id.tvUsuarioEmisor);
         TextView tvEnlaceCompartir = convertView.findViewById(R.id.tvEnlaceComartir);
         Button btnAceptar = convertView.findViewById(R.id.btnAceptar);

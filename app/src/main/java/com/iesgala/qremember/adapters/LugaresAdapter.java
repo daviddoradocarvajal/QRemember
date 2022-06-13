@@ -27,11 +27,11 @@ import java.util.Objects;
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class LocalesAdapter extends BaseAdapter {
+public class LugaresAdapter extends BaseAdapter {
     private ArrayList<Lugar> lugares;
     private Activity activity;
 
-    public LocalesAdapter(@NonNull Activity activity, @NonNull List<Lugar> objects) {
+    public LugaresAdapter(@NonNull Activity activity, @NonNull List<Lugar> objects) {
         this.activity = activity;
         this.lugares = new ArrayList<>(objects);
     }

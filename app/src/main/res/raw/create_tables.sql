@@ -37,9 +37,10 @@ CREATE TABLE lugar_ruta (
     altitud varchar(100),
     enlace varchar(300),
     nombre_ruta varchar(100),
-    PRIMARY KEY (longitud,latitud,altitud,enlace,nombre_ruta),
+    email_ruta varchar(50),
+    PRIMARY KEY (longitud,latitud,altitud,enlace,nombre_ruta,email_ruta),
     CONSTRAINT fk_lugar_ruta FOREIGN KEY (longitud,latitud,altitud,enlace) REFERENCES lugar(longitud,latitud,altitud,enlace) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_ruta_lugar FOREIGN KEY (nombre_ruta) REFERENCES ruta(nombre) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT fk_ruta_lugar FOREIGN KEY (nombre_ruta,email_ruta) REFERENCES ruta(nombre,email_usuario) ON DELETE CASCADE ON UPDATE CASCADE
     );
 CREATE TABLE imagen (
     id int AUTO_INCREMENT,
@@ -68,9 +69,10 @@ CREATE TABLE lugar_categoria (
     );
 CREATE TABLE ruta_categoria (
     nombre_ruta varchar(50),
+    email_ruta varchar(50),
     nombre_categoria varchar(50),
-    PRIMARY KEY (nombre_ruta,nombre_categoria),
-    CONSTRAINT fk_ruta_categoria FOREIGN KEY (nombre_ruta) REFERENCES ruta(nombre) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (nombre_ruta,email_ruta,nombre_categoria),
+    CONSTRAINT fk_ruta_categoria FOREIGN KEY (nombre_ruta,email_ruta) REFERENCES ruta(nombre,email_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_categoria_ruta FOREIGN KEY (nombre_categoria) REFERENCES categoria(nombre) ON DELETE CASCADE ON UPDATE CASCADE
     );
 CREATE TABLE lugares_compartidos (
@@ -84,4 +86,14 @@ CREATE TABLE lugares_compartidos (
     CONSTRAINT fk_usuario_emisor FOREIGN KEY (usuario_emisor) REFERENCES usuario(email) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_usuario_receptor FOREIGN KEY (usuario_receptor) REFERENCES usuario(email) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_lugar FOREIGN KEY (longitud,latitud,altitud,enlace) REFERENCES lugar(longitud,latitud,altitud,enlace) ON DELETE CASCADE ON UPDATE CASCADE
+    );
+CREATE TABLE rutas_compartidas (
+    usuario_emisor varchar(50),
+    nombre_ruta varchar(50),
+    email_ruta varchar(50),
+    usuario_receptor varchar(50),
+    PRIMARY KEY (usuario_emisor,nombre_ruta,email_ruta,usuario_receptor),
+    CONSTRAINT fk_usuario_emisor_ruta FOREIGN KEY (usuario_emisor) REFERENCES usuario(email) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_usuario_receptor_ruta FOREIGN KEY (usuario_receptor) REFERENCES usuario(email) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_ruta FOREIGN KEY (nombre_ruta,email_ruta) REFERENCES ruta(nombre,email_usuario) ON DELETE CASCADE ON UPDATE CASCADE
     );

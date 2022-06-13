@@ -10,16 +10,16 @@
         android:id="@+id/tvEmailRecuperar"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginTop="73dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/email_usuario"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textColorHint="#6D4C41"
-        app:layout_constraintBottom_toTopOf="@+id/spPreguntaRecuperar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tvRespuestaRecuperar"
@@ -41,10 +41,10 @@
         android:id="@+id/btnComprobar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="75dp"
         android:text="@string/comprobar_pregunta_seguridad"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvRespuestaRecuperar"
         app:layout_constraintTop_toBottomOf="@+id/tvRespuestaRecuperar"
         tools:ignore="TextContrastCheck" />
 
@@ -52,12 +52,10 @@
         android:id="@+id/spPreguntaRecuperar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="166dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginTop="45dp"
         android:entries="@array/Preguntas"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailRecuperar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

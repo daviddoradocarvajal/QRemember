@@ -33,7 +33,7 @@ import java.util.concurrent.TimeoutException;
  * @version 1.0
  */
 public class ModificarLugarActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    String nombreLugar;
+    String nombreLugar,emailUsuario;
     String enlaceLugar,longitud,latitud,altitud;
     ArrayList<String> categorias;
     ArrayList<String> categoriasSeleccionadas;
@@ -52,6 +52,7 @@ public class ModificarLugarActivity extends AppCompatActivity implements Adapter
             longitud = intent.getStringExtra(Utils.INTENTS_LONGITUD);
             latitud = intent.getStringExtra(Utils.INTENTS_LATITUD);
             altitud = intent.getStringExtra(Utils.INTENTS_ALTITUD);
+            emailUsuario = intent.getStringExtra(Utils.INTENTS_EMAIL);
             Objects.requireNonNull(getSupportActionBar()).setTitle("Modificar " + nombreLugar);
         }
         lvCategoriasModificar = findViewById(R.id.lvCategoriasModificar);
@@ -97,5 +98,18 @@ public class ModificarLugarActivity extends AppCompatActivity implements Adapter
                 categoriasSeleccionadas.add(parent.getItemAtPosition(checked.keyAt(i)).toString());
             }
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        setResult(PopupLugarActivity.POPUPLUGAR_ACTIVITY_CODE, intent);
+        super.onBackPressed();
     }
 }

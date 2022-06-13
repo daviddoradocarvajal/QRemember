@@ -77,7 +77,7 @@ public class CompartidoConmigoController {
         ArrayList<LugarUsuario> compartidos = CompartidoConmigoController.obtenerCompartidos(activity, emailReceptor);
         if (compartidos != null) {
             CompartidosAdapter compartidosAdapter = new CompartidosAdapter(activity, compartidos);
-            ListView lvCompartidos = activity.findViewById(R.id.lvCompartidos);
+            ListView lvCompartidos = activity.findViewById(R.id.lvLugaresCompartidos);
             lvCompartidos.setAdapter(compartidosAdapter);
         }
     }

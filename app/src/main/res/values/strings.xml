@@ -23,6 +23,7 @@
     <string name="olvidar_contrasenia">¿Has olvidado la contraseña?</string>
     <string name="pulsame">Pulsa aqui</string>
     <string name="nuevo">Nuevo&#8230;</string>
+    <string name="nueva">Nueva&#8230;</string>
     <string name="ver">Ver enlace</string>
     <string name="eliminar">Eliminar</string>
     <string name="modificar">Modificar</string>
@@ -104,4 +105,6 @@
     <string name="msg_compartido_ok">Lugar compartido correctamente</string>
     <string name="aceptar">Aceptar</string>
     <string name="rechazar">Rechazar</string>
+    <string name="ver_ruta">Ver Ruta</string>
+    <string name="mapa">Mapa de la ruta</string>
 </resources>

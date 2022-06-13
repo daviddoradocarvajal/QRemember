@@ -94,7 +94,7 @@ public class PopupLugarActivity extends AppCompatActivity {
         Button btnCompartir = findViewById(R.id.btnCompartir);
         btnCompartir.setOnClickListener(l -> PopupLugarController.compartir(this,emailUsuario,enlace,longitud,latitud,altitud));
         Button btnModificar = findViewById(R.id.btnModificar);
-        btnModificar.setOnClickListener(l -> PopupLugarController.modificar(this,enlace,longitud,latitud,altitud,nombreLugar));
+        btnModificar.setOnClickListener(l -> PopupLugarController.modificar(this,enlace,longitud,latitud,altitud,nombreLugar,emailUsuario));
         Button btnEliminar = findViewById(R.id.btnEliminar);
         btnEliminar.setOnClickListener(l -> PopupLugarController.eliminar(this,enlace,emailUsuario));
         Button btnNuevaImagen = findViewById(R.id.btnNuevaImagen);

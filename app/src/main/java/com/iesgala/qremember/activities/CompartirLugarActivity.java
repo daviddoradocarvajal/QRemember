@@ -67,4 +67,18 @@ public class CompartirLugarActivity extends AppCompatActivity {
             this.finish();
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra(Utils.INTENTS_EMAIL,emailEmisor);
+        setResult(PopupLugarActivity.POPUPLUGAR_ACTIVITY_CODE, intent);
+        super.onBackPressed();
+    }
 }

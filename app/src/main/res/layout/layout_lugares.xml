@@ -26,37 +26,37 @@
         tools:srcCompat="@drawable/ic_launcher_foreground" />
 
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:layout_marginBottom="5dp"
+            android:hint="@string/nombre"
+            android:minWidth="200dp"
+            android:minHeight="30dp"
+            android:textColorHint="#000000"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:hint="@string/nombre"
-                android:minWidth="200dp"
-                android:minHeight="30dp"
-                android:textColorHint="#000000"
-                android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tvCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="@string/categorias"
+            android:minHeight="150dp"
+            android:textColorHint="#000000"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvCategoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="@string/categorias"
-                android:minHeight="150dp"
-                android:textColorHint="#000000"
-                android:textSize="16sp" />
-
-        </LinearLayout>
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,10 +67,9 @@
 
             <Button
                 android:id="@+id/btnVer"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ver"
-                 />
+                android:text="@string/ver" />
 
         </LinearLayout>
 </LinearLayout>

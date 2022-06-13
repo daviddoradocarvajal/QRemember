@@ -10,20 +10,20 @@
         android:id="@+id/btnEliminarConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="74dp"
         android:text="@string/confirmar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvEliminarPass"
         app:layout_constraintTop_toBottomOf="@+id/tvEliminarPass" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="53dp"
         android:text="@string/eliminar_cuenta_tv"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
         android:id="@+id/tvEliminarEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="27dp"
         android:ems="10"
         android:hint="@string/email_usuario"
         android:importantForAutofill="no"

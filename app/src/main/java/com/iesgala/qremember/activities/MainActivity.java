@@ -2,7 +2,6 @@ package com.iesgala.qremember.activities;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,9 +28,8 @@ import androidx.core.app.ActivityCompat;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.adapters.LocalesAdapter;
+import com.iesgala.qremember.adapters.LugaresAdapter;
 import com.iesgala.qremember.controllers.MainActivityController;
-import com.iesgala.qremember.model.Categoria;
 import com.iesgala.qremember.model.Lugar;
 import com.iesgala.qremember.utils.AsyncTasks;
 import com.iesgala.qremember.utils.Utils;
@@ -102,10 +100,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayList<Lugar> lugares = MainActivityController.obtenerLugares(this, emailUsuario);
         btnNuevoLugar = findViewById(R.id.btnNuevoLugar);
         if (lugares != null) {
-            LocalesAdapter localesAdapter = new LocalesAdapter(this, lugares);
+            LugaresAdapter lugaresAdapter = new LugaresAdapter(this, lugares);
             ListView lvLugares = findViewById(R.id.lvLugares);
             lvLugares.setClickable(true);
-            lvLugares.setAdapter(localesAdapter);
+            lvLugares.setAdapter(lugaresAdapter);
             lvLugares.setOnItemClickListener((adapterView, view, i, l) -> MainActivityController.clickLugar(
                     this,
                     i,
@@ -116,8 +114,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     lugares.get(i).getAltitud(),
                     lugares.get(i).getNombre()
             ));
-            btnNuevoLugar.setOnClickListener(l -> MainActivityController.nuevoLugar(this));
         }
+        btnNuevoLugar.setOnClickListener(l -> MainActivityController.nuevoLugar(this));
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -181,10 +179,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else {
             ArrayList<Lugar> lugaresFiltrados = MainActivityController.obtenerLugaresFiltrados(this, emailUsuario, nombresCategoria.get(position));
             if (lugaresFiltrados != null) {
-                LocalesAdapter localesAdapter = new LocalesAdapter(this, lugaresFiltrados);
+                LugaresAdapter lugaresAdapter = new LugaresAdapter(this, lugaresFiltrados);
                 ListView lvLugares = findViewById(R.id.lvLugares);
                 lvLugares.setClickable(true);
-                lvLugares.setAdapter(localesAdapter);
+                lvLugares.setAdapter(lugaresAdapter);
                 lvLugares.setOnItemClickListener((adapterView, v, i, l) -> MainActivityController.clickLugar(
                         this,
                         i,
@@ -203,10 +201,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> parent) {
         ArrayList<Lugar> lugares = MainActivityController.obtenerLugares(this, emailUsuario);
         if (lugares != null) {
-            LocalesAdapter localesAdapter = new LocalesAdapter(this, lugares);
+            LugaresAdapter lugaresAdapter = new LugaresAdapter(this, lugares);
             ListView lvLugares = findViewById(R.id.lvLugares);
             lvLugares.setClickable(true);
-            lvLugares.setAdapter(localesAdapter);
+            lvLugares.setAdapter(lugaresAdapter);
             lvLugares.setOnItemClickListener((adapterView, view, i, l) -> MainActivityController.clickLugar(
                     this,
                     i,

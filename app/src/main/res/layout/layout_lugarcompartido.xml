@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvUsuarioEmisor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/todo"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEnlaceComartir"
+        app:layout_constraintEnd_toStartOf="@+id/tvEnlaceComartir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvEnlaceComartir" />
+
+    <TextView
+        android:id="@+id/tvEnlaceComartir"
+        android:layout_width="0dp"
+        android:layout_height="113dp"
+        android:layout_marginEnd="11dp"
+        android:text="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/btnRechazar"
+        app:layout_constraintEnd_toStartOf="@+id/btnAceptar"
+        app:layout_constraintStart_toEndOf="@+id/tvUsuarioEmisor"
+        app:layout_constraintTop_toTopOf="@+id/btnRechazar" />
+
+    <Button
+        android:id="@+id/btnAceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/aceptar"
+        app:layout_constraintBottom_toTopOf="@+id/btnRechazar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvEnlaceComartir" />
+
+    <Button
+        android:id="@+id/btnRechazar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="9dp"
+        android:text="@string/rechazar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

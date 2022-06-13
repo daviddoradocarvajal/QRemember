@@ -4,20 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.adapters.CompartidosAdapter;
-import com.iesgala.qremember.adapters.LocalesAdapter;
 import com.iesgala.qremember.controllers.CompartidoConmigoController;
-import com.iesgala.qremember.model.LugarUsuario;
 import com.iesgala.qremember.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -57,7 +52,6 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
         intent.putExtra(Utils.INTENTS_EMAIL,emailReceptor);
         this.startActivity(intent);
         this.finish();
-
     }
 
     @Override

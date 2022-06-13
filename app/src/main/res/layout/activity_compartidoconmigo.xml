@@ -7,12 +7,21 @@
     android:background="@drawable/watercolor_background">
 
     <ListView
-        android:id="@+id/lvCompartidos"
+        android:id="@+id/lvLugaresCompartidos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/lvRutasCompartidas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <ListView
+        android:id="@+id/lvRutasCompartidas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintTop_toBottomOf="@+id/lvLugaresCompartidos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

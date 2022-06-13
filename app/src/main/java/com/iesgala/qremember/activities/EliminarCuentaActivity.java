@@ -36,4 +36,18 @@ public class EliminarCuentaActivity extends AppCompatActivity {
         btnEliminarconfirmar.setOnClickListener(l -> EliminarCuentaController.eliminarCuenta(this,tvEliminarEmail.getText().toString(),tvEliminarPass.getText().toString()));
 
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        this.startActivity(intent);
+        this.finish();
+    }
 }
