@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/watercolor_background">
 
     <EditText
-        android:id="@+id/tvNombreLugar2"
+        android:id="@+id/tvNombreLugarModificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -18,52 +17,53 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="@color/gris"
-        app:layout_constraintBottom_toTopOf="@+id/tvSeleccionaCategoria2"
-        app:layout_constraintStart_toStartOf="@+id/tvSeleccionaCategoria2"
-        app:layout_constraintTop_toBottomOf="@+id/tvLugar2" />
+        app:layout_constraintBottom_toTopOf="@+id/tvSeleccionaCategoriaModificar"
+        app:layout_constraintStart_toStartOf="@+id/tvSeleccionaCategoriaModificar"
+        app:layout_constraintTop_toBottomOf="@+id/tvLugarModificar" />
 
     <ListView
-        android:id="@+id/lvCategorias"
+        android:id="@+id/lvCategoriasModificar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="50dp"
         android:choiceMode="multipleChoice"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnModificarLugar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSeleccionaCategoria2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSeleccionaCategoriaModificar" />
 
     <TextView
-        android:id="@+id/tvLugar2"
+        android:id="@+id/tvLugarModificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:layout_marginBottom="42dp"
         android:text="@string/modifica_nombre"
-        app:layout_constraintBottom_toTopOf="@+id/tvNombreLugar2"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/tvNombreLugarModificar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvSeleccionaCategoria2"
+        android:id="@+id/tvSeleccionaCategoriaModificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="22dp"
         android:text="@string/selecciona_categoria"
-        app:layout_constraintBottom_toTopOf="@+id/lvCategorias"
+        app:layout_constraintBottom_toTopOf="@+id/lvCategoriasModificar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombreLugar2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreLugarModificar" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnModificarLugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/modificar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvCategorias" />
+        app:layout_constraintTop_toBottomOf="@id/lvCategoriasModificar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

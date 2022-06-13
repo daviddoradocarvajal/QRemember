@@ -56,7 +56,7 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        ListView lvMultiple = findViewById(R.id.lvCategorias);
+        ListView lvMultiple = findViewById(R.id.lvCategoriasNuevoLugar);
         categoriasSeleccionadas = new ArrayList<>();
         SparseBooleanArray checked = lvMultiple.getCheckedItemPositions();
         for (int i = 0; i < checked.size(); i++)
@@ -80,7 +80,7 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
                     nombresCategoria.add(resultSet.getString("nombre"));
                 }
                 tvNombreLugar = findViewById(R.id.tvNombreLugar);
-                ListView lv = findViewById(R.id.lvCategorias);
+                ListView lv = findViewById(R.id.lvCategoriasNuevoLugar);
                 lv.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
                 lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, nombresCategoria));
                 lv.setOnItemClickListener(this);
@@ -115,14 +115,14 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
             ByteArrayOutputStream blob = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 100, blob);
             byte[] bmData = blob.toByteArray();
-            NuevoLugarController.nuevoLugar(this, longitud, latitud, altitud, enlace, tvNombreLugar.getText().toString(), emailUsuario, bmData, categoriasSeleccionadas);
+            int respuesta = NuevoLugarController.nuevoLugar(this, longitud, latitud, altitud, enlace, tvNombreLugar.getText().toString(), emailUsuario, bmData, categoriasSeleccionadas);
             bm.recycle();
             try {
                 blob.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            NuevoLugarController.finalizar(this,emailUsuario);
+            NuevoLugarController.finalizar(this,emailUsuario,respuesta);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

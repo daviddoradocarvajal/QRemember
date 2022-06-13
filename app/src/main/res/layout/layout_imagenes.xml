@@ -11,7 +11,7 @@
         android:layout_width="283dp"
         android:layout_height="176dp"
         android:contentDescription="@string/descripcion_imagen"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ImageContrastCheck"

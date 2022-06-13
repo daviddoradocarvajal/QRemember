@@ -41,6 +41,7 @@ public class PopupLugarActivity extends AppCompatActivity {
     String longitud;
     String latitud;
     String altitud;
+    String nombreLugar;
     int posicion;
 
     @Override
@@ -82,6 +83,7 @@ public class PopupLugarActivity extends AppCompatActivity {
         longitud = data.getStringExtra(Utils.INTENTS_LONGITUD);
         latitud = data.getStringExtra(Utils.INTENTS_LATITUD);
         altitud = data.getStringExtra(Utils.INTENTS_ALTITUD);
+        nombreLugar = data.getStringExtra(Utils.INTENTS_NOMBRE_LUGAR);
         ArrayList<Imagen> imagenes = PopupLugarController.obtenerImagenes(this, enlace);
         if (imagenes.size() > 0) {
             ImagesAdapter imagesAdapter = new ImagesAdapter(this, imagenes);
@@ -90,11 +92,11 @@ public class PopupLugarActivity extends AppCompatActivity {
             lvImagenes.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         }
         Button btnCompartir = findViewById(R.id.btnCompartir);
-        btnCompartir.setOnClickListener(l -> PopupLugarController.compartir(this,emailUsuario));
+        btnCompartir.setOnClickListener(l -> PopupLugarController.compartir(this,emailUsuario,enlace,longitud,latitud,altitud));
         Button btnModificar = findViewById(R.id.btnModificar);
-        btnModificar.setOnClickListener(l -> PopupLugarController.modificar(this,enlace));
+        btnModificar.setOnClickListener(l -> PopupLugarController.modificar(this,enlace,longitud,latitud,altitud,nombreLugar));
         Button btnEliminar = findViewById(R.id.btnEliminar);
-        btnEliminar.setOnClickListener(l -> PopupLugarController.eliminar(this,enlace));
+        btnEliminar.setOnClickListener(l -> PopupLugarController.eliminar(this,enlace,emailUsuario));
         Button btnNuevaImagen = findViewById(R.id.btnNuevaImagen);
         btnNuevaImagen.setOnClickListener(l -> PopupLugarController.nuevaImagen(this, enlace,longitud,latitud,altitud));
         Button btnEliminarImagen = findViewById(R.id.btnEliminarImagen);

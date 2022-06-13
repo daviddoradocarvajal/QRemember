@@ -7,7 +7,7 @@
     android:background="@drawable/watercolor_background">
 
     <EditText
-        android:id="@+id/tvUsuarioCompartirLugar"
+        android:id="@+id/tvEmailReceptor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -29,14 +29,15 @@
         android:text="@string/compartir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUsuarioCompartirLugar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailReceptor" />
 
     <TextView
         android:id="@+id/tvLugarCompartir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="67dp"
-        android:text="@string/todo"
+        android:text="@string/compartir_lugar_msg"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

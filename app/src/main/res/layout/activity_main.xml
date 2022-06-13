@@ -9,12 +9,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="74dp"
         android:text="@string/filtro_cat"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/lvLugares"
@@ -25,13 +24,16 @@
     <Spinner
         android:id="@+id/spFiltroCategorias"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="535dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="57dp"
         android:contentDescription="@string/categorias"
-        android:minHeight="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnNuevoLugar"
+        android:entries="@array/Categorias"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/lvLugares"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,22 +42,22 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="46dp"
         android:text="@string/nuevo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spFiltroCategorias" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/lvLugares"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnNuevoLugar"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNuevoLugar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spFiltroCategorias">
+        app:layout_constraintTop_toTopOf="@+id/spFiltroCategorias">
 
     </ListView>
 

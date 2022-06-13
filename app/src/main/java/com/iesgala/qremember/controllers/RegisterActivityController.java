@@ -35,7 +35,7 @@ public class RegisterActivityController {
             Utils.AlertDialogGenerate(tvFormPass.getContext(),activity.getString(R.string.err),activity.getString(R.string.err_respuesta_form));
             return false;
         }
-        String sql = "INSERT INTO usuario VALUES ('"+tvFormEmail.getText().toString()+"','"+tvFormNombre.getText().toString()+"',aes_encrypt('"+tvFormPass.getText().toString()+"','hunter1'),'"+spPreguntas.getSelectedItem().toString()+"','"+tvFormRespuesta.getText().toString()+"')";
+        String sql = "INSERT INTO usuario VALUES ('"+tvFormEmail.getText().toString()+"','"+tvFormNombre.getText().toString()+"',aes_encrypt('"+tvFormPass.getText().toString()+"','"+Utils.ENCRYPT_PASS+"'),'"+spPreguntas.getSelectedItem().toString()+"','"+tvFormRespuesta.getText().toString()+"')";
         try {
             boolean insertado = new AsyncTasks.InsertTask().execute(sql).get(1, TimeUnit.MINUTES);
             if(insertado){

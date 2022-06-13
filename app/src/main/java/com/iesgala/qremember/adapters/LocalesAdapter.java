@@ -51,6 +51,7 @@ public class LocalesAdapter extends BaseAdapter {
         return 0;
     }
 
+
     @SuppressLint("InflateParams")
     @NonNull
     @Override
