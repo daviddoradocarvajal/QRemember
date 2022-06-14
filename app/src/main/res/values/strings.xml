@@ -107,4 +107,6 @@
     <string name="rechazar">Rechazar</string>
     <string name="ver_ruta">Ver Ruta</string>
     <string name="mapa">Mapa de la ruta</string>
+    <string name="mapa_de_ruta">Mapa de la ruta: </string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

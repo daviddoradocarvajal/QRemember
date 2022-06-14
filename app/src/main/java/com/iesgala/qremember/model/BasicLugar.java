@@ -1,6 +1,8 @@
 package com.iesgala.qremember.model;
 
-public class BasicLugar {
+import java.io.Serializable;
+
+public class BasicLugar implements Serializable {
     private float longitud;
     private float latitud;
     private float altitud;

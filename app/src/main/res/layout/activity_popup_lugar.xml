@@ -20,13 +20,16 @@
 
     <TextView
         android:id="@+id/tvCategoriasPopup"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="9dp"
+        android:layout_marginBottom="15dp"
         android:minHeight="25dp"
         android:text="@string/todo"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/lvImagenes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ListView

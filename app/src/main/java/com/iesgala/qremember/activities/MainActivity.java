@@ -2,6 +2,7 @@ package com.iesgala.qremember.activities;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -119,11 +120,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data != null) {
+      /*  if (data != null) {
             if (data.getStringExtra(Utils.INTENTS_EMAIL) != null) {
                 setAdapter(data);
             }
         }
+
+       */
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
@@ -147,8 +150,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Utils.AlertDialogGenerate(this, getString(R.string.err), getString(R.string.err_ubicacion));
             return;
         }
-        Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        @SuppressLint("MissingPermission") Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        @SuppressLint("MissingPermission") Location locGsm = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        if(locGps!=null)
         MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
+        else
+            MainActivityController.formularioNuevoLugar(locGsm, qrResult, emailUsuario, MainActivity.this);
 
     }
 

@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iesgala.qremember">
 
-    <uses-feature android:name="android.hardware.camera"
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -35,6 +37,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QRemember">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+
         <activity
             android:name=".activities.StartActivity"
             android:exported="true">
@@ -47,63 +69,77 @@
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
+            android:parentActivityName=".activities.StartActivity" />
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
+            android:parentActivityName=".activities.StartActivity" />
         <activity
             android:name=".activities.PopupLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.CaptureActivityPortrait"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".activities.RecuperarContraseniaActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities.RecuperarContraseniaActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
-        <activity android:name=".activities.NuevaContraseniaActivity"
+            android:parentActivityName=".activities.StartActivity" />
+        <activity
+            android:name=".activities.NuevaContraseniaActivity"
             android:exported="true"
-            android:parentActivityName=".activities.StartActivity"/>
-        <activity android:name=".activities.NuevoLugarActivity"
+            android:parentActivityName=".activities.StartActivity" />
+        <activity
+            android:name=".activities.NuevoLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.CompartidoConmigoActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.CompartidoConmigoActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.CompartirLugarActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.CompartirLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.EliminarCuentaActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.EliminarCuentaActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.ModificarLugarActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.ModificarLugarActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.RutasActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.RutasActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.PopupRutaActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.PopupRutaActivity"
             android:exported="false"
-            android:parentActivityName=".activities.RutasActivity"/>
-        <activity android:name=".activities.NuevaRutaActivity"
+            android:parentActivityName=".activities.RutasActivity" />
+        <activity
+            android:name=".activities.NuevaRutaActivity"
             android:exported="false"
-            android:parentActivityName=".activities.RutasActivity"/>
-        <activity android:name=".activities.ConfirmarNuevaRutaActivity"
+            android:parentActivityName=".activities.RutasActivity" />
+        <activity
+            android:name=".activities.ConfirmarNuevaRutaActivity"
             android:exported="false"
-            android:parentActivityName=".activities.RutasActivity"/>
-        <activity android:name=".activities.ModifiarRutaActivity"
+            android:parentActivityName=".activities.RutasActivity" />
+        <activity
+            android:name=".activities.ModifiarRutaActivity"
             android:exported="false"
-            android:parentActivityName=".activities.RutasActivity"/>
-        <activity android:name=".activities.ConfirmarModificarRutaActivity"
+            android:parentActivityName=".activities.RutasActivity" />
+        <activity
+            android:name=".activities.ConfirmarModificarRutaActivity"
             android:exported="false"
-            android:parentActivityName=".activities.RutasActivity"/>
-        <activity android:name=".activities.CompartirRutaActivity"
+            android:parentActivityName=".activities.RutasActivity" />
+        <activity
+            android:name=".activities.CompartirRutaActivity"
             android:exported="false"
-            android:parentActivityName=".activities.RutasActivity"/>
+            android:parentActivityName=".activities.RutasActivity" />
     </application>
 
 </manifest>

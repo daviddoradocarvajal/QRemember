@@ -43,6 +43,8 @@ public class Utils {
     public static final String INTENTS_ENLACE = "enlace";
     public static final String INTENTS_POSICION = "posicion";
     public static final String INTENTS_NOMBRE_LUGAR = "nombreLugar";
+    public static final String INTENTS_BASICLUGAR = "basicLugar";
+    public static final String INTENTS_NOMBRE_RUTA = "nombreRuta";
 
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
@@ -75,6 +77,7 @@ public class Utils {
                     activity.startActivity(intent);
                     activity.finish();
                 }
+                break;
             case R.id.miCompartido:
                 if (title.equals(activity.getString(R.string.conmigo)))
                     break;

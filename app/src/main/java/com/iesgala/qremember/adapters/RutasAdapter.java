@@ -50,7 +50,7 @@ public class RutasAdapter extends BaseAdapter {
         tvNombreRuta.setText(rutas.get(position).getNombre());
         tvCategoriasRuta.setText(rutas.get(position).getTvCategorias());
         Button btnVerRuta = convertView.findViewById(R.id.btnVerRuta);
-        btnVerRuta.setOnClickListener(e -> RutasController.verRuta(activity,this.rutas.get(position).getNombre(),this.rutas.get(position).getEmailUsuario()));
+        btnVerRuta.setOnClickListener(e -> RutasController.verRuta(activity,this.rutas.get(position).getNombre(),this.rutas.get(position).getEmailUsuario(),this.rutas.get(position).getLugares()));
         return convertView;
     }
 }
