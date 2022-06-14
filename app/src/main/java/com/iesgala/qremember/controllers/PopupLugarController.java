@@ -8,7 +8,6 @@ import android.provider.MediaStore;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.activities.CompartirLugarActivity;
-import com.iesgala.qremember.activities.MainActivity;
 import com.iesgala.qremember.activities.ModificarLugarActivity;
 import com.iesgala.qremember.activities.NuevoLugarActivity;
 import com.iesgala.qremember.model.Imagen;

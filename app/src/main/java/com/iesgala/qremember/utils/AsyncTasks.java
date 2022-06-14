@@ -1,29 +1,13 @@
 package com.iesgala.qremember.utils;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.AsyncTask;
 
-import androidx.appcompat.content.res.AppCompatResources;
-
-import com.iesgala.qremember.R;
-import com.iesgala.qremember.model.Categoria;
-import com.iesgala.qremember.model.Imagen;
-import com.iesgala.qremember.model.Lugar;
-import com.iesgala.qremember.model.Ruta;
-import com.iesgala.qremember.model.Usuario;
-
-import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.Instant;
-import java.util.ArrayList;
 
 /**
  * Clase para realizar las conexiones con la base de datos

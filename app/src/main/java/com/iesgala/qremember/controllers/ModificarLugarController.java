@@ -6,7 +6,6 @@ import android.widget.Toast;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.utils.AsyncTasks;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;

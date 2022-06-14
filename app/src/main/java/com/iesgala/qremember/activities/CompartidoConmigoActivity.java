@@ -28,7 +28,7 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compartidoconmigo);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.conmigo);
-        title = getSupportActionBar().getTitle().toString();
+        title = Objects.requireNonNull(getSupportActionBar().getTitle()).toString();
         try {
             Intent intent = getIntent();
             if (intent != null) {
@@ -57,7 +57,7 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.conmigo);
-        title = getSupportActionBar().getTitle().toString();
+        title = Objects.requireNonNull(getSupportActionBar().getTitle()).toString();
         super.onResume();
     }
 

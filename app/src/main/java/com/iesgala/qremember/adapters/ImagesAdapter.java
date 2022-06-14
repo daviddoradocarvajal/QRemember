@@ -9,7 +9,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.model.Imagen;
@@ -53,12 +52,7 @@ public class ImagesAdapter extends BaseAdapter {
         ImageView ivLugar = convertView.findViewById(R.id.ivLugar);
         ivLugar.setImageDrawable(imagenes.get(position).getImagen());
         CheckBox chkLugar = convertView.findViewById(R.id.chkLugar);
-        chkLugar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                imagenes.get(position).setSeleccionado(b);
-            }
-        });
+        chkLugar.setOnCheckedChangeListener((compoundButton, b) -> imagenes.get(position).setSeleccionado(b));
 
         //chkLugar.setOnClickListener(v -> imagenes.get(position).setSeleccionado(chkLugar.isChecked()));
         return convertView;

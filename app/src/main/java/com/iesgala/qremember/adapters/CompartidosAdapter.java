@@ -48,12 +48,8 @@ public class CompartidosAdapter extends BaseAdapter {
         Button btnRechazar = convertView.findViewById(R.id.btnRechazar);
         tvUsuarioEmisor.setText(compartidos.get(position).getEmailEmisor());
         tvEnlaceCompartir.setText(compartidos.get(position).getEnlace());
-        btnAceptar.setOnClickListener(l->{
-            CompartidoConmigoController.aceptarCompartido(activity,compartidos.get(position));
-        });
-        btnRechazar.setOnClickListener(l->{
-            CompartidoConmigoController.rechazarCompartido(activity,compartidos.get(position));
-        });
+        btnAceptar.setOnClickListener(l-> CompartidoConmigoController.aceptarCompartido(activity,compartidos.get(position)));
+        btnRechazar.setOnClickListener(l-> CompartidoConmigoController.rechazarCompartido(activity,compartidos.get(position)));
         return convertView;
     }
 }

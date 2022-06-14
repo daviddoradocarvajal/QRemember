@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     nombresCategoria.add(resultSet.getString("nombre"));
                 }
                 Spinner spFiltroCategorias = findViewById(R.id.spFiltroCategorias);
-                spFiltroCategorias.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nombresCategoria));
+                spFiltroCategorias.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, nombresCategoria));
                 spFiltroCategorias.setOnItemSelectedListener(this);
             }
         } catch (ExecutionException | TimeoutException | InterruptedException | SQLException e) {
