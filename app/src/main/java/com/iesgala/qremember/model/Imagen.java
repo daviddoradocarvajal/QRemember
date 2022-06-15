@@ -10,8 +10,8 @@ import java.io.Serializable;
  * @version 1.0
  */
 public class Imagen implements Serializable {
-    private int id;
-    private Drawable imagen;
+    private final int id;
+    private final Drawable imagen;
     private boolean seleccionado;
 
     public Imagen(int id, Drawable imagen) {

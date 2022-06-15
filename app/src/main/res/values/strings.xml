@@ -116,4 +116,15 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="modificar_ruta">\"Modificar ruta \"</string>
     <string name="nueva_ruta">Nueva Ruta</string>
+    <string name="err_categorias">Ha ocurrido un error obteniendo las categorias</string>
+    <string name="err_lugares">Ha ocurrido un error obteniendo los lugares</string>
+    <string name="aviso_nueva_ruta">Debes seleccionar al menos 2 lugares para crear una ruta</string>
+    <string name="aviso_nombre">Debes introducir un nombre</string>
+    <string name="aviso_selecciona_categoria">Debes seleccionar al menos una categoria</string>
+    <string name="nombre_repetido">Ya hay una ruta con ese nombre en tu cuenta</string>
+    <string name="seguro_eliminar_ruta">¿Seguro que deseas eliminar la ruta?</string>
+    <string name="act_compartir_ruta">Compartir Ruta</string>
+    <string name="msg_ruta_repetida">El usuario ya tiene una ruta con ese nombre</string>
+    <string name="msg_ruta_ya_compartida">Esta ruta ya ha sido compartida con el usuario</string>
+    <string name="msg_compartida_ok">La ruta ha sido compartida correctamente</string>
 </resources>

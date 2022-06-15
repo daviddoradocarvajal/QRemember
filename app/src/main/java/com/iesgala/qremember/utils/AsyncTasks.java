@@ -10,18 +10,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Clase para realizar las conexiones con la base de datos
- *
+ * Clase para realizar las tareas asíncronas con la base de datos *
  * @author David Dorado
  * @version 1.0
  */
 public class AsyncTasks {
     private static Connection conn;
 
+    /**
+     * Clase encargada de las consultas Select, devuelve un Resulset cuando se llama a su método get
+     */
     public static class SelectTask extends AsyncTask<String, Void, ResultSet> {
-        private ResultSet resultSet = null;
-        private Statement statement = null;
 
+        /**
+         * Método que ejecuta en otro hilo una consulta pasada como primer parámetro
+         * a la base de datos y devuelve un resulset
+         * @param strings
+         * @return
+         */
         @Override
         protected ResultSet doInBackground(String... strings) {
             try {
@@ -32,12 +38,12 @@ public class AsyncTasks {
                 throwables.printStackTrace();
             }
             try {
-                statement = conn.createStatement();
-                if(statement.isClosed() || statement == null){
+                Statement statement = conn.createStatement();
+                if(statement.isClosed()){
                     statement = conn.createStatement();
                 }
-                resultSet = statement.executeQuery(strings[0]);
-                if(resultSet.isClosed() || resultSet == null){
+                ResultSet resultSet = statement.executeQuery(strings[0]);
+                if(resultSet.isClosed()){
                     resultSet = statement.executeQuery(strings[0]);
                     return resultSet;
                 }
@@ -48,10 +54,18 @@ public class AsyncTasks {
             return null;
         }
     }
-
+    /**
+     * Clase encargada de las consultas Insert, devuelve un booleano cuando se llama a su método get
+     * Se puede usar para diferentes consultas, se divide así para mantener la coherencia
+     */
     public static class InsertTask extends AsyncTask<String, Void, Boolean> {
-        private Statement statement = null;
 
+        /**
+         * Método que ejecuta la sentencia que se le pasa como primer parámetro y devuelve un
+         * booleano en función del resultado de la sentencia
+         * @param strings admite varios parámetros aunque solo ejecuta el primero
+         * @return true si la consulta se ha ejecutado correctamente false si hay algun error
+         */
         @Override
         protected Boolean doInBackground(String... strings) {
             try {
@@ -63,22 +77,37 @@ public class AsyncTasks {
                 return false;
             }
             try {
-                statement = conn.createStatement();
-                if(statement.isClosed() || statement==null){
+                conn.setAutoCommit(false);
+                Statement statement = conn.createStatement();
+                if(statement.isClosed()){
                     statement = conn.createStatement();
                 }
+
                 statement.execute(strings[0]);
+                conn.commit();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 return false;
             }
         }
     }
-
+    /**
+     * Clase encargada de las consultas Update, devuelve un booleano cuando se llama a su método get
+     * Se puede usar para diferentes consultas, se divide así para mantener la coherencia
+     */
     public static class UpdateTask extends AsyncTask<String, Void, Boolean> {
-        private Statement statement = null;
-
+        /**
+         * Método que ejecuta la sentencia que se le pasa como primer parámetro y devuelve un
+         * booleano en función del resultado de la sentencia
+         * @param strings admite varios parámetros aunque solo ejecuta el primero
+         * @return true si la consulta se ha ejecutado correctamente false si hay algun error
+         */
         @Override
         protected Boolean doInBackground(String... strings) {
             try {
@@ -90,22 +119,37 @@ public class AsyncTasks {
                 return false;
             }
             try {
-                statement = conn.createStatement();
-                if(statement.isClosed() || statement==null){
+                conn.setAutoCommit(false);
+                Statement statement = conn.createStatement();
+                if(statement.isClosed()){
                     statement = conn.createStatement();
                 }
+
                 statement.execute(strings[0]);
+                conn.commit();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 return false;
             }
         }
     }
-
+    /**
+     * Clase encargada de las consultas Delete, devuelve un booleano cuando se llama a su método get
+     * Se puede usar para diferentes consultas, se divide así para mantener la coherencia
+     */
     public static class DeleteTask extends AsyncTask<String, Void, Boolean> {
-        private Statement statement = null;
-
+        /**
+         * Método que ejecuta la sentencia que se le pasa como primer parámetro y devuelve un
+         * booleano en función del resultado de la sentencia
+         * @param strings admite varios parámetros aunque solo ejecuta el primero
+         * @return true si la consulta se ha ejecutado correctamente false si hay algun error
+         */
         @Override
         protected Boolean doInBackground(String... strings) {
             try {
@@ -117,19 +161,32 @@ public class AsyncTasks {
                 return false;
             }
             try {
-                statement = conn.createStatement();
-                if(statement.isClosed() || statement==null){
+                conn.setAutoCommit(false);
+                Statement statement = conn.createStatement();
+                if(statement.isClosed()){
                     statement = conn.createStatement();
                 }
+
                 statement.execute(strings[0]);
+                conn.commit();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 return false;
             }
         }
     }
 
+    /**
+     * Clase encargada de ejecutar las consulta de Insert para las imágenes, se usa única y
+     * exclusivamente para insertar imágenes en la base de datos porque no era capaz de colocar
+     * los bytes en una consulta Insert normal
+     */
     public static class PreparedInsertImageTask extends AsyncTask<Object,Void,Boolean> {
         PreparedStatement preparedStatement = null;
         @Override
@@ -145,6 +202,7 @@ public class AsyncTasks {
                 }
 
             try{
+                conn.setAutoCommit(false);
                 byte[] bmData = (byte[]) objects[0];
                 String longitud = (String) objects[1];
                 String latitud = (String) objects[2];
@@ -160,8 +218,14 @@ public class AsyncTasks {
                 preparedStatement.setString(4,altitud);
                 preparedStatement.setString(5,enlace);
                 preparedStatement.execute();
+                conn.commit();
             }catch (SQLException e){
                 e.printStackTrace();
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 return false;
             }
             return false;

@@ -10,13 +10,13 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Lugar implements Serializable {
-    private String longitud;
-    private String latitud;
-    private String altitud;
-    private String enlace;
-    private String nombre;
-    private ArrayList<Imagen> imagenes;
-    private ArrayList<Categoria> categorias;
+    private final String longitud;
+    private final String latitud;
+    private final String altitud;
+    private final String enlace;
+    private final String nombre;
+    private final ArrayList<Imagen> imagenes;
+    private final ArrayList<Categoria> categorias;
 
     public Lugar(String longitud, String latitud, String altitud, String enlace, String nombre, ArrayList<Imagen> imagenes, ArrayList<Categoria> categorias) {
         this.longitud = longitud;

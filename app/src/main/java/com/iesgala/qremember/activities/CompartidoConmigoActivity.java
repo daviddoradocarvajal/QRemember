@@ -33,7 +33,8 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
             Intent intent = getIntent();
             if (intent != null) {
                 emailReceptor = intent.getStringExtra(Utils.INTENTS_EMAIL);
-                CompartidoConmigoController.setAdapter(this,emailReceptor);
+                CompartidoConmigoController.setLugaresAdapter(this,emailReceptor);
+                CompartidoConmigoController.setRutasAdapter(this,emailReceptor);
             }
         } catch (Exception e) {
             e.printStackTrace();

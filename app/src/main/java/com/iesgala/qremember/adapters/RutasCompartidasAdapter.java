@@ -9,16 +9,15 @@ import android.widget.TextView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.CompartidoConmigoController;
-import com.iesgala.qremember.model.LugarUsuario;
 import com.iesgala.qremember.model.RutaCompartida;
 
 import java.util.ArrayList;
 
 public class RutasCompartidasAdapter extends BaseAdapter {
-    private ArrayList<RutaCompartida> compartidas;
-    private Activity activity;
+    private final ArrayList<RutaCompartida> compartidas;
+    private final Activity activity;
 
-    public RutasCompartidasAdapter(ArrayList<RutaCompartida> compartidas, Activity activity) {
+    public RutasCompartidasAdapter(Activity activity,ArrayList<RutaCompartida> compartidas) {
         this.compartidas = compartidas;
         this.activity = activity;
     }

@@ -85,7 +85,14 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
                 lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, nombresCategoria));
                 lv.setOnItemClickListener(this);
                 Button btnTomarFoto = findViewById(R.id.btnTomarFoto);
-                btnTomarFoto.setOnClickListener(l -> dispatchTakePictureIntent());
+                btnTomarFoto.setOnClickListener(l -> {
+                    if(!tvNombreLugar.getText().toString().isEmpty()){
+                        if(lv.getCheckedItemCount()>=1){
+                            dispatchTakePictureIntent();
+                        }else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.aviso_selecciona_categoria));
+                    }else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.aviso_nombre));
+
+                });
             }
         } catch (ExecutionException | InterruptedException | TimeoutException | SQLException e) {
             e.printStackTrace();

@@ -3,11 +3,11 @@ package com.iesgala.qremember.model;
 import java.io.Serializable;
 
 public class BasicLugar implements Serializable {
-    private float longitud;
-    private float latitud;
-    private float altitud;
-    private String enlace;
-    private String nombre;
+    private final float longitud;
+    private final float latitud;
+    private final float altitud;
+    private final String enlace;
+    private final String nombre;
 
     public BasicLugar(float longitud, float latitud, float altitud, String enlace, String nombre) {
         this.longitud = longitud;

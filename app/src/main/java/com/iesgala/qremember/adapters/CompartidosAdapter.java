@@ -14,8 +14,8 @@ import com.iesgala.qremember.model.LugarUsuario;
 import java.util.ArrayList;
 
 public class CompartidosAdapter extends BaseAdapter {
-    private ArrayList<LugarUsuario> compartidos;
-    private Activity activity;
+    private final ArrayList<LugarUsuario> compartidos;
+    private final Activity activity;
 
     public CompartidosAdapter(Activity activity,ArrayList<LugarUsuario> compartidos) {
         this.compartidos = compartidos;

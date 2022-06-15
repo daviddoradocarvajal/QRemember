@@ -1,7 +1,6 @@
 package com.iesgala.qremember.activities;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,8 +14,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MapStyleOptions;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.PopupRutaController;
@@ -60,7 +57,7 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         Bundle mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY);
@@ -89,10 +86,8 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
     private void initialize() {
         TextView tvNombreRuta = findViewById(R.id.tvNombreRutaPopup);
         tvNombreRuta.setText(getString(R.string.mapa_de_ruta) + nombreRuta);
-        Button btnModificarRuta = findViewById(R.id.btnModificarRuta);
         Button btnCompartirRuta = findViewById(R.id.btnCompartirRuta);
         Button btnEliminarRuta = findViewById(R.id.btnEliminarRuta);
-        btnModificarRuta.setOnClickListener(l -> PopupRutaController.modificarRuta(this, emailUsuario, nombreRuta));
         btnCompartirRuta.setOnClickListener(l -> PopupRutaController.compartirRuta(this, emailUsuario, nombreRuta));
         btnEliminarRuta.setOnClickListener(l -> PopupRutaController.eliminarRuta(this, emailUsuario, nombreRuta));
     }
@@ -116,17 +111,16 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
     @Override
-    public void onMapReady(GoogleMap map) {
+    public void onMapReady(@NonNull GoogleMap map) {
         ArrayList<LatLng> locationArrayList = new ArrayList<>();
         for (int i = 0; i < lugares.size(); i++) {
             locationArrayList.add(new LatLng(lugares.get(i).getLatitud(),lugares.get(i).getLongitud()));
         }
         for (int i = 0; i < locationArrayList.size(); i++) {
-            map.addMarker(new MarkerOptions().position(locationArrayList.get(i)).title("Marker"+i));
+            map.addMarker(new MarkerOptions().position(locationArrayList.get(i)).title(lugares.get(i).getNombre()));
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i),18.0f));
 
         }
-
 
     }
 

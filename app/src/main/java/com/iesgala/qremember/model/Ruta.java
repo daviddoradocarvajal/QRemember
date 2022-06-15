@@ -9,10 +9,10 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Ruta implements Serializable {
-    private String nombre;
-    private String emailUsuario;
-    private ArrayList<BasicLugar> lugares;
-    private ArrayList<Categoria> categorias;
+    private final String nombre;
+    private final String emailUsuario;
+    private final ArrayList<BasicLugar> lugares;
+    private final ArrayList<Categoria> categorias;
 
     public Ruta(String nombre, String emailUsuario, ArrayList<BasicLugar> lugares, ArrayList<Categoria> categorias) {
         this.nombre = nombre;

@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String emailUsuario;
     Button btnNuevoLugar;
     String title;
-    ArrayList<String> nombresCategoria = new ArrayList<>();
+    final ArrayList<String> nombresCategoria = new ArrayList<>();
     ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent();
         intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.lugares);
-        title = getSupportActionBar().getTitle().toString();
+        title = Objects.requireNonNull(getSupportActionBar().getTitle()).toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setAdapter(intent);
         filtroCategorias();
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         intent = getIntent();
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.lugares);
-        title = getSupportActionBar().getTitle().toString();
+        title = Objects.requireNonNull(getSupportActionBar().getTitle()).toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         filtroCategorias();
         setAdapter(intent);
@@ -120,13 +120,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-      /*  if (data != null) {
-            if (data.getStringExtra(Utils.INTENTS_EMAIL) != null) {
-                setAdapter(data);
-            }
-        }
 
-       */
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
@@ -164,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             String sql = "SELECT nombre FROM categoria";
             ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
             if (nombresCategoria == null || nombresCategoria.size() == 0) {
-                nombresCategoria.add("Todos");
+                Objects.requireNonNull(nombresCategoria).add("Todos");
             }
             if (resultSet != null) {
                 while (resultSet.next()) {

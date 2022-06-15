@@ -16,8 +16,8 @@ import com.iesgala.qremember.model.Ruta;
 import java.util.ArrayList;
 
 public class RutasAdapter extends BaseAdapter {
-    private ArrayList<Ruta> rutas;
-    private Activity activity;
+    private final ArrayList<Ruta> rutas;
+    private final Activity activity;
 
     public RutasAdapter(@NonNull Activity activity,@NonNull ArrayList<Ruta> rutas) {
         this.rutas = rutas;

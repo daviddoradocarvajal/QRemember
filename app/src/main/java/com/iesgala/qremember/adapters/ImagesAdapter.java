@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -21,8 +20,8 @@ import java.util.List;
  * @version 1.0
  */
 public class ImagesAdapter extends BaseAdapter {
-    private ArrayList<Imagen> imagenes;
-    private Activity activity;
+    private final ArrayList<Imagen> imagenes;
+    private final Activity activity;
 
     public ImagesAdapter(@NonNull Activity activity, @NonNull List<Imagen> objects) {
         this.activity = activity;

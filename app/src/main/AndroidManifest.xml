@@ -6,7 +6,6 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -121,10 +120,6 @@
             android:parentActivityName=".activities.RutasActivity" />
         <activity
             android:name=".activities.NuevaRutaActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.RutasActivity" />
-        <activity
-            android:name=".activities.ModificarRutaActivity"
             android:exported="false"
             android:parentActivityName=".activities.RutasActivity" />
         <activity

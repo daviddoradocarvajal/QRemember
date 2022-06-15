@@ -1,9 +1,9 @@
 package com.iesgala.qremember.model;
 
 public class RutaCompartida {
-    private String emailEmisor;
-    private String emailReceptor;
-    private String nombreRuta;
+    private final String emailEmisor;
+    private final String emailReceptor;
+    private final String nombreRuta;
 
     public RutaCompartida(String emailEmisor, String emailReceptor, String nombreRuta) {
         this.emailEmisor = emailEmisor;

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @version 1.0
  */
 public class Categoria implements Serializable {
-    private String nombre;
+    private final String nombre;
 
     public Categoria(String nombre){
         this.nombre = nombre;

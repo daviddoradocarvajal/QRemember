@@ -81,7 +81,7 @@ public class PopupLugarController {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-    public static void nuevaImagen(Activity activity,String enlace,String longitud,String latitud,String altitud){
+    public static void nuevaImagen(Activity activity){
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(activity.getPackageManager()) != null) {
             activity.startActivityForResult(takePictureIntent, NuevoLugarActivity.REQUEST_IMAGE_CAPTURE);

@@ -38,14 +38,15 @@ public class RutasActivity extends AppCompatActivity implements AdapterView.OnIt
     String emailUsuario;
     Button btnNuevaRuta;
     String title;
-    ArrayList<String> nombresCategoria = new ArrayList<>();
+    final ArrayList<String> nombresCategoria = new ArrayList<>();
+
 
     @Override
     protected void onResume() {
         Intent intent = new Intent();
         intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.rutas);
-        title = getSupportActionBar().getTitle().toString();
+        title = Objects.requireNonNull(getSupportActionBar().getTitle()).toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setAdapter(intent);
         filtroCategorias();
@@ -58,7 +59,7 @@ public class RutasActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_rutas);
         intent = getIntent();
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.rutas);
-        title = getSupportActionBar().getTitle().toString();
+        title = Objects.requireNonNull(getSupportActionBar().getTitle()).toString();
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         filtroCategorias();
         setAdapter(intent);
@@ -75,20 +76,20 @@ public class RutasActivity extends AppCompatActivity implements AdapterView.OnIt
         }
         btnNuevaRuta.setOnClickListener(l -> RutasController.nuevaRuta(this,emailUsuario));
     }
-
+    // Esto podria estar en el controller pero demasiados parámetros
     private void filtroCategorias(){
         try {
             String sql = "SELECT nombre FROM categoria";
             ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
             if (nombresCategoria == null || nombresCategoria.size() == 0) {
-                nombresCategoria.add("Todos");
+                Objects.requireNonNull(nombresCategoria).add("Todos");
             }
             if (resultSet != null) {
                 while (resultSet.next()) {
                     nombresCategoria.add(resultSet.getString("nombre"));
                 }
                 Spinner spCategoriasRutas = findViewById(R.id.spCategoriasRutas);
-                spCategoriasRutas.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nombresCategoria));
+                spCategoriasRutas.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, nombresCategoria));
                 spCategoriasRutas.setOnItemSelectedListener(this);
             }
         } catch (ExecutionException | TimeoutException | InterruptedException | SQLException e) {

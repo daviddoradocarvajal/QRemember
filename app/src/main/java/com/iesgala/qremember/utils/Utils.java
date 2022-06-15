@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,15 +15,10 @@ import com.iesgala.qremember.activities.CompartidoConmigoActivity;
 import com.iesgala.qremember.activities.EliminarCuentaActivity;
 import com.iesgala.qremember.activities.MainActivity;
 import com.iesgala.qremember.activities.RutasActivity;
-import com.iesgala.qremember.model.Imagen;
-
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
- * Clase con las configuraciones de la aplicacion y métodos útiles para usar en várias clases
- *
+ * Clase con las configuraciones de la aplicacion, los valores constantes a usar por esta
+ * y métodos útiles para usar en várias clases *
  * @author David Dorado
  * @version 1.0
  */
@@ -46,16 +40,25 @@ public class Utils {
     public static final String INTENTS_BASICLUGAR = "basicLugar";
     public static final String INTENTS_NOMBRE_RUTA = "nombreRuta";
 
+    /**
+     * Método para inflar el menú principal de la aplicación en las actividades que lo necesiten
+     * @param menu
+     * @param activity
+     * @return
+     */
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
-        MenuItem opcmenu1 = menu.findItem(R.id.miLocales);
-        MenuItem opcmenu2 = menu.findItem(R.id.miRutas);
-        MenuItem opcmenu3 = menu.findItem(R.id.miCompartido);
-        MenuItem opcmenu4 = menu.findItem(R.id.miEliminar);
-        MenuItem opcmenu5 = menu.findItem(R.id.miSalir);
         return true;
     }
 
+    /**
+     * Método para asignar las acciones a las opciones del menú en las actividades que usén el menú
+     * comprueba a través del titulo que no se intenta volver a lanzar la misma actividad
+     * @param activity Actividad en la cual se pulsa la opción
+     * @param item Opción del menú pulsada
+     * @param emailUsuario Email del usuario que está logueado actualmente
+     * @param title Titulo de la barra superior de la actividad
+     */
     @SuppressLint("NonConstantResourceId")
     public static void menuOption(Activity activity, MenuItem item, String emailUsuario, String title) {
         switch (item.getItemId()) {
@@ -110,6 +113,13 @@ public class Utils {
         }
     }
 
+    /**
+     * Método que extrae el contexto a partir de un objeto de la clase View hasta obtener su
+     * actividad, se usa para obtener la actividad de una vista cuando esta está envuelta en varias
+     * capas de contexto
+     * @param view Objeto a partir del cual obtener la vista
+     * @return Un objeto de la clase Activity una vez desenvuelta la vista
+     */
     public static Activity getActivity(View view) {
         Context context = view.getContext();
         while (context instanceof ContextWrapper) {
@@ -121,6 +131,12 @@ public class Utils {
         return null;
     }
 
+    /**
+     * Método para generar cuadros de diálogo con un título y un mensaje
+     * @param context Contexto a en el que mostrar el cuadro de diálogo
+     * @param title Titulo del cuadro
+     * @param message Mensaje a mostrar en el cuadro de dialogo
+     */
     public static void AlertDialogGenerate(Context context, String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);

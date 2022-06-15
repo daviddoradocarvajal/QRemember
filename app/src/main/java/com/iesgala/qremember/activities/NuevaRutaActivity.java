@@ -15,7 +15,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
+import com.iesgala.qremember.controllers.MainActivityController;
 import com.iesgala.qremember.controllers.NuevaRutaController;
+import com.iesgala.qremember.model.Lugar;
 import com.iesgala.qremember.utils.AsyncTasks;
 import com.iesgala.qremember.utils.Utils;
 
@@ -27,10 +29,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     String emailUsuario;
     ArrayList<String> lugaresSeleccionados;
     ArrayList<String> categoriasSeleccionadasNuevaRuta;
+    ArrayList<Lugar> lugaresUsuario;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +42,61 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.nueva_ruta);
         Intent intent = getIntent();
         emailUsuario = intent.getStringExtra(Utils.INTENTS_EMAIL);
+        System.out.println(emailUsuario);
         TextView tvNombreNuevaRuta = findViewById(R.id.tvNombreNuevaRuta);
-        ListView lvNuevaRuta = findViewById(R.id.lvLugaresNuevaRuta);
+        ListView lvLugaresNuevaRuta = findViewById(R.id.lvLugaresNuevaRuta);
         ListView lvCategorasNuevaRuta = findViewById(R.id.lvCategoriasNuevaRuta);
-        setCategorias(lvCategorasNuevaRuta);
-        lugaresSeleccionados = new ArrayList<>();
+        if (setCategorias(lvCategorasNuevaRuta)) {
+            if (setLugares(lvLugaresNuevaRuta)) {
+            } else
+                Utils.AlertDialogGenerate(this, getString(R.string.err), getString(R.string.err_lugares));
+        } else
+            Utils.AlertDialogGenerate(this, getString(R.string.err), getString(R.string.err_categorias));
+
         Button btnNuevaRutaConfirmar = findViewById(R.id.btnNuevaRutaConfirmar);
-        btnNuevaRutaConfirmar.setOnClickListener(l-> NuevaRutaController.nuevaRuta(this,emailUsuario,tvNombreNuevaRuta.getText().toString(),lugaresSeleccionados,categoriasSeleccionadasNuevaRuta));
+        btnNuevaRutaConfirmar.setOnClickListener(l -> {
+            if (lvLugaresNuevaRuta.getCheckedItemCount()>=2) {
+                ArrayList<Lugar> lugaresInsertar = setLugaresRuta();
+                if (!tvNombreNuevaRuta.getText().toString().isEmpty()) {
+                    if (lvCategorasNuevaRuta.getCheckedItemCount()>=1) {
+                        NuevaRutaController.nuevaRuta(this, emailUsuario, tvNombreNuevaRuta.getText().toString(), lugaresInsertar, categoriasSeleccionadasNuevaRuta);
+                    } else
+                        Utils.AlertDialogGenerate(this, getString(R.string.msg_aviso), getString(R.string.aviso_selecciona_categoria));
+                } else
+                    Utils.AlertDialogGenerate(this, getString(R.string.msg_aviso), getString(R.string.aviso_nombre));
+            } else
+                Utils.AlertDialogGenerate(this, getString(R.string.msg_aviso), getString(R.string.aviso_nueva_ruta));
+        });
+    }
+    private ArrayList<Lugar> setLugaresRuta(){
+        ArrayList<Lugar> lugaresRetorno = new ArrayList<>();
+        for(int i=0;i<lugaresSeleccionados.size();i++){
+            for (int j=0;j<lugaresUsuario.size();j++){
+                if(lugaresSeleccionados.get(i).equals(lugaresUsuario.get(j).getNombre())) lugaresRetorno.add(lugaresUsuario.get(j));
+            }
+        }
+        return lugaresRetorno;
+    }
+    // Obtener los lugares que pertenecen al usuario, nombres para mostrar, lot lat alt enlace para guardar ruta
+    private boolean setLugares(ListView lvLugaresNuevaRuta) {
+        try {
+            lugaresSeleccionados = new ArrayList<>();
+            lugaresUsuario = MainActivityController.obtenerLugares(this, emailUsuario);
+            for (Lugar l : Objects.requireNonNull(lugaresUsuario)) {
+                lugaresSeleccionados.add(l.getNombre());
+            }
+            lvLugaresNuevaRuta.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+            lvLugaresNuevaRuta.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, lugaresSeleccionados));
+            lvLugaresNuevaRuta.setOnItemClickListener(this);
+            return true;
+        } catch (Exception e) {
+            Utils.AlertDialogGenerate(this, getString(R.string.err), e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    private void setCategorias(ListView listView){
+    private boolean setCategorias(ListView listView) {
         try {
             ResultSet resultSet = new AsyncTasks.SelectTask().execute("SELECT nombre FROM categoria").get(1, TimeUnit.MINUTES);
             if (resultSet != null) {
@@ -68,8 +117,11 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
                     }
                 }));
             }
-        }catch (SQLException | ExecutionException | InterruptedException | TimeoutException e){
+            return true;
+        } catch (SQLException | ExecutionException | InterruptedException | TimeoutException e) {
+            Utils.AlertDialogGenerate(this, getString(R.string.err), e.getMessage());
             e.printStackTrace();
+            return false;
         }
     }
 

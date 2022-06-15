@@ -28,8 +28,8 @@ import java.util.Objects;
  * @version 1.0
  */
 public class LugaresAdapter extends BaseAdapter {
-    private ArrayList<Lugar> lugares;
-    private Activity activity;
+    private final ArrayList<Lugar> lugares;
+    private final Activity activity;
 
     public LugaresAdapter(@NonNull Activity activity, @NonNull List<Lugar> objects) {
         this.activity = activity;

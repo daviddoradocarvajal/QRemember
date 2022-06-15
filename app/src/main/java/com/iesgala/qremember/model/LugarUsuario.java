@@ -2,12 +2,12 @@ package com.iesgala.qremember.model;
 
 public class LugarUsuario {
 
-    private String enlace;
-    private String longitud;
-    private String latitud;
-    private String altitud;
-    private String emailEmisor;
-    private String emailReceptor;
+    private final String enlace;
+    private final String longitud;
+    private final String latitud;
+    private final String altitud;
+    private final String emailEmisor;
+    private final String emailReceptor;
 
 
     public LugarUsuario(String enlace, String longitud, String latitud, String altitud, String emailEmisor, String emailReceptor) {
