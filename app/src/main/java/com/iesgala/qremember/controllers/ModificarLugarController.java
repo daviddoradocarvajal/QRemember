@@ -1,10 +1,12 @@
 package com.iesgala.qremember.controllers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.utils.AsyncTasks;
+import com.iesgala.qremember.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -18,7 +20,7 @@ import java.util.concurrent.TimeoutException;
  */
 public class ModificarLugarController {
 
-    public static void modificarLugar(Activity activity, ArrayList<String> seleccionadas, String nombreLugar, String enlace, String longitud, String latitud, String altitud){
+    public static void modificarLugar(Activity activity, ArrayList<String> seleccionadas, String nombreLugar, String enlace, String longitud, String latitud, String altitud,String email){
         try {
             if (nombreLugar != null && !nombreLugar.isEmpty()) {
                 if (new AsyncTasks.UpdateTask().execute("UPDATE lugar SET nombre='"+nombreLugar+"' WHERE enlace='"+enlace+"'").get(1, TimeUnit.MINUTES)){
@@ -39,6 +41,8 @@ public class ModificarLugarController {
                 }else
                     Toast.makeText(activity, activity.getString(R.string.err_desconocido), Toast.LENGTH_LONG).show();
             }
+            Intent intent = new Intent();
+            intent.putExtra(Utils.INTENTS_EMAIL,email);
             activity.finish();
         }catch (InterruptedException | ExecutionException | TimeoutException e){
                 e.printStackTrace();

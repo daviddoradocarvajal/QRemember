@@ -75,9 +75,15 @@ public class PopupLugarController {
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
                 e.printStackTrace();
             }
+            Intent intent = new Intent();
+            intent.putExtra(Utils.INTENTS_EMAIL_EMISOR, email);
             activity.finish();
         });
-        builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> activity.finish());
+        builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> {
+            Intent intent = new Intent();
+            intent.putExtra(Utils.INTENTS_EMAIL_EMISOR, email);
+            activity.finish();
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
@@ -87,7 +93,7 @@ public class PopupLugarController {
             activity.startActivityForResult(takePictureIntent, NuevoLugarActivity.REQUEST_IMAGE_CAPTURE);
         }
     }
-    public static void eliminarImagen(Activity activity,ArrayList<Imagen> imagenes){
+    public static void eliminarImagen(Activity activity,ArrayList<Imagen> imagenes,String email){
         int contador=0;
         for (Imagen img:imagenes){
             if(img.isSeleccionado()) contador++;
@@ -107,9 +113,15 @@ public class PopupLugarController {
                         e.printStackTrace();
                     }
                 }
+                Intent intent = new Intent();
+                intent.putExtra(Utils.INTENTS_EMAIL_EMISOR, email);
                 activity.finish();
             });
-            builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> activity.finish());
+            builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> {
+                Intent intent = new Intent();
+                intent.putExtra(Utils.INTENTS_EMAIL_EMISOR, email);
+                activity.finish();
+            });
             AlertDialog dialog = builder.create();
             dialog.show();
         }

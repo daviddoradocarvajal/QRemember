@@ -25,9 +25,15 @@ public class PopupRutaController {
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
                 e.printStackTrace();
             }
+            Intent intent = new Intent();
+            intent.putExtra(Utils.INTENTS_EMAIL_EMISOR,emailUsuario);
             activity.finish();
         });
-        builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> activity.finish());
+        builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> {
+            Intent intent = new Intent();
+            intent.putExtra(Utils.INTENTS_EMAIL_EMISOR,emailUsuario);
+            activity.finish();
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }

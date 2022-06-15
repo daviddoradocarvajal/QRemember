@@ -58,7 +58,7 @@ public class ModificarLugarActivity extends AppCompatActivity implements Adapter
         lvCategoriasModificar = findViewById(R.id.lvCategoriasModificar);
         tvNombreLugarModificar = findViewById(R.id.tvNombreLugarModificar);
         btnModificar = findViewById(R.id.btnModificarLugar);
-        btnModificar.setOnClickListener(l-> ModificarLugarController.modificarLugar(this,categoriasSeleccionadas,tvNombreLugarModificar.getText().toString(),enlaceLugar,longitud,latitud,altitud));
+        btnModificar.setOnClickListener(l-> ModificarLugarController.modificarLugar(this,categoriasSeleccionadas,tvNombreLugarModificar.getText().toString(),enlaceLugar,longitud,latitud,altitud,emailUsuario));
         inicializarListView();
 
 
