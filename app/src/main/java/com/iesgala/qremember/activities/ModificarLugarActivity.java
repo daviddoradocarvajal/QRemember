@@ -58,6 +58,13 @@ public class ModificarLugarActivity extends AppCompatActivity implements Adapter
         lvCategoriasModificar = findViewById(R.id.lvCategoriasModificar);
         tvNombreLugarModificar = findViewById(R.id.tvNombreLugarModificar);
         btnModificar = findViewById(R.id.btnModificarLugar);
+        btnModificar.setOnClickListener(l-> ModificarLugarController.modificarLugar(this,categoriasSeleccionadas,tvNombreLugarModificar.getText().toString(),enlaceLugar,longitud,latitud,altitud));
+        inicializarListView();
+
+
+    }
+    // Esto va en el controller?
+    public void inicializarListView(){
         try {
             ResultSet resultSet = new AsyncTasks.SelectTask().execute("SELECT nombre FROM categoria").get(1, TimeUnit.MINUTES);
             if (resultSet != null) {
@@ -81,13 +88,10 @@ public class ModificarLugarActivity extends AppCompatActivity implements Adapter
                     }
                 }
             }
-            btnModificar.setOnClickListener(l-> ModificarLugarController.modificarLugar(this,categoriasSeleccionadas,tvNombreLugarModificar.getText().toString(),enlaceLugar,longitud,latitud,altitud));
         } catch (SQLException | ExecutionException | InterruptedException | TimeoutException e) {
             e.printStackTrace();
         }
-
     }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         ListView lvMultiple = findViewById(R.id.lvCategoriasModificar);

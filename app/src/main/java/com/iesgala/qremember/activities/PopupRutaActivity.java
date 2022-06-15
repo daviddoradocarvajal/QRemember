@@ -118,27 +118,17 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap map) {
         ArrayList<LatLng> locationArrayList = new ArrayList<>();
-        LatLng sydney = new LatLng(-34, 151);
-        LatLng TamWorth = new LatLng(-31.083332, 150.916672);
-        LatLng NewCastle = new LatLng(-32.916668, 151.750000);
-        LatLng Brisbane = new LatLng(-27.470125, 153.021072);
-        locationArrayList.add(sydney);
-        locationArrayList.add(TamWorth);
         for (int i = 0; i < lugares.size(); i++) {
-
-            // below line is use to add marker to each location of our array list.
-            map.addMarker(new MarkerOptions().position(locationArrayList.get(i)).title("Marker"));
-
-            // below lin is use to zoom our camera on map.
-            map.animateCamera(CameraUpdateFactory.zoomTo(18.0f));
-
-            // below line is use to move our camera to the specific location.
-            map.moveCamera(CameraUpdateFactory.newLatLng(locationArrayList.get(i)));
+            locationArrayList.add(new LatLng(lugares.get(i).getLatitud(),lugares.get(i).getLongitud()));
         }
-    }
+        for (int i = 0; i < locationArrayList.size(); i++) {
+            map.addMarker(new MarkerOptions().position(locationArrayList.get(i)).title("Marker"+i));
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i),18.0f));
 
-//map.addMarker(new MarkerOptions().position(new LatLng(lugares.get(0).getLatitud(), lugares.get(0).getLongitud())).title("Marker"));
-//map.addMarker(new MarkerOptions().position(new LatLng(lugares.get(1).getLatitud(), lugares.get(1).getLongitud())).title("Marker"));
+        }
+
+
+    }
 
 
     @Override

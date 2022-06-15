@@ -39,10 +39,6 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Aceptar agrega al usuario y elimina de lugares_compartido
-        // Rechazar elimina de lugares_compartidos
-        // SELECT FROM lugares_compartidos where usuarioReceptor
-        //usuario_emisor 	latitud 	longitud 	altitud 	enlace 	usuario_receptor
     }
 
 

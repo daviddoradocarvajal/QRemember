@@ -39,7 +39,6 @@
         android:theme="@style/Theme.QRemember">
 
         <!--
-             TODO: Before you run your application, you need a Google Maps API key.
 
              To get one, follow the directions here:
 
@@ -125,15 +124,7 @@
             android:exported="false"
             android:parentActivityName=".activities.RutasActivity" />
         <activity
-            android:name=".activities.ConfirmarNuevaRutaActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.RutasActivity" />
-        <activity
-            android:name=".activities.ModifiarRutaActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.RutasActivity" />
-        <activity
-            android:name=".activities.ConfirmarModificarRutaActivity"
+            android:name=".activities.ModificarRutaActivity"
             android:exported="false"
             android:parentActivityName=".activities.RutasActivity" />
         <activity

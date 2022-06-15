@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.iesgala.qremember.R;
+import com.iesgala.qremember.activities.NuevaRutaActivity;
 import com.iesgala.qremember.activities.PopupRutaActivity;
 import com.iesgala.qremember.model.BasicLugar;
 import com.iesgala.qremember.model.Categoria;
@@ -102,7 +103,8 @@ public class RutasController {
     }
 
     public static void nuevaRuta(Activity activity,String emailUsuario){
-        // Intent put emailUsuario
-        // Start activity nuevaRuta
+        Intent intent = new Intent(activity, NuevaRutaActivity.class);
+        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        activity.startActivity(intent);
     }
 }

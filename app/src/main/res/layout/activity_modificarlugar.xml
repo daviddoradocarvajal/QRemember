@@ -16,7 +16,7 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="@color/gris"
+        android:textColorHint="#78909C"
         app:layout_constraintBottom_toTopOf="@+id/tvSeleccionaCategoriaModificar"
         app:layout_constraintStart_toStartOf="@+id/tvSeleccionaCategoriaModificar"
         app:layout_constraintTop_toBottomOf="@+id/tvLugarModificar" />

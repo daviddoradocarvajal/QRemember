@@ -77,7 +77,11 @@
     <string name="tomar_foto">Tomar foto</string>
     <string name="escribe_nombre">Escribe el nombre del lugar</string>
     <string name="modifica_nombre">Escribe el nombre del lugar\ndejalo en blanco para no modificarlo</string>
+    <string name="modifica_nombre_ruta">Escribe el nombre de la ruta\ndejalo en blanco para no modificarlo</string>
+    <string name="nombre_nueva_ruta">Escribe el nombre de la ruta</string>
     <string name="selecciona_categoria">Selecciona las categorias del lugar</string>
+    <string name="selecciona_lugares">Selecciona los lugares que componen la ruta</string>
+    <string name="selecciona_categorias_ruta">Selecciona las categorias de la ruta</string>
     <string name="pulsa_tomar_foto">Pulsa aqui para tomar una foto del lugar</string>
     <string name="insert_err">No se ha podido registar el usuario</string>
     <string name="err_pass_format">Introduzca una contraseña de 6 o mas caracteres con 1 mayuscula 1 minuscula y un número</string>
@@ -98,7 +102,8 @@
     <string name="lugar_registrado_almacenado_usuario">El lugar ya estaba en la base de datos, se ha almacenado en tu cuenta y se ha añadido la foto</string>
     <string name="lugar_registrado_err">El lugar ya esta registrado en tu cuenta</string>
     <string name="compartir_lugar">Compartir lugar</string>
-    <string name="compartir_lugar_msg">Escribe el email del usuario con el cual compartir el lugar\ny pulsa compartir</string>
+    <string name="compartir_lugar_msg">Escribe el email del usuario con el cual compartir el lugar y pulsa compartir</string>
+    <string name="compartir_ruta_msg">Escribe el email del usuario con el cual compartir la ruta y pulsa compartir</string>
     <string name="err_desconocido">Ha ocurrido un error</string>
     <string name="msg_ya_registrado">El usuario ya tiene este lugar entre sus lugares</string>
     <string name="msg_ya_compartido">El lugar ya ha sido compartido con el usuario</string>
@@ -109,4 +114,6 @@
     <string name="mapa">Mapa de la ruta</string>
     <string name="mapa_de_ruta">Mapa de la ruta: </string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="modificar_ruta">\"Modificar ruta \"</string>
+    <string name="nueva_ruta">Nueva Ruta</string>
 </resources>

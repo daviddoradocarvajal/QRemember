@@ -6,6 +6,7 @@ import android.widget.ListView;
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.adapters.CompartidosAdapter;
 import com.iesgala.qremember.model.LugarUsuario;
+import com.iesgala.qremember.model.RutaCompartida;
 import com.iesgala.qremember.utils.AsyncTasks;
 import com.iesgala.qremember.utils.Utils;
 
@@ -80,5 +81,16 @@ public class CompartidoConmigoController {
             ListView lvCompartidos = activity.findViewById(R.id.lvLugaresCompartidos);
             lvCompartidos.setAdapter(compartidosAdapter);
         }
+    }
+    // Se necesita clase base y convertir rechazar/aceptar en genérico
+    public static void aceptarRutaCompartida(Activity activity, RutaCompartida rutaCompartida){
+
+    }
+    public static void rechazarRutaCompartida(Activity activity, RutaCompartida rutaCompartida){
+
+    }
+
+    public static void setRutasAdapter(Activity activity, String emailReceptor) {
+
     }
 }
