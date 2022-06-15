@@ -1,10 +1,12 @@
 package com.iesgala.qremember.controllers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.utils.AsyncTasks;
+import com.iesgala.qremember.utils.Utils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +37,8 @@ public class CompartirLugarController {
                     }
                 }
             }
+            Intent intent = new Intent();
+            intent.putExtra(Utils.INTENTS_EMAIL,emailEmisor);
             activity.finish();
         } catch (ExecutionException | InterruptedException | TimeoutException | SQLException e) {
             e.printStackTrace();
