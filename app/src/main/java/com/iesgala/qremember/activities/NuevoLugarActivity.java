@@ -134,4 +134,16 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        super.onBackPressed();
+    }
 }

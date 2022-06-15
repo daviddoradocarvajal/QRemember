@@ -131,4 +131,13 @@ public class RutasActivity extends AppCompatActivity implements AdapterView.OnIt
             lvRutas.setAdapter(rutasAdapter);
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        setResult(PopupLugarActivity.POPUPLUGAR_ACTIVITY_CODE, intent);
+        super.onBackPressed();
+    }
 }
