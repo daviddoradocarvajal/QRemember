@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         if (!listPermissionsNeeded.isEmpty()) {
             ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray
-                    (new String[listPermissionsNeeded.size()]), 1);
+                    (new String[0]), 1);
             return false;
         }
         return true;
@@ -178,12 +178,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void rastreoGPS(String qrResult) {
         checkAndRequestPermissions();
         locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
-        }
-        if (ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_BACKGROUND_LOCATION)!=PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION},PackageManager.PERMISSION_GRANTED);
-        }
         final Location[] actual = new Location[1];
          @SuppressLint("MissingPermission") Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
          @SuppressLint("MissingPermission") Location locGsm = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -192,23 +186,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 null,
                 this.getMainExecutor(),
                 location -> actual[0] = location);
-        if(actual[0]!=null){
-            MainActivityController.formularioNuevoLugar(actual[0], qrResult, emailUsuario, MainActivity.this);
-        }
-        if(locGps!=null){
-            if(locGsm!=null){
-                if(locGps.getAccuracy()<locGsm.getAccuracy()){
-                    MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
-                }else
-                MainActivityController.formularioNuevoLugar(locGsm, qrResult, emailUsuario, MainActivity.this);
+        int contador=0;
+        do {
+            if (actual[0] != null) {
+                MainActivityController.formularioNuevoLugar(actual[0], qrResult, emailUsuario, MainActivity.this);
+                break;
             }
-            MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
-        }
-        MainActivityController.formularioNuevoLugar(locGsm, qrResult, emailUsuario, MainActivity.this);
-
-
-
-
+            if (locGps != null) {
+                if (locGsm != null) {
+                    if (locGps.getAccuracy() < locGsm.getAccuracy()) {
+                        MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
+                    } else {
+                        MainActivityController.formularioNuevoLugar(locGsm, qrResult, emailUsuario, MainActivity.this);
+                    }
+                    break;
+                }
+                MainActivityController.formularioNuevoLugar(locGps, qrResult, emailUsuario, MainActivity.this);
+                break;
+            }
+            contador++;
+        }while (contador<3);
+        if(contador>=3) Utils.AlertDialogGenerate(this,getString(R.string.err),getString(R.string.err_ubicacion));
     }
 
     private void filtroCategorias() {

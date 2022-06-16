@@ -46,6 +46,20 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
     private String emailUsuario;
     public static final int NUEVOLUGARACTIVITY_CODE = 79;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_nuevolugar);
+        Intent intent = getIntent();
+        longitud = intent.getStringExtra(Utils.INTENTS_LONGITUD);
+        latitud = intent.getStringExtra(Utils.INTENTS_LATITUD);
+        altitud = intent.getStringExtra(Utils.INTENTS_ALTITUD);
+        enlace = intent.getStringExtra(Utils.INTENTS_ENLACE);
+        emailUsuario = intent.getStringExtra(Utils.INTENTS_EMAIL);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.nuevo_lugar);
+        setCategorias();
+    }
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -99,19 +113,7 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
         }
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nuevolugar);
-        Intent intent = getIntent();
-        longitud = intent.getStringExtra(Utils.INTENTS_LONGITUD);
-        latitud = intent.getStringExtra(Utils.INTENTS_LATITUD);
-        altitud = intent.getStringExtra(Utils.INTENTS_ALTITUD);
-        enlace = intent.getStringExtra(Utils.INTENTS_ENLACE);
-        emailUsuario = intent.getStringExtra(Utils.INTENTS_EMAIL);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.nuevo_lugar);
-        setCategorias();
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
