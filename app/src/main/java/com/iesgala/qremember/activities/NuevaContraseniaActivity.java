@@ -15,6 +15,8 @@ import com.iesgala.qremember.utils.Utils;
 import java.util.Objects;
 
 /**
+ * Actividad encargada de cambiar la contraseña del usuario que ya se ha comprobado su identidad
+ * a través de su pregunta/respuesta de seguridad
  * @author David Dorado
  * @version 1.0
  */

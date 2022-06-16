@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,11 +24,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:layout_marginBottom="15dp"
         android:minHeight="25dp"
         android:text="@string/todo"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/lvImagenes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -36,9 +35,9 @@
         android:id="@+id/lvImagenes"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCompartir"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCategoriasPopup" />
@@ -47,67 +46,77 @@
         android:id="@+id/btnCompartir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="356dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="38dp"
         android:text="@string/compartir"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnModificar"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnModificar"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginEnd="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="38dp"
         android:text="@string/modificar"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCompartir"
-        app:layout_constraintEnd_toStartOf="@+id/btnEliminar"
-        app:layout_constraintStart_toEndOf="@+id/btnNuevaImagen"
-        app:layout_constraintTop_toTopOf="@+id/btnCompartir" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnCompartir"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/btnEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="38dp"
         android:text="@string/eliminar"
         android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="@+id/btnEliminarImagen"
-        app:layout_constraintTop_toBottomOf="@+id/lvImagenes" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnModificar" />
 
     <Button
         android:id="@+id/btnEliminarImagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="38dp"
         android:text="@string/eliminar_imagen"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnNuevaImagen"
-        app:layout_constraintTop_toBottomOf="@+id/btnEliminar" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnNuevaImagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="38dp"
         android:text="@string/nueva_imagen"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnEliminarImagen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCompartir"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintEnd_toStartOf="@+id/btnEliminarImagen" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="38dp"
+        android:text="@string/lugar"
+        app:layout_constraintBottom_toTopOf="@+id/btnCompartir"
+        app:layout_constraintStart_toStartOf="@+id/btnModificar" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/imagenes"
+        app:layout_constraintStart_toEndOf="@+id/btnNuevaImagen"
+        app:layout_constraintTop_toBottomOf="@+id/lvImagenes" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

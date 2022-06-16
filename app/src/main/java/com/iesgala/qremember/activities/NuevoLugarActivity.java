@@ -32,6 +32,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * Actividad encargada de almacenar un nuevo lugar en la cuenta del usuario a través de los datos
+ * que introduce el usuario, que son nombre y categorias del lugar (mínimo 1)
  * @author David Dorado
  * @version 1.0
  */
@@ -60,6 +62,9 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
         setCategorias();
     }
 
+    /**
+     * Método para tomar una foto y devolver el resultado en evento de ActivityResult
+     */
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {

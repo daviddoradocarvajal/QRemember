@@ -28,7 +28,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
+ * Actividad que muestra el formulario para modificar un lugar de un usuario implementa la interfaz
+ * OnItemSelectedListener que permite manejar el evento del listView con las categorias seleccionadas
+ * y tiene un textView para modificar el nombre del lugar si el usuario asi lo quiere
  * @author David Dorado
  * @version 1.0
  */
@@ -58,12 +60,19 @@ public class ModificarLugarActivity extends AppCompatActivity implements Adapter
         lvCategoriasModificar = findViewById(R.id.lvCategoriasModificar);
         tvNombreLugarModificar = findViewById(R.id.tvNombreLugarModificar);
         btnModificar = findViewById(R.id.btnModificarLugar);
-        btnModificar.setOnClickListener(l-> ModificarLugarController.modificarLugar(this,categoriasSeleccionadas,tvNombreLugarModificar.getText().toString(),enlaceLugar,longitud,latitud,altitud,emailUsuario));
+        btnModificar.setOnClickListener(l-> {
+            if(lvCategoriasModificar.getCheckedItemCount()>=1) {
+                ModificarLugarController.modificarLugar(this, categoriasSeleccionadas, tvNombreLugarModificar.getText().toString(), enlaceLugar, longitud, latitud, altitud, emailUsuario);
+            }else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.aviso_selecciona_categoria));
+        });
         inicializarListView();
-
-
     }
-    // Esto va en el controller?
+
+    /**
+     * Método que inicializa el listView con las categorias almacenadas en la base de datos, marca
+     * por defecto las categorias a las que ya pertenece el lugar y le asigna el listener con el
+     * evento al seleccionar/deseleccionar una categoria de la lista
+     */
     public void inicializarListView(){
         try {
             ResultSet resultSet = new AsyncTasks.SelectTask().execute("SELECT nombre FROM categoria").get(1, TimeUnit.MINUTES);

@@ -29,6 +29,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * Actividad encargada de almacenar una Ruta en la base de datos a través de los datos que introduce
+ * el usuario, que son nombre, lugares de la ruta (mínimo 2) y categorias de la ruta (mínimo 1)
+ * @author David Dorado
+ * @version 1.0
+ */
 public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     String emailUsuario;
     ArrayList<String> lugaresSeleccionados;
@@ -55,8 +61,10 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
 
         Button btnNuevaRutaConfirmar = findViewById(R.id.btnNuevaRutaConfirmar);
         btnNuevaRutaConfirmar.setOnClickListener(l -> {
+            // Si hay 2 o mas lugares marcados se preparan los lugares a insertar
             if (lvLugaresNuevaRuta.getCheckedItemCount()>=2) {
                 ArrayList<Lugar> lugaresInsertar = setLugaresRuta();
+                // Si el texto del nombre no esta en blanco y hay 1 o mas categorias marcadas se inserta en la base de datos
                 if (!tvNombreNuevaRuta.getText().toString().isEmpty()) {
                     if (lvCategorasNuevaRuta.getCheckedItemCount()>=1) {
                         NuevaRutaController.nuevaRuta(this, emailUsuario, tvNombreNuevaRuta.getText().toString(), lugaresInsertar, categoriasSeleccionadasNuevaRuta);
@@ -68,6 +76,12 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
                 Utils.AlertDialogGenerate(this, getString(R.string.msg_aviso), getString(R.string.aviso_nueva_ruta));
         });
     }
+
+    /**
+     * Método engargado de devolver un ArrayList con los lugares seleccionados en el ListView de los
+     * lugares
+     * @return Una lista con los lugares seleccionados por el usuario
+     */
     private ArrayList<Lugar> setLugaresRuta(){
         ArrayList<Lugar> lugaresRetorno = new ArrayList<>();
         for(int i=0;i<lugaresSeleccionados.size();i++){
@@ -77,7 +91,13 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
         }
         return lugaresRetorno;
     }
-    // Obtener los lugares que pertenecen al usuario, nombres para mostrar, lot lat alt enlace para guardar ruta
+
+    /**
+     * Método que obtiene los lugares almacenados en la cuenta del usuario y los asigna al ListView
+     * introducido como parámetro
+     * @param lvLugaresNuevaRuta ListView al que asignar los lugares
+     * @return true si se ha asigando correctamente al ListView false en caso de error
+     */
     private boolean setLugares(ListView lvLugaresNuevaRuta) {
         try {
             lugaresSeleccionados = new ArrayList<>();
@@ -96,6 +116,12 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
         }
     }
 
+    /**
+     * Método que obtiene las categorias de la base de datos y las asigna al ListView introducido
+     * como parámetro
+     * @param listView ListView al que asignar las categorías
+     * @return true si se ha asigando correctamente al ListView false en caso de error
+     */
     private boolean setCategorias(ListView listView) {
         try {
             ArrayList<String> categorias = new ArrayList<>();

@@ -20,7 +20,12 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-
+/**
+ * Clase que maneja la actividad para compartir un lugar con otro usuario introduciendo el email
+ * en el campo de texto que contiene
+ * @author David Dorado
+ * @version 1.0
+ */
 public class CompartirRutaActivity extends AppCompatActivity {
     String emailEmisor, nombreRuta;
 

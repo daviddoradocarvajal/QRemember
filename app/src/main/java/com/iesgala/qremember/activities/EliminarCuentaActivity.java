@@ -15,7 +15,8 @@ import com.iesgala.qremember.utils.Utils;
 import java.util.Objects;
 
 /**
- *
+ * Clase actividad con los campos de texto para comprobar que es el usuario el que está intentando
+ * eliminar su cuenta y un boton para confirmar la eliminación de la cuenta
  * @author David Dorado
  * @version 1.0
  */

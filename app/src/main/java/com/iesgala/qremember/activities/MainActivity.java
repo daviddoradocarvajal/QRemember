@@ -48,6 +48,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * Clase con la actividad principal de la aplicación que es la interfaz de los lugares a partir de
+ * esta actividad que aparece cuando un usuario realiza un login correctamente se lanzarán las demas
+ * actividades en función de las acciones que realize el usuario implementa la interfaz
+ * OnItemSelectedListener que permite manejar el evento del spinner para filtrar por categoria
  * @author David Dorado Carvajal
  * @version 1.0
  */
@@ -58,17 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Button btnNuevoLugar;
     String title;
     final ArrayList<String> nombresCategoria = new ArrayList<>();
-    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == PopupLugarActivity.POPUPLUGAR_ACTIVITY_CODE || result.getResultCode() == NuevoLugarActivity.NUEVOLUGARACTIVITY_CODE) {
-                    Intent intent = result.getData();
-                    if (intent != null) {
-                        setAdapter(intent);
-                    }
-                }
-            }
-    );
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -104,6 +98,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    /**
+     * Método encargado de rellenar los lugares almacenados en la base de datos del usuario que
+     * se ha logueado en la aplicación
+     * @param data Intent con el email del usuario para las consultas con la base de datos
+     */
     private void setAdapter(Intent data) {
         emailUsuario = data.getStringExtra(Utils.INTENTS_EMAIL);
         ArrayList<Lugar> lugares = MainActivityController.obtenerLugares(this, emailUsuario);
@@ -127,12 +126,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnNuevoLugar.setOnClickListener(l -> MainActivityController.nuevoLugar(this));
     }
 
+    /**
+     * Método que recibe el resultado de una actividad y realiza acciones con su resultado
+     * @param requestCode Código de solicitud de la actividad
+     * @param resultCode Código de resultado de la actividad
+     * @param data Intent de la actividad con los datos devueltos
+     */
     @RequiresApi(api = Build.VERSION_CODES.R)
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+        // Se usa el método parseActivityResult para obtener los datos de IntentIntegrator
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        // Si el resultado no es null y los contenidos tampoco significa que se ha leido el QR correctamente
         if (result != null) {
             if (result.getContents() != null) {
+                // Se envian los contenidos de la lectura del código QR al método rastreoGPS
                 rastreoGPS(result.getContents());
             } else Toast.makeText(this, "Leer cancelado", Toast.LENGTH_LONG).show();
         } else {
@@ -147,6 +154,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return Utils.createMenu(menu, this);
     }
 
+    /**
+     * Método que pide los permisos necesarios a usar por la aplicación, en caso de no tenerlos,
+     * lanza el una petición de permisos al usuario
+     * @return True si se tienen todos los permisos necesarios , false si falta alguno
+     */
     public boolean checkAndRequestPermissions() {
         int internet = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET);
@@ -173,20 +185,36 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    /**
+     * Método que recibe como parámetro el enlace almacenado en el código QR y trás comprobar que
+     * se tienen los permisos para usar la localización  obtiene la localización del usuario o su
+     * última ubicación conocida si no se pudiera obtener la actual y la envia al formulario de nuevo
+     * lugar para almacenarlo en la base de datos
+     * @param qrResult String con el enlace del código QR leido
+     */
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("MissingPermission")
     private void rastreoGPS(String qrResult) {
+        // Se comprueban los permisos
         checkAndRequestPermissions();
         locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         final Location[] actual = new Location[1];
-         @SuppressLint("MissingPermission") Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-         @SuppressLint("MissingPermission") Location locGsm = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        // Se intenta obtener la localización actual
         locManager.getCurrentLocation(
                 LocationManager.GPS_PROVIDER,
                 null,
                 this.getMainExecutor(),
                 location -> actual[0] = location);
+        // Se obtienen las últimas localizaciónes conocidas tanto por GPS como por GSM (red del operador)
+         @SuppressLint("MissingPermission") Location locGps = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+         @SuppressLint("MissingPermission") Location locGsm = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
         int contador=0;
+        /*
+         * Intenta 3 veces lanzar el formulario de nuevo lugar con la localización actual o con la mas
+         * precisa de las últimas conocidas, esto se realiza asi para evitar fallos en caso de que la
+         * aplicación vaya mas rápido que el dispositivo concediendo los permisos
+         */
         do {
             if (actual[0] != null) {
                 MainActivityController.formularioNuevoLugar(actual[0], qrResult, emailUsuario, MainActivity.this);
@@ -209,6 +237,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(contador>=3) Utils.AlertDialogGenerate(this,getString(R.string.err),getString(R.string.err_ubicacion));
     }
 
+    /**
+     * Método que inicializa el spinner con las categorias almacenadas en la base de datos y le asigna
+     * el Listener
+     */
     private void filtroCategorias() {
         try {
             String sql = "SELECT nombre FROM categoria";
