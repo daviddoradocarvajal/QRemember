@@ -98,14 +98,14 @@ public class NuevaRutaActivity extends AppCompatActivity implements AdapterView.
 
     private boolean setCategorias(ListView listView) {
         try {
+            ArrayList<String> categorias = new ArrayList<>();
             ResultSet resultSet = new AsyncTasks.SelectTask().execute("SELECT nombre FROM categoria").get(1, TimeUnit.MINUTES);
             if (resultSet != null) {
-                categoriasSeleccionadasNuevaRuta = new ArrayList<>();
                 while (resultSet.next()) {
-                    categoriasSeleccionadasNuevaRuta.add(resultSet.getString("nombre"));
+                    categorias.add(resultSet.getString("nombre"));
                 }
                 listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-                listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, categoriasSeleccionadasNuevaRuta));
+                listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, categorias));
                 listView.setOnItemClickListener(((parent, view, position, id) -> {
                     ListView lvMultiple = findViewById(R.id.lvCategoriasNuevaRuta);
                     categoriasSeleccionadasNuevaRuta = new ArrayList<>();
