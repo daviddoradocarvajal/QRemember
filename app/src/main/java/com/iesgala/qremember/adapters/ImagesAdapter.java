@@ -63,7 +63,7 @@ public class ImagesAdapter extends BaseAdapter {
     /**
      * Devuelve el número de tipos de la vista, se utiliza para reciclaje de
      * las vistas del adaptador
-     * @return
+     * @return un entero con los elementos que hay en el adaptador
      */
     @Override
     public int getViewTypeCount() {

@@ -4,11 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.activities.CompartidoConmigoActivity;
@@ -42,9 +40,9 @@ public class Utils {
 
     /**
      * Método para inflar el menú principal de la aplicación en las actividades que lo necesiten
-     * @param menu
-     * @param activity
-     * @return
+     * @param menu menú el cual va a ser mostrado
+     * @param activity Actividad donde se va a mostrar el menú
+     * @return true siempre
      */
     public static boolean createMenu(Menu menu, Activity activity) {
         activity.getMenuInflater().inflate(R.menu.menu_opciones, menu);
@@ -113,23 +111,6 @@ public class Utils {
         }
     }
 
-    /**
-     * Método que extrae el contexto a partir de un objeto de la clase View hasta obtener su
-     * actividad, se usa para obtener la actividad de una vista cuando esta está envuelta en varias
-     * capas de contexto
-     * @param view Objeto a partir del cual obtener la vista
-     * @return Un objeto de la clase Activity una vez desenvuelta la vista
-     */
-    public static Activity getActivity(View view) {
-        Context context = view.getContext();
-        while (context instanceof ContextWrapper) {
-            if (context instanceof Activity) {
-                return (Activity) context;
-            }
-            context = ((ContextWrapper) context).getBaseContext();
-        }
-        return null;
-    }
 
     /**
      * Método para generar cuadros de diálogo con un título y un mensaje

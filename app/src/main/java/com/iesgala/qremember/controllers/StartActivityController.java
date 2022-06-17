@@ -88,7 +88,7 @@ public class StartActivityController {
     /**
      * Método que maneja el evento de registrar un nuevo usuario, se encarga de lanzar la actividad
      * RegisterActivity a través de un intent si hay conexión a internet
-     * @param activity
+     * @param activity Actividad que lanza el evento
      */
     public static void registrarButton(@NonNull Activity activity) {
         if (isOnline(activity)) {
@@ -103,7 +103,7 @@ public class StartActivityController {
     /**
      * Método que maneja el evento recuperar contraseña se encarga de lanzar la actividad
      * RecuperarContraseniaActivity a través de un intent si hay conexión a internet
-     * @param activity
+     * @param activity Actividad que lanza el evento
      */
     public static void recuperarContrasenia(@NonNull Activity activity) {
         if (isOnline(activity)) {

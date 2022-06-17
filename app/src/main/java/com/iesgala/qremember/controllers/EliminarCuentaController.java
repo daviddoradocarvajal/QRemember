@@ -28,8 +28,8 @@ public class EliminarCuentaController {
      * en una base de datos. Si coinciden lanza un cuadro de dialogo para que el usuario confirme
      * o cancele
      * @param activity Actividad que lanza el evento
-     * @param email
-     * @param pass
+     * @param email Email del usuario a eliminar
+     * @param pass contraseña del usuario a eliminar
      */
     public static void eliminarCuenta(Activity activity, String email, String pass) {
         try {

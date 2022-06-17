@@ -25,8 +25,8 @@ public class AsyncTasks {
         /**
          * Método que ejecuta en otro hilo una consulta pasada como primer parámetro
          * a la base de datos y devuelve un resulset
-         * @param strings
-         * @return
+         * @param strings Cadena de caracteres con la sentencia a ejecutar
+         * @return Resulset con el resultado de la consulta
          */
         @Override
         protected ResultSet doInBackground(String... strings) {
