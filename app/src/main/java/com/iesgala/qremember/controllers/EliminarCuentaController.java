@@ -17,11 +17,20 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * Clase controladora de la actividad EliminarCuentaActivity maneja el evento para eliminar la
+ * cuenta de un usuario una vez comprobada su identidad a través de su email y contraseña
  * @author David Dorado
  * @version 1.0
  */
 public class EliminarCuentaController {
-
+    /**
+     * Método que comprueba si las cadenas introducidas como parámetro coinciden con las almacenadas
+     * en una base de datos. Si coinciden lanza un cuadro de dialogo para que el usuario confirme
+     * o cancele
+     * @param activity Actividad que lanza el evento
+     * @param email
+     * @param pass
+     */
     public static void eliminarCuenta(Activity activity, String email, String pass) {
         try {
             ResultSet resultSet = new AsyncTasks.SelectTask().execute("SELECT email, aes_decrypt(contrasenia,'" + Utils.ENCRYPT_PASS + "') as password FROM usuario WHERE email='" + email + "'").get(1, TimeUnit.MINUTES);
@@ -30,6 +39,7 @@ public class EliminarCuentaController {
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                     builder.setTitle(activity.getString(R.string.msg_aviso));
                     builder.setMessage(activity.getString(R.string.seguro_eliminar_cuenta));
+                    // Si el usuario pulsa sobre confirmar se elimina el registro de la base de datos
                     builder.setPositiveButton(activity.getString(R.string.confirmar), (dialog, which) -> {
                         try {
                             if (new AsyncTasks.DeleteTask().execute("DELETE FROM usuario WHERE email = '" + email + "'").get(1, TimeUnit.MINUTES)) {
@@ -44,6 +54,10 @@ public class EliminarCuentaController {
                             activity.finish();
                         }
                     });
+                    /*
+                     * Si el usuario pulsa sobre cancelar se lanza un intent a la clase MainActivity
+                     * con el email para mantener la sesion del usuario
+                     */
                     builder.setNegativeButton(activity.getString(R.string.cancelar), (dialog, which) -> {
                         Intent intent = new Intent(activity.getBaseContext(), MainActivity.class);
                         intent.putExtra(Utils.INTENTS_EMAIL,email);

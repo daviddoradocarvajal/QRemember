@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
+ * Clase controladora de la actividad *** maneja los eventos
  * @author David Dorado
  * @version 1.0
  */

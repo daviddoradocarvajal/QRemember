@@ -34,7 +34,11 @@ public class EliminarCuentaActivity extends AppCompatActivity {
         TextView tvEliminarEmail = findViewById(R.id.tvEliminarEmail);
         TextView tvEliminarPass = findViewById(R.id.tvEliminarPass);
         Button btnEliminarconfirmar = findViewById(R.id.btnEliminarConfirmar);
-        btnEliminarconfirmar.setOnClickListener(l -> EliminarCuentaController.eliminarCuenta(this,tvEliminarEmail.getText().toString(),tvEliminarPass.getText().toString()));
+        btnEliminarconfirmar.setOnClickListener(l -> {
+            if(!tvEliminarEmail.getText().toString().isEmpty() && !tvEliminarPass.getText().toString().isEmpty())
+            EliminarCuentaController.eliminarCuenta(this,tvEliminarEmail.getText().toString(),tvEliminarPass.getText().toString());
+            else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.msg_campo_vacio));
+        });
 
     }
 

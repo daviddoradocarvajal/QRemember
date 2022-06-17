@@ -129,4 +129,5 @@
     <string name="msg_compartida_ok">La ruta ha sido compartida correctamente</string>
     <string name="imagenes">Imagenes</string>
     <string name="msg_selecciona_imagen">No hay seleccionada ninguna imagen para eliminar</string>
+    <string name="msg_campo_vacio">No se ha rellenado alguno de los campos los campos</string>
 </resources>

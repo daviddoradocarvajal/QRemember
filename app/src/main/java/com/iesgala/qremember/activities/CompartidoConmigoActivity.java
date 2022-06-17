@@ -19,7 +19,7 @@ import java.util.Objects;
  * Clase actividad encargada de manejar los lugares y las rutas que han sido compartidos con
  * el usuario
  * @author David Dorado
- * @version 1.1
+ * @version 1.0
  */
 public class CompartidoConmigoActivity extends AppCompatActivity {
     String emailReceptor;
@@ -36,7 +36,6 @@ public class CompartidoConmigoActivity extends AppCompatActivity {
             if (intent != null) {
                 emailReceptor = intent.getStringExtra(Utils.INTENTS_EMAIL);
                 CompartidoConmigoController.setLugaresAdapter(this,emailReceptor);
-                // Se añade en la version 1.1 para obtener las rutas
                 CompartidoConmigoController.setRutasAdapter(this,emailReceptor);
             }
         } catch (Exception e) {

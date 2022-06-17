@@ -32,7 +32,10 @@ import java.util.concurrent.TimeoutException;
 
 
 /**
- * @author David Dorado Carvajal
+ * Clase controladora de la actividad MainActivity maneja los eventos para obtener los lugares de
+ * un usuario, hacer click sobre un lugar, ver el enlace de un lugar, pulsar el boton de nuevo lugar
+ * para leer el código QR del lugar y obtener los lugares filtrados por una categoria
+ * @author David Dorado
  * @version 1.0
  */
 public class MainActivityController {

@@ -23,19 +23,31 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * Clase controladora de eventos de StartActivity contiene los métodos a ser ejecutados por los botones
- *
+ * Clase controladora de eventos de StartActivity contiene los métodos a ser ejecutados por los
+ * botones acceder, registrar y "Pulsa aqui", también contiene el método encargado de comprobar
+ * si hay conectividad con la red
  * @author David Dorado Carvajal
  * @version 1.0
  */
 public class StartActivityController {
-
-    public static boolean isOnline(Activity context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    /**.
+     * Método encargado de comprobar si la aplicación tiene acceso a internet
+     * @param activity Actividad donde se lanza el método
+     * @return true si hay conexion, false si no hay conexión o no se ha podido obtener el permiso
+     * de acceso a internet
+     */
+    public static boolean isOnline(Activity activity) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
         @SuppressLint("MissingPermission") NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
     }
 
+    /**
+     * Método que maneja el evento de acceso a la aplicicación, comprueba que el correo es un email
+     * bien formado y que las credenciales coinciden con las del usuario en la base de datos, si
+     * coinciden, lanza un intent a la actividad MainActivity enviando como extra el email del usuario
+     * @param activity Actividad que lanza el evento
+     */
     public static void accederButton(@NonNull Activity activity) {
         if (isOnline(activity)) {
             try {
@@ -73,6 +85,11 @@ public class StartActivityController {
 
     }
 
+    /**
+     * Método que maneja el evento de registrar un nuevo usuario, se encarga de lanzar la actividad
+     * RegisterActivity a través de un intent si hay conexión a internet
+     * @param activity
+     */
     public static void registrarButton(@NonNull Activity activity) {
         if (isOnline(activity)) {
             Intent intent = new Intent(activity.getBaseContext(), RegisterActivity.class);
@@ -83,6 +100,11 @@ public class StartActivityController {
 
     }
 
+    /**
+     * Método que maneja el evento recuperar contraseña se encarga de lanzar la actividad
+     * RecuperarContraseniaActivity a través de un intent si hay conexión a internet
+     * @param activity
+     */
     public static void recuperarContrasenia(@NonNull Activity activity) {
         if (isOnline(activity)) {
             Intent intent = new Intent(activity.getBaseContext(), RecuperarContraseniaActivity.class);

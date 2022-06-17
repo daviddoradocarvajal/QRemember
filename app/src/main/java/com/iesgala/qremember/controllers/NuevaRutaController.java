@@ -14,7 +14,11 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-
+/**
+ * Clase controladora de la actividad *** maneja los eventos
+ * @author David Dorado
+ * @version 1.0
+ */
 public class NuevaRutaController {
 
     public static void nuevaRuta(Activity activity, String email, String nombreRuta, ArrayList<Lugar> lugaresInsertar, ArrayList<String> categoriasSeleccionadas){

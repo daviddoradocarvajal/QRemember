@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ * Clase controladora de la actividad *** maneja los eventos
  * @author David Dorado
  * @version 1.0
  */
