@@ -14,12 +14,29 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * Clase controladora de la actividad *** maneja los eventos
+ * Clase controladora de la actividad ModificarLugarActivity maneja el evento para modificar un lugar
  * @author David Dorado
  * @version 1.0
  */
 public class ModificarLugarController {
-
+    /**
+     * Método que responde al evento de click del botón modificar para modificar el lugar con los
+     * datos recibidos como parámetros nombreLugar, enlace, longitud, latitud, altitud en la cuenta
+     * del usuario con el mismo email que el recibido como último parámetro. Se modifican las categorias
+     * por las que se reciben el la lista seleccionadas que se recibe como segundo parámetro y si el
+     * parámetro nombre lugar no viene en blanco se modifica también el nombre del lugar
+     * @param activity Actividad que lanza el evento
+     * @param seleccionadas Lista con los nombres de las categorias seleccionadas
+     * @param nombreLugar Cadena con el nuevo nombre del lugar o vacio si no se va a modificar
+     * @param enlace Cadena con el enlace del lugar
+     * @param longitud Longitud del lugar para las coordenadas, se usa para identificar el lugar a
+     *                 modificar
+     * @param latitud Latitud del lugar para las coordenadas, se usa para identificar el lugar a
+     *                modificar
+     * @param altitud Altitud del lugar para las coordenadas, se usa para identificar el lugar a
+     *                modificar
+     * @param email Cadena con el email del usuario
+     */
     public static void modificarLugar(Activity activity, ArrayList<String> seleccionadas, String nombreLugar, String enlace, String longitud, String latitud, String altitud,String email){
         try {
             if (nombreLugar != null && !nombreLugar.isEmpty()) {
