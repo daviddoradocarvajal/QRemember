@@ -15,6 +15,10 @@ import com.iesgala.qremember.controllers.RecuperarContraseniaController;
 import java.util.Objects;
 
 /**
+ * Actividad encargada de mostrar el formulario de recuperación de contraseña al usuario
+ * el usuario rellena su email y las pregunta/respuesta de seguridad que introdujo al crear su
+ * cuenta. Si coinciden se le permite recuperar su contraseña. Si falla se le permite volver a
+ * intentarlo hasta 3 veces, después de 3 intentos aparece un mensaje y finaliza la actividad
  * @author David Dorado
  * @version 1.0
  */

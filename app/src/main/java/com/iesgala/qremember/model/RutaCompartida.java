@@ -1,5 +1,9 @@
 package com.iesgala.qremember.model;
-
+/**
+ *
+ * @author David Dorado
+ * @version 1.0
+ */
 public class RutaCompartida {
     private final String emailEmisor;
     private final String emailReceptor;

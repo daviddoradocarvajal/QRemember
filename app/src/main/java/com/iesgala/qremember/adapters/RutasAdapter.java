@@ -14,7 +14,12 @@ import com.iesgala.qremember.controllers.RutasController;
 import com.iesgala.qremember.model.Ruta;
 
 import java.util.ArrayList;
-
+/**
+ * Clase adaptadora de Rutas se usa para adaptar el contenido de un ListView a los elementos
+ * indicados en el archivo layout_rutas.xml y rellenar su contenido
+ * @author David Dorado
+ * @version 1.0
+ */
 public class RutasAdapter extends BaseAdapter {
     private final ArrayList<Ruta> rutas;
     private final Activity activity;

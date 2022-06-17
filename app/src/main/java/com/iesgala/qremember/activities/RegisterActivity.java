@@ -14,7 +14,9 @@ import com.iesgala.qremember.utils.Utils;
 
 import java.util.Objects;
 /**
- *
+ * Actividad encargada de mostrar y manejar el registro de un nuevo usuario, muestra un formulario
+ * en el cual se pide nombre, email, contraseña, una pregunta de seguridad a partir de las opciones
+ * de un spinner y la respuesta a la pregunta
  * @author David Dorado
  * @version 1.0
  */
@@ -30,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> spPreguntasAdapter = ArrayAdapter.createFromResource(this,R.array.Preguntas, android.R.layout.simple_spinner_item);
         spPreguntasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spPreguntas.setAdapter(spPreguntasAdapter);
+        // Si está seleccionada alguna pregunta de seguridad comienza el controlador, si no muestra un mensaje
         btnRegistrarUsuario.setOnClickListener(l ->{
             if(spPreguntas.getSelectedItem() != null && !spPreguntas.getSelectedItem().equals(getResources().getStringArray(R.array.Preguntas)[0]))
                 RegisterActivityController.registrarUsuario(this);

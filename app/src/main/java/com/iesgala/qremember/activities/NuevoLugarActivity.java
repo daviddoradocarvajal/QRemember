@@ -34,6 +34,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * Actividad encargada de almacenar un nuevo lugar en la cuenta del usuario a través de los datos
  * que introduce el usuario, que son nombre y categorias del lugar (mínimo 1)
+ *
  * @author David Dorado
  * @version 1.0
  */
@@ -89,12 +90,19 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
         setCategorias();
         super.onResume();
     }
-    private void setCategorias(){
+
+    /**
+     * Método que recupera las categorias de la base de datos y las asigna a
+     * un ListView y después inicializa el botón para tomar una foto desde la cámara del
+     * dispositivo, comprobando antes que se ha marcado 1 o mas categorias y que se ha introducido
+     * un nombre en el apartado especifico para ello
+     */
+    private void setCategorias() {
         try {
             ArrayList<String> nombresCategoria = new ArrayList<>();
             String sql = "SELECT nombre FROM categoria";
             ResultSet resultSet = new AsyncTasks.SelectTask().execute(sql).get(1, TimeUnit.MINUTES);
-            if(resultSet != null) {
+            if (resultSet != null) {
                 while (resultSet.next()) {
                     nombresCategoria.add(resultSet.getString("nombre"));
                 }
@@ -105,11 +113,13 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
                 lv.setOnItemClickListener(this);
                 Button btnTomarFoto = findViewById(R.id.btnTomarFoto);
                 btnTomarFoto.setOnClickListener(l -> {
-                    if(!tvNombreLugar.getText().toString().isEmpty()){
-                        if(lv.getCheckedItemCount()>=1){
+                    if (!tvNombreLugar.getText().toString().isEmpty()) {
+                        if (lv.getCheckedItemCount() >= 1) {
                             dispatchTakePictureIntent();
-                        }else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.aviso_selecciona_categoria));
-                    }else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.aviso_nombre));
+                        } else
+                            Utils.AlertDialogGenerate(this, getString(R.string.msg_aviso), getString(R.string.aviso_selecciona_categoria));
+                    } else
+                        Utils.AlertDialogGenerate(this, getString(R.string.msg_aviso), getString(R.string.aviso_nombre));
 
                 });
             }
@@ -119,24 +129,39 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
     }
 
 
-
+    /**
+     * Método que recibe el resultado de una actividad y realiza acciones con su resultado
+     * @param requestCode Código de solicitud de la actividad
+     * @param resultCode Código de resultado de la actividad
+     * @param data Intent de la actividad con los datos devueltos
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        setCategorias();
+        /*
+         * Si el código de solicitud es la petición de la foto y el resultado es correcto
+         * obtiene los datos del resultado con la imagen, se obtiene un bitmap, ese bitmap se
+         * transforma a un array de byte y se enviá al controlador junto con los datos del nuevo lugar
+         */
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap bm = (Bitmap) extras.get("data");
             ByteArrayOutputStream blob = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 100, blob);
             byte[] bmData = blob.toByteArray();
+            // Se almacena la respuesta en un entero
             int respuesta = NuevoLugarController.nuevoLugar(this, longitud, latitud, altitud, enlace, tvNombreLugar.getText().toString(), emailUsuario, bmData, categoriasSeleccionadas);
+            // Se marca como "dead" el bitmap para que el garbage collector libere la memoria
             bm.recycle();
+            // Se cierra el OutputStream
             try {
                 blob.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            NuevoLugarController.finalizar(this,emailUsuario,respuesta);
+            /* Se envia al controlador la actividad, el email del usuario y la respuesta del
+             * método anterior
+             */
+            NuevoLugarController.finalizar(this, emailUsuario, respuesta);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -150,7 +175,7 @@ public class NuevoLugarActivity extends AppCompatActivity implements ListView.On
     @Override
     public void onBackPressed() {
         Intent intent = new Intent();
-        intent.putExtra(Utils.INTENTS_EMAIL,emailUsuario);
+        intent.putExtra(Utils.INTENTS_EMAIL, emailUsuario);
         super.onBackPressed();
     }
 }

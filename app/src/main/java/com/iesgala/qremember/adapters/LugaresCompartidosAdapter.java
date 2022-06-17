@@ -9,15 +9,22 @@ import android.widget.TextView;
 
 import com.iesgala.qremember.R;
 import com.iesgala.qremember.controllers.CompartidoConmigoController;
-import com.iesgala.qremember.model.LugarUsuario;
+import com.iesgala.qremember.model.LugarCompartido;
 
 import java.util.ArrayList;
 
-public class CompartidosAdapter extends BaseAdapter {
-    private final ArrayList<LugarUsuario> compartidos;
+/**
+ * Clase adaptadora de los lugares compartidos con el usuario se usa para adaptar el contenido
+ * de un ListView a los elementos indicados en el archivo layout_lugarcompartido.xml y rellenar
+ * su contenido
+ * @author David Dorado
+ * @version 1.0
+ */
+public class LugaresCompartidosAdapter extends BaseAdapter {
+    private final ArrayList<LugarCompartido> compartidos;
     private final Activity activity;
 
-    public CompartidosAdapter(Activity activity,ArrayList<LugarUsuario> compartidos) {
+    public LugaresCompartidosAdapter(Activity activity, ArrayList<LugarCompartido> compartidos) {
         this.compartidos = compartidos;
         this.activity = activity;
     }

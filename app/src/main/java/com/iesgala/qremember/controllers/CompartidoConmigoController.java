@@ -5,9 +5,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.adapters.CompartidosAdapter;
+import com.iesgala.qremember.adapters.LugaresCompartidosAdapter;
 import com.iesgala.qremember.adapters.RutasCompartidasAdapter;
-import com.iesgala.qremember.model.LugarUsuario;
+import com.iesgala.qremember.model.LugarCompartido;
 import com.iesgala.qremember.model.RutaCompartida;
 import com.iesgala.qremember.utils.AsyncTasks;
 import com.iesgala.qremember.utils.Utils;
@@ -44,13 +44,13 @@ public class CompartidoConmigoController {
         return rutasCompartidas;
     }
 
-    public static ArrayList<LugarUsuario> obtenerLugaresCompartidos(String emailReceptor) {
-        ArrayList<LugarUsuario> compartidos = new ArrayList<>();
+    public static ArrayList<LugarCompartido> obtenerLugaresCompartidos(String emailReceptor) {
+        ArrayList<LugarCompartido> compartidos = new ArrayList<>();
         try {
             ResultSet resultSet = new AsyncTasks.SelectTask().execute("SELECT usuario_emisor, latitud, longitud, altitud,enlace, usuario_receptor FROM lugares_compartidos WHERE usuario_receptor='" + emailReceptor + "'").get(1, TimeUnit.MINUTES);
             if (resultSet != null) {
                 while (resultSet.next()) {
-                    compartidos.add(new LugarUsuario(
+                    compartidos.add(new LugarCompartido(
                             resultSet.getString("enlace"),
                             resultSet.getString("longitud"),
                             resultSet.getString("latitud"),
@@ -67,11 +67,11 @@ public class CompartidoConmigoController {
     }
 
 
-    public static void aceptarCompartido(Activity activity, LugarUsuario lugarUsuario) {
+    public static void aceptarCompartido(Activity activity, LugarCompartido lugarCompartido) {
         try {
-            if (new AsyncTasks.InsertTask().execute("INSERT INTO lugar_usuario (longitud, latitud, altitud, enlace, email_usuario) VALUES ('" + lugarUsuario.getLongitud() + "','" + lugarUsuario.getLatitud() + "','" + lugarUsuario.getAltitud() + "','" + lugarUsuario.getEnlace() + "','" + lugarUsuario.getEmailReceptor() + "')").get(1, TimeUnit.MINUTES)) {
-                if (new AsyncTasks.DeleteTask().execute("DELETE FROM lugares_compartidos WHERE usuario_emisor='" + lugarUsuario.getEmailEmisor() + "' AND longitud='" + lugarUsuario.getLongitud() + "' AND latitud='" + lugarUsuario.getLatitud() + "' AND altitud='" + lugarUsuario.getAltitud() + "' AND enlace='" + lugarUsuario.getEnlace() + "' AND usuario_receptor='" + lugarUsuario.getEmailReceptor() + "'").get(1, TimeUnit.MINUTES)) {
-                    setLugaresAdapter(activity, lugarUsuario.getEmailReceptor());
+            if (new AsyncTasks.InsertTask().execute("INSERT INTO lugar_usuario (longitud, latitud, altitud, enlace, email_usuario) VALUES ('" + lugarCompartido.getLongitud() + "','" + lugarCompartido.getLatitud() + "','" + lugarCompartido.getAltitud() + "','" + lugarCompartido.getEnlace() + "','" + lugarCompartido.getEmailReceptor() + "')").get(1, TimeUnit.MINUTES)) {
+                if (new AsyncTasks.DeleteTask().execute("DELETE FROM lugares_compartidos WHERE usuario_emisor='" + lugarCompartido.getEmailEmisor() + "' AND longitud='" + lugarCompartido.getLongitud() + "' AND latitud='" + lugarCompartido.getLatitud() + "' AND altitud='" + lugarCompartido.getAltitud() + "' AND enlace='" + lugarCompartido.getEnlace() + "' AND usuario_receptor='" + lugarCompartido.getEmailReceptor() + "'").get(1, TimeUnit.MINUTES)) {
+                    setLugaresAdapter(activity, lugarCompartido.getEmailReceptor());
                 } else
                     Utils.AlertDialogGenerate(activity, activity.getString(R.string.err), activity.getString(R.string.err_desconocido));
             } else
@@ -79,27 +79,27 @@ public class CompartidoConmigoController {
         } catch (ExecutionException | InterruptedException | TimeoutException e) {
             e.printStackTrace();
         }
-        setLugaresAdapter(activity, lugarUsuario.getEmailReceptor());
+        setLugaresAdapter(activity, lugarCompartido.getEmailReceptor());
     }
 
 
-    public static void rechazarCompartido(Activity activity, LugarUsuario lugarUsuario) {
+    public static void rechazarCompartido(Activity activity, LugarCompartido lugarCompartido) {
         try {
-            if (new AsyncTasks.DeleteTask().execute("DELETE FROM lugares_compartidos WHERE usuario_emisor='" + lugarUsuario.getEmailEmisor() + "' AND longitud='" + lugarUsuario.getLongitud() + "' AND latitud='" + lugarUsuario.getLatitud() + "' AND altitud='" + lugarUsuario.getAltitud() + "' AND enlace='" + lugarUsuario.getEnlace() + "' AND usuario_receptor='" + lugarUsuario.getEmailReceptor() + "'").get(1, TimeUnit.MINUTES)) {
-                setLugaresAdapter(activity, lugarUsuario.getEmailReceptor());
+            if (new AsyncTasks.DeleteTask().execute("DELETE FROM lugares_compartidos WHERE usuario_emisor='" + lugarCompartido.getEmailEmisor() + "' AND longitud='" + lugarCompartido.getLongitud() + "' AND latitud='" + lugarCompartido.getLatitud() + "' AND altitud='" + lugarCompartido.getAltitud() + "' AND enlace='" + lugarCompartido.getEnlace() + "' AND usuario_receptor='" + lugarCompartido.getEmailReceptor() + "'").get(1, TimeUnit.MINUTES)) {
+                setLugaresAdapter(activity, lugarCompartido.getEmailReceptor());
             } else
                 Utils.AlertDialogGenerate(activity, activity.getString(R.string.err), activity.getString(R.string.err_desconocido));
         } catch (ExecutionException | InterruptedException | TimeoutException e) {
             e.printStackTrace();
         }
-        setLugaresAdapter(activity, lugarUsuario.getEmailReceptor());
+        setLugaresAdapter(activity, lugarCompartido.getEmailReceptor());
     }
 
     public static void setLugaresAdapter(Activity activity, String emailReceptor) {
-        ArrayList<LugarUsuario> compartidos = CompartidoConmigoController.obtenerLugaresCompartidos(emailReceptor);
-        CompartidosAdapter compartidosAdapter = new CompartidosAdapter(activity, compartidos);
+        ArrayList<LugarCompartido> compartidos = CompartidoConmigoController.obtenerLugaresCompartidos(emailReceptor);
+        LugaresCompartidosAdapter lugaresCompartidosAdapter = new LugaresCompartidosAdapter(activity, compartidos);
         ListView lvCompartidos = activity.findViewById(R.id.lvLugaresCompartidos);
-        lvCompartidos.setAdapter(compartidosAdapter);
+        lvCompartidos.setAdapter(lugaresCompartidosAdapter);
     }
 
     public static void setRutasAdapter(Activity activity, String emailReceptor) {

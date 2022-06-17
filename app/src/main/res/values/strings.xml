@@ -128,4 +128,5 @@
     <string name="msg_ruta_ya_compartida">Esta ruta ya ha sido compartida con el usuario</string>
     <string name="msg_compartida_ok">La ruta ha sido compartida correctamente</string>
     <string name="imagenes">Imagenes</string>
+    <string name="msg_selecciona_imagen">No hay seleccionada ninguna imagen para eliminar</string>
 </resources>

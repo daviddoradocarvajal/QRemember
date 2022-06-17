@@ -12,7 +12,12 @@ import com.iesgala.qremember.controllers.CompartidoConmigoController;
 import com.iesgala.qremember.model.RutaCompartida;
 
 import java.util.ArrayList;
-
+/**
+ * Clase adaptadora para las rutas compartidas se usa para adaptar el contenido de un ListView
+ * a los elementos indicados en el archivo layout_rutacompartida.xml y rellenar su contenido
+ * @author David Dorado
+ * @version 1.0
+ */
 public class RutasCompartidasAdapter extends BaseAdapter {
     private final ArrayList<RutaCompartida> compartidas;
     private final Activity activity;

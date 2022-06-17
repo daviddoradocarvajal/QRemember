@@ -33,6 +33,13 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * Clase con la actividad encargada de las rutas, se accede desde el menú y muestra las rutas
+ * del usuario junto con un botón para crear nuevas rutas. Implementa la interfaz
+ * OnItemSelectedListener que permite manejar el evento del spinner para filtrar por categoria
+ * @author David Dorado Carvajal
+ * @version 1.0
+ */
 public class RutasActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Intent intent;
     String emailUsuario;
@@ -76,7 +83,7 @@ public class RutasActivity extends AppCompatActivity implements AdapterView.OnIt
         }
         btnNuevaRuta.setOnClickListener(l -> RutasController.nuevaRuta(this,emailUsuario));
     }
-    // Esto podria estar en el controller pero demasiados parámetros
+
     private void filtroCategorias(){
         try {
             String sql = "SELECT nombre FROM categoria";

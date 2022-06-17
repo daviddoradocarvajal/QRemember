@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Clase adaptadora para las imágenes se usa para adaptar el contenido de un ListView a los elementos
+ * indicados en el archivo layout_imagenes.xml y rellenar su contenido
  * @author David Dorado
  * @version 1.0
  */

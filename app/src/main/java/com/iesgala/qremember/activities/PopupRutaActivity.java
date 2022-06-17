@@ -23,6 +23,14 @@ import com.iesgala.qremember.utils.Utils;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Actividad lanzada al pulsar sobre el botón de ver ruta en la actividad RutasActivity
+ * muestra las categorias de la ruta, un mápa con las coordenadas de los lugares de la ruta marcadas
+ * y los controles para eliminar o compartir la ruta. Implementa la interfaz OnMapReadyCallback
+ * para controlar los callback que realiza el mapa.
+ * @author David Dorado
+ * @version 1.0
+ */
 public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCallback {
     static final int POPUPRUTA_ACTIVITY_CODE = 77;
     String emailUsuario;
@@ -59,13 +67,11 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-
         Bundle mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY);
         if (mapViewBundle == null) {
             mapViewBundle = new Bundle();
             outState.putBundle(MAPVIEW_BUNDLE_KEY, mapViewBundle);
         }
-
         mapViewPopup.onSaveInstanceState(mapViewBundle);
     }
 
@@ -83,6 +89,9 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
         super.onBackPressed();
     }
 
+    /**
+     * Método encargado de inicializar los textos y controles de la actividad excepto el mapa
+     */
     private void initialize() {
         TextView tvNombreRuta = findViewById(R.id.tvNombreRutaPopup);
         tvNombreRuta.setText(getString(R.string.mapa_de_ruta) + nombreRuta);
@@ -110,6 +119,11 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
         mapViewPopup.onStop();
     }
 
+    /**
+     * Método encargado de añadir marcadores al mapa a partir de una lista de objetos LatLng y
+     * finalmente pone el mapa enfocando el último lugar de la lista acercando el zoom a ese lugar
+     * @param map Mapa en el cual poner los marcadores
+     */
     @Override
     public void onMapReady(@NonNull GoogleMap map) {
         ArrayList<LatLng> locationArrayList = new ArrayList<>();
@@ -121,9 +135,7 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i),18.0f));
 
         }
-
     }
-
 
     @Override
     protected void onPause() {

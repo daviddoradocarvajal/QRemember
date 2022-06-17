@@ -1,6 +1,10 @@
 package com.iesgala.qremember.model;
-
-public class LugarUsuario {
+/**
+ *
+ * @author David Dorado
+ * @version 1.0
+ */
+public class LugarCompartido {
 
     private final String enlace;
     private final String longitud;
@@ -10,7 +14,7 @@ public class LugarUsuario {
     private final String emailReceptor;
 
 
-    public LugarUsuario(String enlace, String longitud, String latitud, String altitud, String emailEmisor, String emailReceptor) {
+    public LugarCompartido(String enlace, String longitud, String latitud, String altitud, String emailEmisor, String emailReceptor) {
         this.enlace = enlace;
         this.longitud = longitud;
         this.latitud = latitud;

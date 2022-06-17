@@ -23,8 +23,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
- * @author David Dorado Carvajal
+ * Clase adaptadora de Lugares se usa para adaptar el contenido de un ListView a los elementos
+ * indicados en el archivo layout_lugares.xml y rellenar su contenido
+ * @author David Dorado
  * @version 1.0
  */
 public class LugaresAdapter extends BaseAdapter {

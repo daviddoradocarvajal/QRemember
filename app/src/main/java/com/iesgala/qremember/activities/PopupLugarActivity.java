@@ -31,6 +31,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * Actividad lanzada al pulsar sobre un lugar en la actividad MainActivity para mostrar
+ * las imagenes del lugar y los controles para modificar, compartir y eliminar el lugar por una
+ * parte y por otra los controles de añadir una imagen al lugar o eliminar una o varias imágenes
  * @author David Dorado
  * @version 1.0
  */
@@ -43,6 +46,7 @@ public class PopupLugarActivity extends AppCompatActivity {
     String altitud;
     String nombreLugar;
     int posicion;
+    ListView lvImagenes;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,7 +91,7 @@ public class PopupLugarActivity extends AppCompatActivity {
         ArrayList<Imagen> imagenes = PopupLugarController.obtenerImagenes(this, enlace);
         if (imagenes.size() > 0) {
             ImagesAdapter imagesAdapter = new ImagesAdapter(this, imagenes);
-            ListView lvImagenes = findViewById(R.id.lvImagenes);
+            lvImagenes = findViewById(R.id.lvImagenes);
             lvImagenes.setAdapter(imagesAdapter);
             lvImagenes.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         }
@@ -100,7 +104,11 @@ public class PopupLugarActivity extends AppCompatActivity {
         Button btnNuevaImagen = findViewById(R.id.btnNuevaImagen);
         btnNuevaImagen.setOnClickListener(l -> PopupLugarController.nuevaImagen(this));
         Button btnEliminarImagen = findViewById(R.id.btnEliminarImagen);
-        btnEliminarImagen.setOnClickListener(l -> PopupLugarController.eliminarImagen(this, imagenes,emailUsuario));
+        btnEliminarImagen.setOnClickListener(l -> {
+            if(lvImagenes.getCheckedItemCount()>=1)
+            PopupLugarController.eliminarImagen(this, imagenes,emailUsuario);
+            else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.msg_selecciona_imagen));
+        });
     }
 
     @Override
