@@ -1,6 +1,6 @@
 package com.iesgala.qremember.model;
 /**
- *
+ * Clase que representa a un lugar que ha sido compartido en el modelo de datos
  * @author David Dorado
  * @version 1.0
  */

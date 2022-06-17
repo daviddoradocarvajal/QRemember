@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iesgala.qremember.R;
-import com.iesgala.qremember.controllers.RegisterActivityController;
+import com.iesgala.qremember.controllers.RegisterController;
 import com.iesgala.qremember.utils.Utils;
 
 import java.util.Objects;
@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Si está seleccionada alguna pregunta de seguridad comienza el controlador, si no muestra un mensaje
         btnRegistrarUsuario.setOnClickListener(l ->{
             if(spPreguntas.getSelectedItem() != null && !spPreguntas.getSelectedItem().equals(getResources().getStringArray(R.array.Preguntas)[0]))
-                RegisterActivityController.registrarUsuario(this);
+                RegisterController.registrarUsuario(this);
             else
                 Utils.AlertDialogGenerate(this,getString(R.string.err),getString(R.string.seleccione_pregunta));
                 });

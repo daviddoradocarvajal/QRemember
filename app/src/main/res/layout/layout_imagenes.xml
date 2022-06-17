@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivLugar"
-        android:layout_width="wrap_content"
-        android:layout_height="365dp"
+        android:layout_width="801dp"
+        android:layout_height="310dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_weight="12"
@@ -23,7 +23,7 @@
     <CheckBox
         android:id="@+id/chkLugar"
         android:layout_width="wrap_content"
-        android:layout_height="265dp"
+        android:layout_height="228dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="56dp"
         android:layout_weight="1"

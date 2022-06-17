@@ -106,7 +106,7 @@ public class PopupLugarActivity extends AppCompatActivity {
         Button btnEliminarImagen = findViewById(R.id.btnEliminarImagen);
         btnEliminarImagen.setOnClickListener(l -> {
             if(lvImagenes.getCheckedItemCount()>=1)
-            PopupLugarController.eliminarImagen(this, imagenes,emailUsuario);
+            PopupLugarController.eliminarImagenes(this, imagenes,emailUsuario);
             else Utils.AlertDialogGenerate(this,getString(R.string.msg_aviso),getString(R.string.msg_selecciona_imagen));
         });
     }

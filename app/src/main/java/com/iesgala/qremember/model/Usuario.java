@@ -3,7 +3,7 @@ package com.iesgala.qremember.model;
 import java.io.Serializable;
 
 /**
- *
+ * Clase que representa a un usuario de la aplicación en el modelo de datos
  * @author David Dorado Carvajal
  * @version 1.0
  */

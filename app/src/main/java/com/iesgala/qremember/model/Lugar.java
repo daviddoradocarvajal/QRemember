@@ -1,15 +1,14 @@
 package com.iesgala.qremember.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 
 /**
- *
+ * Clase que representa un lugar con todas sus propiedades en el modelo de datos
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class Lugar implements Serializable {
+public class Lugar {
     private final String longitud;
     private final String latitud;
     private final String altitud;

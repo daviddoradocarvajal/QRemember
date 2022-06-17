@@ -2,14 +2,14 @@ package com.iesgala.qremember.model;
 
 import android.graphics.drawable.Drawable;
 
-import java.io.Serializable;
+
 
 /**
- *
+ * Clase que representa las imagenes de un lugar en el modelo de datos
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class Imagen implements Serializable {
+public class Imagen {
     private final int id;
     private final Drawable imagen;
     private boolean seleccionado;

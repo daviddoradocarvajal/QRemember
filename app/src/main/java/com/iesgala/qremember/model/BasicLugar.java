@@ -2,7 +2,9 @@ package com.iesgala.qremember.model;
 
 import java.io.Serializable;
 /**
- *
+ * Clase que representa a un lugar en el modelo de datos pero con sus datos de localización en
+ * formato float para poder ser interpretados por google maps y sin imágenes solo los datos más
+ * básicos, implementa la interfaz serializable para poder ser enviado en los intent
  * @author David Dorado
  * @version 1.0
  */

@@ -22,8 +22,8 @@
     <string name="modificar_contrasenia">Modificar contraseña</string>
     <string name="olvidar_contrasenia">¿Has olvidado la contraseña?</string>
     <string name="pulsame">Pulsa aqui</string>
-    <string name="nuevo">Nuevo&#8230;</string>
-    <string name="nueva">Nueva&#8230;</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="nueva">Nueva</string>
     <string name="ver">Ver enlace</string>
     <string name="eliminar">Eliminar</string>
     <string name="modificar">Modificar</string>
@@ -41,7 +41,7 @@
     <string name="pregunta_seguridad">Introduce una pregunta de seguridad</string>
     <string name="respuesta">Introduce una respuesta</string>
     <string name="descripcion_imagen">Imagen de lugar</string>
-    <string name="nueva_imagen">Nueva Imagen&#8230;</string>
+    <string name="nueva_imagen">Nueva Imagen</string>
     <string name="eliminar_imagen">Eliminar Imagenes</string>
     <string name="lugar">Lugar</string>
     <string name="ruta">Ruta</string>

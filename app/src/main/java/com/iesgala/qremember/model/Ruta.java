@@ -1,14 +1,14 @@
 package com.iesgala.qremember.model;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
 /**
- *
+ * Clase que representa una ruta del modelo de datos
  * @author David Dorado Carvajal
  * @version 1.0
  */
-public class Ruta implements Serializable {
+public class Ruta {
     private final String nombre;
     private final String emailUsuario;
     private final ArrayList<BasicLugar> lugares;

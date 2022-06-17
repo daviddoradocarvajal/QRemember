@@ -1,6 +1,6 @@
 package com.iesgala.qremember.model;
 /**
- *
+ * Clase que representa una ruta que ha sido compartida en el modelo de datos
  * @author David Dorado
  * @version 1.0
  */

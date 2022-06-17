@@ -13,12 +13,20 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /**
- * Clase controladora de la actividad *** maneja los eventos
+ * Clase controladora de la actividad PopupRutaActivity maneja los eventos de los botones
+ * eliminar ruta y compartir ruta
  * @author David Dorado
  * @version 1.0
  */
 public class PopupRutaController {
-
+    /**
+     * Método encargado de responder al click sobre el botón eliminar ruta, muestra un cuadro de
+     * diálogo que si se acepta elimina la ruta de la cuenta del usuario y se se rechaza vuelve a
+     * la lista de rutas
+     * @param activity Actividad que lanza el evento
+     * @param emailUsuario Email del usuario
+     * @param nombreRuta Nombre de la ruta
+     */
     public static void eliminarRuta(Activity activity, String emailUsuario, String nombreRuta) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(activity.getString(R.string.msg_aviso));
@@ -42,6 +50,13 @@ public class PopupRutaController {
         dialog.show();
     }
 
+    /**
+     * Método que lanza un intent a la clase CompartirRutaActivity con los datos de la ruta a fin
+     * de compartirla con otro usuario cuando se pulsa sobre el botón compartir ruta
+     * @param activity Actividad que lanza el evento
+     * @param emailUsuario Email del usuario que comparte la ruta
+     * @param nombreRuta Nombre de la ruta a compartir
+     */
     public static void compartirRuta(Activity activity, String emailUsuario, String nombreRuta) {
         Intent intent = new Intent(activity, CompartirRutaActivity.class);
         intent.putExtra(Utils.INTENTS_NOMBRE_RUTA,nombreRuta);

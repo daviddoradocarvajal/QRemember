@@ -15,12 +15,19 @@ import java.sql.ResultSet;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Clase controladora de la actividad *** maneja los eventos
+ * Clase controladora de la actividad RecuperarContraseniaActivity maneja el evento de recuperar la
+ * contraseña de un usuario si ha indicado bien su email, pregunta de seguridad y respuesta
  * @author David Dorado
  * @version 1.0
  */
 public class RecuperarContraseniaController {
-
+    /**
+     * Método que compara los datos almacenados en la base de datos para la recuperación de
+     * contraseña coinciden con los introducidos en la actividad, si coinciden lanza la actividad
+     * NuevaContraseniaActivity y son incorrectos muestra un mensaje informativo
+     * @param activity Actividad que lanza el evento
+     * @return true si los datos son correcto false si no lo son
+     */
     public static boolean recuperarContrasenia(Activity activity){
         TextView tvEmailRecuperar = activity.findViewById(R.id.tvEmailRecuperar);
         Spinner spPreguntasRecuperar = activity.findViewById(R.id.spPreguntaRecuperar);
