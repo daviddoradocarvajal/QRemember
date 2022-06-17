@@ -132,7 +132,7 @@ public class PopupRutaActivity extends AppCompatActivity implements OnMapReadyCa
         }
         for (int i = 0; i < locationArrayList.size(); i++) {
             map.addMarker(new MarkerOptions().position(locationArrayList.get(i)).title(lugares.get(i).getNombre()));
-            map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i),18.0f));
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i),14.0f));
 
         }
     }

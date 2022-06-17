@@ -27,7 +27,7 @@ public class NuevaContraseniaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevacontrasenia);
         String email = getIntent().getStringExtra(Utils.INTENTS_EMAIL);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.recuperando_contrasenia) + email);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.recuperando_contrasenia) + " " +email);
         TextView tvInfoNuevaPass = findViewById(R.id.tvInfoNuevaPass);
         tvInfoNuevaPass.setText(getString(R.string.recuperando_contrasenia) + " " + email);
         Button btnConfirmarNuevaPass = findViewById(R.id.btnConfirmarNuevaPass);
