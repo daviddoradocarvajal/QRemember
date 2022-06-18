@@ -35,6 +35,7 @@ public class PopupRutaController {
             try {
                 new AsyncTasks.DeleteTask().execute("DELETE FROM ruta WHERE nombre='"+nombreRuta+"' AND email_usuario='"+emailUsuario+"';").get(1, TimeUnit.MINUTES);
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
+                Utils.AlertDialogGenerate(activity,activity.getString(R.string.err),e.getMessage());
                 e.printStackTrace();
             }
             Intent intent = new Intent();

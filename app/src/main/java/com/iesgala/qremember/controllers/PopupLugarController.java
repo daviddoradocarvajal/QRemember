@@ -103,7 +103,7 @@ public class PopupLugarController {
      * @param enlace Enlace del lugar a eliminar
      * @param email Email del usuario
      */
-    public static void eliminar(Activity activity,String enlace,String email){
+    public static void eliminarLugar(Activity activity, String enlace, String email){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(activity.getString(R.string.msg_aviso));
         builder.setMessage(activity.getString(R.string.seguro_eliminar_lugar));

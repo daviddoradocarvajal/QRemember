@@ -129,8 +129,12 @@ public class MainActivityController {
      * @param activity Actividad que lanza el evento
      */
     public static void verEnlace(Uri uri, Activity activity) {
-        Intent navegador = new Intent(Intent.ACTION_VIEW, uri);
-        activity.startActivity(navegador);
+        try {
+            Intent navegador = new Intent(Intent.ACTION_VIEW, uri);
+            activity.startActivity(navegador);
+        }catch (Exception e){
+            Utils.AlertDialogGenerate(activity,activity.getString(R.string.err),e.getMessage());
+        }
     }
 
     /**
